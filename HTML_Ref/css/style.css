@@ -1,0 +1,1127 @@
+/*------------------------------------------------------------------------------------*/
+
+/*---------------------------------------Reset----------------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+@font-face {
+    font-family: lovelo-light;
+    src: url(../Fontes/Lovelo-LineLight.woff);
+}
+
+@font-face {
+    font-family: bayoc;
+    src: url(../Fontes/bayoc___-webfont.woff);
+}
+.space {
+    margin: 1em;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*----------------------------------------Cabeçalho-----------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+body {
+    background-image: linear-gradient(to bottom, rgba(58, 58, 255, 0.30), rgba(175, 175, 233, 0.30), rgba(0, 0, 201, 0.30));
+    background-repeat: no-repeat;
+}
+
+.logo {
+    width: 9.3em;
+}
+.space-banner {
+    padding: 7em;
+}
+
+.banner-area {
+    background-image: url(../Img/Img\ banner3.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.banner-area a {
+    font-size: 2em;
+    color: #fff;
+    font-family: lovelo-light;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.50);
+    background: rgba(255, 255, 255, 0);
+    padding: 1em;
+    text-shadow: -3px -3px 4px #0004ff, 3px -3px 4px #0004ff, 3px 3px 4px #0004ff, 3px 3px 4px #0004ff;
+    transition: all .2s;
+}
+
+.banner-area a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*---------------------------------------Menu-----------------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+.menu {
+    background: linear-gradient(to bottom,#000440, #5E64D1, #000880);
+    padding: .5em;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    font-size: 1em;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #361a0c;
+    font-weight: bold;
+    padding: 1em;
+    border-radius: 10px;
+    background: #000764;
+    padding: 15px;
+    color: white;
+    margin: 0px 5px 0px 5px;
+    border-radius: 20px;
+    transition: all .4s;
+}
+
+.menu a:hover {
+    background: #5E64D1;
+}
+
+/*.menu {
+    width: 100%;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+.menu ul {
+    list-style: none;
+    position: absolute;
+    top: 75px;
+    left: 180px;
+}
+
+.menu ul li {
+    float: left;
+    width: 140px;
+}
+
+.menu a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px;
+    background: linear-gradient(to bottom left, #000440, #000880);
+    color: white;
+    margin: 0px 5px 0px 5px;
+    border-radius: 20px;
+}
+
+.menu a:hover {
+    background: linear-gradient(to top, #000880, #5E64D1);
+}*/
+
+/*Icone e checkbox do menu MOBILE em none para não aparecer na WEB*/
+
+#icone {
+    display: none;
+}
+
+#check {
+    display: none;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*-------------------------------------Sobre Nós--------------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+#sobrenos p:nth-child(odd) {
+    text-align: center;
+    font-size: 1.5em;
+    font-family: bayoc;
+    margin: 1.5em;
+    text-decoration: underline;
+}
+
+#sobrenos p:nth-child(even) {
+    margin: 0 2em 5em 2em;
+}
+
+#sobrenos {
+    border-bottom: 1px solid #B4B4B4;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*----------------------------------Programação HOME----------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+.programacao {
+    text-align: center;
+    font-family: bayoc;
+    font-size: 1.5em;
+    width: 25em;
+    margin: 1em auto;
+}
+.programacao-top {
+    background-color: #FFBC65;
+    text-align: center;
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
+}
+.programacao-bottom {
+    background-color: #FFBC65;
+    border-bottom-left-radius: 5em;
+    border-bottom-right-radius: 5em;
+}
+.programacao-bottom img {
+    width: 1em;
+}
+
+/*------------------Calendário------------------*/
+.calendario {
+   
+    border: 1px solid #000; 
+    margin: 0 auto;
+    width: 60em;
+}
+.calendario tr {
+    font-size: 3em;
+}
+.calendario td {
+    border: 1px solid #000;
+    text-align: center;
+    padding: .5em;
+}
+.calendario th {
+    border: 1px solid #000;
+   
+}
+td.mes-dif {
+    color: rgb(167, 167, 167);
+}
+.mes {
+    background: #F1C93E;
+}
+.dia {
+    background: #FFBC65;
+}
+.dias-n {
+    background: rgba(255, 196, 0, 0.45);
+}
+.dias-n:hover {
+    background: #F1C93E;
+}
+.mes-dif {
+    background: rgba(255, 206, 45, 0.30);
+}
+.dia-evento {
+    background: rgb(255, 217, 78);
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*----------------------------------Tabela de Preços----------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+#tabela-precos {
+    text-align: center;
+    border-top: 1px solid #B4B4B4;
+}
+#tabela-precos p {
+    font-family: bayoc;
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+#tabela-precos img {
+    margin: 3em;
+}
+
+#tabela-precos-agendamento {
+    text-align: center;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*------------------------------------Localização-------------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+#localizacao {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: bayoc;
+    font-size: 1.5em;
+    width: 100%;
+    border-top: 1px solid #B4B4B4;
+}
+
+#localizacao p {
+    margin: 1em
+}
+
+#localizacao iframe {
+    width: 80%;
+    height: 12em;
+    display: flex;
+    align-self: center;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*---------------------------------------Rodapé---------------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+.divisoria-rodape {
+    border-bottom: 1px solid #000;
+    padding: 2em;
+}
+
+.rodape {
+    display: flex;
+    justify-content: center;
+    margin: 2em;
+}
+
+.rodape-img {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.rodape-meio {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5em;
+}
+
+.rodape-meio>div>p:nth-child(odd) {
+    font-weight: bold;
+    font-size: 2em;
+}
+.rodape-meio>div>p:nth-child(even) {
+    font-weight: bold;
+}
+
+.rodape-fim {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(#4C52B4, #00076A, #5E64D1);
+    color: #fff;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*---------------------------------------Estrutura------------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+.titulo {
+    text-align: center;
+    margin: 1em auto;
+    font-weight: bold;
+}
+.titulo-duvida {
+    text-align: center;
+    margin:1em auto;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.plantas-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.plantas-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*------------------------------------Input's GERAIS----------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+#input-container {
+    display: flex;
+    justify-content: center;
+}
+#faq {
+    width: 30em;
+}
+#login {
+    width: 23em;
+}
+.formularios {
+    /* background-image: url(../Img/Janela\ generica.svg);
+    background-size: cover; */
+    background: linear-gradient(to bottom, #FFBC65,#F1C93E);
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
+    margin: 0 1em 1em 1em;
+    padding: 3em 1em 1em;
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+}
+form .form-titulo {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+.form-titulo {
+    font-weight: bold;
+}
+textarea#termos {
+    overflow: scroll;
+}
+textarea {
+    color: #000;
+    margin-bottom: 1em;
+    width: 100%;
+}
+#tabela-de-precos {
+    display: flex; 
+}
+label {
+    font-weight: bold;
+}
+input {
+    margin-bottom: 1em;
+}
+.radio-checkbox {
+    font-weight: normal;
+}
+form #senha-login {
+    margin-bottom:0em;
+}
+form a {
+    font-weight: normal;
+}
+input:focus, textarea:focus {
+    background-color: #eee;
+}
+select {
+    margin-bottom: 1em;
+}
+form #bt-enviar {
+    padding: .8em;
+    border-radius: 1em;
+    border:none;
+    margin: 1em 0;
+    cursor: pointer;
+    background-color: #5E64D1;
+}
+
+form p {
+    font-weight: bold;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*--------------------------------------Agendamento-----------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+.fab {
+    font-size: 4em;
+    margin: .5em;
+    cursor: pointer;
+}
+.section-pagamento {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.boleto img {
+    margin: 2em;
+    width: 6em;
+    cursor: pointer
+}
+.boleto {
+    text-align: center;
+}
+.section-pagamento p {
+    font-size: 1.2em;
+}
+#paypal,#mastercard,#visa,#boleto {
+    display: none;
+}
+.check-radio-centro {
+    display: flex;
+    justify-content: space-around;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*-----------------------Tela de cadastro realizado com sucesso-----------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+.info-cadastro {
+    font-size: 1.5em;
+    margin: 1em 1em;
+    text-align: center;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*----------------------------------Resumo de compra----------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+.resumo {
+    background: linear-gradient(to bottom, #FFBC65,#F1C93E);
+    margin: 5em auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
+    width: 30em;
+}
+.resumo table {
+    margin-top: 1em;
+}
+.resumo table td, th {
+    border: 1px solid #000;
+    font-size: 1.2em;
+}
+.titulo-resumo {
+    font-weight: bold;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 8px #000;
+    margin-top: 1em;
+    text-align: center;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+.resumo button {
+    border-radius: 1em;
+    border:none;
+    width: 10em;
+    padding: .8em;
+    margin: 1em;
+    cursor: pointer;
+}
+.info-resumo {
+    margin: 1em;
+    font-size: .8em;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*-----------------------Informações de evento e mensagens (Admin)--------------------*/
+
+/*------------------------------------------------------------------------------------*/
+.section-pagamento-adm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.resumo-adm {
+    background: linear-gradient(to bottom, #FFBC65,#F1C93E);
+    margin: 5em auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
+    width: 30em;
+}
+.resumo-adm button {
+    border-radius: 1em;
+    border:none;
+    width: 10em;
+    padding: .8em;
+    margin: 1em;
+    cursor: pointer;
+}
+.icones-adm .fab {
+    font-size:2em;
+}
+.boleto-adm img {
+    width:5em;
+    /* cursor: pointer; */
+}
+.form-msg-adm {
+    margin: 1em;
+}
+input#enviar-resposta {
+    padding: .7em;
+    border-radius: 1em;
+    border:none;
+    cursor: pointer;
+}
+.info-fim {
+    display: flex;
+    margin: 0 auto;
+    font-size: 1.2em;
+}
+.resumo-evento-adm {
+    margin: 0 1em 1em 1em;
+    padding: 3em 1em 1em;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*-----------------------------Informações de evento (Usuário)------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+.resumo-usuario {
+    background: linear-gradient(to bottom, #FFBC65,#F1C93E);
+    margin: 5em 0 5em 1em;
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
+    width: 40em;
+    border: 2px solid #000;
+}
+.resumo-usuario table {
+    margin-top: 2em;
+}
+.resumo-usuario table td, th {
+    border: 1px solid #000;
+    font-size: 1.2em;
+}
+.resumo-usuario button {
+    border-radius: 1em;
+    border:none;
+    width: 10em;
+    padding: .8em;
+    margin: 1em;
+    cursor: pointer;
+}
+.btn-usuario {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+}
+.titulo-pedidos {
+    font-weight: bold;
+    font-size: 2em;
+    margin: 1em 0 0 1em;;
+}
+.nenhuma-reserva{
+    background: linear-gradient(to bottom, #FFBC65,#F1C93E);
+    margin: 0 0 1em 1em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1em;
+    width: 40em;
+    border: 2px solid #000;
+
+}
+.info-vazio {
+    padding: 2em;
+    font-size: 1.2em;
+}
+.btn-minhaconta {
+    border: 1px solid #000;
+    width: 30em;
+    border-radius: .5em;
+    margin: 2em 1em;
+    background-color: rgb(255, 205, 111);
+}
+.btn-minhaconta button {
+    border-radius: .5em;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border:none;
+    width: 20em;
+    padding: .8em;
+    margin: 1em;
+    cursor: pointer;
+    background-color: #fff;
+}
+.btn-minhaconta button .fas {
+    font-size: 1.5em;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*----------------------------Visualização de evento público--------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+button.voltar-calendario {
+    width: 18em;
+    border-radius: .5em;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.banner-evento {
+    margin: 1em 1em 0 1em;
+}
+.evento-publico {
+    margin: 1em auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
+    width:90%;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*---------------------------------Perguntas Frequentes-------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+.perguntas {
+    cursor: pointer;
+    margin: 0 auto;
+    width: 60%;
+    color: #fff;
+    text-shadow: 3px 3px 3px #000;
+}
+
+.perguntas summary {
+    background-color: #4C52B4;
+    border-radius: .4em;
+    text-align: center;
+}
+.perguntas details {
+    background-color: #8385ff;
+    border-radius: .4em;    
+}
+/*------------------------------------------------------------------------------------*/
+
+/*------------------------------Gerencimento de eventos-------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+.titulo-adm {
+    background: linear-gradient( to bottom, #858CFF, #474CB7);
+    padding: 1.1em;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 1em 1em 0;
+    border-top-left-radius: .8em;
+    border-top-right-radius: .8em;
+    border: 1px solid #000;
+}
+
+.eventos {
+    background: #B3AEFF;
+    margin: 0 1.5em;
+   /* display: flex;
+    flex-direction: column;*/
+    border: 1px solid #000;
+}
+
+.eventos tr {
+    /*display: flex;
+    justify-content: space-between;*/
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+.eventos td {
+    text-align: center;
+    /* width: 100%; */
+    width: 30em;
+}
+
+.eventos th {
+    border: 1px solid #000;
+     /* width: 100%; */
+
+}
+tfoot .aceitos {
+    background: rgb(16, 141, 0);
+}
+tfoot .recusados {
+    background: rgb(187, 0, 0);
+}
+tfoot .pendentes {
+    background: rgb(255, 164, 27);
+}
+tfoot .cancelados {
+    background: rgb(187, 0, 0);
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*-------------------------------Mensagens de usuários--------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+.mensagens {
+    background: #B3AEFF;
+    margin: 0 1.5em;
+   /* display: flex;
+    flex-direction: column;*/
+    border: 1px solid #000;
+}
+
+.mensagens tr {
+    /*display: flex;
+    justify-content: space-between;*/
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+.mensagens td {
+    text-align: center;
+    /* width: 100%; */
+    width: 50em;
+}
+
+.mensagens th {
+    border: 1px solid #000;
+     /* width: 100%; */
+
+}
+
+/*------------------------------------------------------------------------------------*/
+
+/*---------------------------------------Responsivo-----------------------------------*/
+
+/*------------------------------------------------------------------------------------*/
+
+@media (max-width:1019px) {
+    .bg-mobile {
+        background: linear-gradient(to bottom, #000440, #5E64D1, #000880);
+        height: 5em;
+    }
+    /*------------------Menu Retrátil--------------------*/
+    #check {
+        display: none;
+    }
+    #icone {
+        cursor: pointer;
+        position: fixed;
+        display: block;
+        top: .5em;
+        right: 10px;
+        z-index: 2;
+    }
+    .menu {
+        background: linear-gradient(to bottom, #00044000, rgba(94, 100, 209, 0), #00098000);
+    }
+    .barra {
+        background: linear-gradient(to bottom, rgba(58, 58, 255, 0.30), rgba(175, 175, 233, 0.30), rgba(0, 0, 201, 0.30));
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        transition: all .2s linear;
+        left: -100%;
+        z-index: 1;
+        top:0px;
+    }
+    .menu ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1em;
+        z-index: 1;
+    }
+    .menu ul li {
+        width: 21.8em;
+        margin: 0.5em;
+        
+    }
+    .menu a {
+        display: block;
+        text-align: left;
+        text-decoration: none;
+        padding: .9em;
+        background: white;
+        color: black;
+        border-radius: 0px;
+        box-shadow: .5em .5em .5em black;
+    }
+    .menu>ul>a:nth-child(1) {
+        border: none;
+        padding: 0px;
+    }
+    .menu a:hover {
+        background: #b8b8b8;
+    }
+    #check:checked~.barra {
+        transform: translateX(100%);
+    }
+    /*-------Rodapé-------*/
+    .rodape-meio {
+        display: flex;
+        justify-content: column;
+    }
+    .rodape-meio>div>p:nth-child(odd) {
+        font-size: 3em;
+    }
+    .rodape-meio>div>p:nth-child(even) {
+        font-size: 1.3em;
+    }
+    /*-----Tabela Admin-----*/
+    .eventos th {
+        font-size: 1.5em;
+    }
+    .eventos td {
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+    .plantas-top {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+    .plantas-bottom {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+      
+    }
+    .resumo {
+        width: 30em;
+    }
+    .resumo-adm {
+        width: 30em;
+    }
+    .resumo-usuario {
+        width: 30em;
+    }
+    .nenhuma-reserva {
+        width:30em;
+    }
+    .calendario {
+        width: 50em;
+    }
+    .calendario tr {
+        font-size: 2.5em;
+    }
+    /*Fechamento @media abaixo*/
+}
+@media (max-width: 900px){ 
+    .rodape-meio {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 5em;
+        
+    }
+    .rodape-meio>div>p:nth-child(odd) {  
+        font-size: 1.5em;
+    }
+    .rodape-meio>div>p:nth-child(even) {
+        font-weight: none;  
+        font-size: .9em;
+    }
+    /*-----Tabela Admin-----*/
+    .eventos th {
+        font-size: 1.1em;
+    }
+    .eventos td {
+        font-size: 1em;
+    }
+    .resumo {
+        width: 30em;
+    }
+    .resumo-adm {
+        width: 30em;
+    }
+    .calendario tr {
+        font-size: 2.4em;
+    }
+    .calendario td {
+        padding: .4em
+    }
+    .calendario {
+        width: 37.5em;
+    }
+    .formularios {
+        width: 80%;
+    }
+}
+@media (max-width: 600px) {
+    .banner-area a {
+        font-size: 1.5em;
+    }
+    /*-----Tabela Admin-----*/
+    .eventos th {
+        font-size: .9em;
+    }
+    .eventos td {
+        font-size: .7em;
+    }
+    .titulo-adm {
+        padding: .5em;
+        margin: 0 .1em;
+    }
+    .eventos {
+        margin: 0 .1em;
+    }
+    .mensagens {
+        margin: 0 .1em;
+    }
+    .resumo {
+        width: 20em;
+    }
+    .resumo-adm {
+        width: 25em;
+    }
+    .resumo-usuario {
+        width: 24em;
+    }
+    .nenhuma-reserva  {
+        width: 24em;
+    }
+    .resumo button {
+        border-radius: 1em;
+        border:none;
+        width: 8em;
+        margin: 1em;
+    }
+    .btn button.voltar-calendario {
+        width: 15em;
+    }
+    .resumo-adm button {
+        border-radius: 1em;
+        border:none;
+        width: 8em;
+        margin: 1em;
+    }
+    .section-pagamento {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        text-align: center;
+    }
+    .section-pagamento-adm {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        text-align: center;
+    }
+    .btn-minhaconta {
+        width: 24em;
+    }
+    .programacao {
+        width: 16.5em;
+    }
+    .calendario {
+        width: 25em;
+    }
+    .calendario tr {
+        font-size: 1.2em;
+    }
+    .calendario td {
+        padding: .4em
+    }
+    tr td img {
+        width: 2em;
+    }
+    .formularios {
+        width: 80%;
+    }
+}
+@media (max-width: 400px) {
+    .menu ul li {
+        width: 15em;
+        margin: 0.3em;   
+    }
+    .banner-area a {
+        font-size: 1.23em;
+    }
+    /*-----Tabela Admin-----*/
+    .eventos th {
+        font-size: .6em;
+    }
+    .eventos td {
+        font-size: .6em;
+    }
+    .resumo {
+        width: 18em;
+    }
+    .resumo p {
+        margin-top: 1.5em;
+    }
+    .resumo button {
+        border-radius: 1em;
+        border:none;
+        width: 6em;
+        margin: 1em;
+    }
+    .resumo-adm {
+        width: 18em;
+    }
+    .resumo-usuario {
+        width: 16.5em;
+        margin: 5em auto;
+    }
+    .nenhuma-reserva {
+        width:16.5em;
+        margin: 5em auto;
+    }
+    .resumo-adm button {
+        border-radius: 1em;
+        border:none;
+        width: 6em;
+        margin: 1em;
+    }
+    .btn button.voltar-calendario {
+        width: 13em;
+    }
+    .btn-minhaconta {
+        width: 16.5em;
+        margin: 5em auto;
+    }
+    .btn-minhaconta button {
+        width: 14em;
+    }
+    .programacao {
+        width: 12em;
+    }
+    .calendario {
+        width: 18.5em;
+    }
+    .calendario tr {
+        font-size: .85em;
+    }
+    .calendario td {
+        padding: .3em
+    }
+    .formularios {
+        width:80%;
+    }
+    .titulo-resumo {
+        font-size: 1.2em;
+    }
+}
+
+/* menu de navegação mobile (apartir de 1017 px)*/
