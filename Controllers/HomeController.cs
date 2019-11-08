@@ -9,6 +9,8 @@ using RoleTOP_MVC.Models;
 namespace RoleTOP_MVC.Controllers {
     public class HomeController : Controller {
         public IActionResult Index () {
+            //ViewData["NomeView"] = "Home";
+            ViewData.Add("NomeView","Home");
             return View ();
         }
         public IActionResult Estrutura () {
