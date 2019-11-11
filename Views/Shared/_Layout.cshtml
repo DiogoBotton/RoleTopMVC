@@ -7,8 +7,19 @@
     <meta charset="UTF-8">
     <title>Rolê TOP</title>
     <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Galeria CSS (Carrocel) -->
+    @if("Home".Equals(nomeView)){
     <link rel="stylesheet" href="/css/gallery.min.css">
-    <link rel="stylesheet" href="/css/gallery.theme.css">
+    <link rel="stylesheet" href="/css/gallery.theme.css">;
+    }
+    <!-------------------------------->
+
+    <!-- Icones Agendamento -->
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Solid:900%7COpen+Sans" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/349a64cb04.js"></script>
+    <!-------------------------------->
+
     <link href="Img/Logo role top.png" rel="icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -26,10 +37,10 @@
                     <li><img src="/Img/Logo role top.png" class="logo"></li>
                     <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-controller="Home" asp-action="Estrutura">Estrutura</a></li>
-                    <li><a href=''>Programação</a></li>
-                    <li><a href=''>Agende Aqui</a></li>
-                    <li><a href=''>Perguntas Frequentes</a></li>
-                    <li><a href=''>Cadastre-se</a></li>
+                    <li><a asp-controller="Programacao" asp-action="Programacao">Programação</a></li>
+                    <li><a asp-controller="Agendamento" asp-action="AgendeAqui">Agende Aqui</a></li>
+                    <li><a asp-controller="Faq" asp-action="Faq">Perguntas Frequentes</a></li>
+                    <li><a asp-controller="Cadastro" asp-action="Cadastro">Cadastre-se</a></li>
                     <li><a asp-controller="Cliente" asp-action="Login">Login</a></li>
                 </ul>
             </nav>

@@ -4,7 +4,7 @@ namespace RoleTOP_MVC.Controllers
 {
     public class AgendamentoController : Controller
     {
-        public IActionResult Agendamento(){
+        public IActionResult AgendeAqui(){
             return View();
         }
     }

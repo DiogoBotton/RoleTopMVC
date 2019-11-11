@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\RoleTOP_MVC.csproj",
+  "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\RoleTOP_MVC.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -204,7 +204,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": "\n            <summary>\n            The name of the action method.\n            </summary>\n            <remarks>\n            Must be <c>null</c> if <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route\" /> or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Page\" /> is non-<c>null</c>.\n            </remarks>\n        ",
+            "Documentation": null,
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Action"
@@ -2966,6 +2966,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Agendamento\\AgendeAqui.cshtml",
+      "TargetPath": "Views\\Agendamento\\AgendeAqui.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -2976,13 +2981,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Programacao\\Programacao.cshtml",
+      "TargetPath": "Views\\Programacao\\Programacao.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Faq\\Faq.cshtml",
+      "TargetPath": "Views\\Faq\\Faq.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Cadastro\\Cadastro.cshtml",
+      "TargetPath": "Views\\Cadastro\\Cadastro.cshtml",
       "FileKind": "mvc"
     },
     {
