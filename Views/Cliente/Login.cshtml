@@ -3,14 +3,16 @@
             <img src="/Img/titulo login.svg">
         </div>
         <div id="input-container">
-            <form class="formularios"id="login">
+            <form class="formularios" id="login" method="POST" action='@Url.Action("Login","Cliente")'>
                 <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="email@gmail.com" required autofocus>
+                <input type="email" id="email" placeholder="email@gmail.com" required autofocus name="email">
                 
                 <label for="senha">Senha:</label>
-                <input type="password" id="senha-login" required minlength="8">
+                <input type="password" id="senha-login" required minlength="8" name="senha">
+
                 <a asp-controller="Cadastro" asp-action="Cadastro">Não tem uma conta? Cadastre-se!</a>
                 <!-- <a href="#">Esqueci minha senha</a> -->
+                
                 <div class="bt-submit">
                     <input type="submit" id="bt-enviar" value="Logar">
                 </div>
