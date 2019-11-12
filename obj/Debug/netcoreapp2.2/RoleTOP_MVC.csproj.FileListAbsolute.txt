@@ -62,3 +62,4 @@ C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreap
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Cadastro\Cadastro.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Faq\Faq.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Programacao\Programacao.g.cshtml.cs
+C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CadastroRealizado.g.cshtml.cs

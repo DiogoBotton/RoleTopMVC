@@ -7,16 +7,22 @@ namespace RoleTopMVC.Controllers
 {
     public class CadastroController : Controller
     {
+        [HttpGet]
         public IActionResult Cadastro(){
             return View();
         }
+        [HttpPost]
         public IActionResult Cadastro(IFormCollection form){
             try{
                 Cliente cliente = new Cliente();
 
                 cliente.Nome = form["nome"];
-                //TODO Fazer com todas as propriedades da classe cliente.
-
+                cliente.Email = form["email"];
+                cliente.Senha = form["senha"];
+                cliente.CEP = form["cep"];
+                cliente.CPF_CNPJ = form["cpf-cnpj"];
+                cliente.Tel = form["telefone"];
+                
                 return View("_CadastroRealizado"); 
             }catch(Exception e){
                 return View();
