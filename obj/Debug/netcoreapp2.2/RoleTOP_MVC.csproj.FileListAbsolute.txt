@@ -28,7 +28,6 @@ C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\De
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.csproj.CopyComplete
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Home\Estrutura.cshtml.g.cs
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_HomePageHeader.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Login.cshtml.g.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\bin\Debug\netcoreapp2.2\RoleTOP_MVC.deps.json
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\bin\Debug\netcoreapp2.2\RoleTOP_MVC.runtimeconfig.json
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\bin\Debug\netcoreapp2.2\RoleTOP_MVC.runtimeconfig.dev.json
@@ -63,3 +62,10 @@ C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreap
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Faq\Faq.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Programacao\Programacao.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CadastroRealizado.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Agendamento\Index.cshtml.g.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Cadastro\Index.cshtml.g.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Index.cshtml.g.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Faq\Index.cshtml.g.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Programacao\Index.cshtml.g.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CadastroRealizado.cshtml.g.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_TermosDeUso.cshtml.g.cs

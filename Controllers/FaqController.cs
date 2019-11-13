@@ -4,7 +4,7 @@ namespace RoleTopMVC.Controllers
 {
     public class FaqController : Controller
     {
-        public IActionResult Faq(){
+        public IActionResult Index(){
             return View();
         }
     }

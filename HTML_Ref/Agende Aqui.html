@@ -46,13 +46,13 @@
 
         <div id="input-container">
 
-            <form class="formularios" action="Resumo de compra.html" method="GET">
+            <form class="formularios" action='@Url.Action("Index","")' method="POST">
                 <p class="form-titulo">Especificações do Evento</p><br>
                 <label for="nome-evento">Nome do Evento: *</label>
                 <input type="text" id="nome-evento" required maxlength="30">
 
                 <label for="tipo-de-evento">Tipo de Evento: *</label>
-                <select id="tipo-de-evento">
+                <select id="tipo-de-evento" name="evento">
                     <option value="" disabled selected></option>
                     <option value="Aniversário">Aniversário</option>
                     <option value="Casamento">Casamento</option>
@@ -67,7 +67,7 @@
                 </select>
 
                 <label for="privacidade">Evento aberto ao público / privado: *</label>
-                <select id="privacidade">
+                <select id="privacidade" name="privacidade">
                     <option value="" disabled selected></option>
                     <option value="publico" required>Público</option>
                     <option value="privado">Privado</option>

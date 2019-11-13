@@ -5,28 +5,28 @@
 
         <div id="input-container">
 
-            <form class="formularios" action="Resumo de compra.html" method="GET">
+            <form class="formularios" action="Resumo de compra.html" method="POST">
                 <p class="form-titulo">Especificações do Evento</p><br>
                 <label for="nome-evento">Nome do Evento: *</label>
                 <input type="text" id="nome-evento" required maxlength="30">
 
                 <label for="tipo-de-evento">Tipo de Evento: *</label>
-                <select id="tipo-de-evento">
+                <select id="tipo-de-evento" name="evento">
                     <option value="" disabled selected></option>
-                    <option value="Aniversário">Aniversário</option>
-                    <option value="Casamento">Casamento</option>
-                    <option value="Formatura">Formatura</option>
-                    <option value="Despedidas">Despedidas</option>
-                    <option value="Noivado">Noivado</option>
-                    <option value="Final de Ano">Final de Ano</option>
-                    <option value="Palestra">Palestra</option>
-                    <option value="Show">Show</option>
-                    <option value="Exposição">Exposição</option>
-                    <option value="Jogos">Jogos</option>
+                    <option value="1">Aniversário</option>
+                    <option value="2">Casamento</option>
+                    <option value="3">Formatura</option>
+                    <option value="4">Despedidas</option>
+                    <option value="5">Noivado</option>
+                    <option value="6">Reveillon</option>
+                    <option value="7">Palestra</option>
+                    <option value="8">Show</option>
+                    <option value="9">Exposição</option>
+                    <option value="10">Jogos</option>
                 </select>
 
                 <label for="privacidade">Evento aberto ao público / privado: *</label>
-                <select id="privacidade">
+                <select id="privacidade" name="privacidade">
                     <option value="" disabled selected></option>
                     <option value="publico" required>Público</option>
                     <option value="privado">Privado</option>

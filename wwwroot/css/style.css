@@ -481,6 +481,13 @@ form p {
     display: flex;
     justify-content: space-around;
 }
+
+#cadastro-termos{
+    text-align: center;
+    color: #ff1500;
+    font-size: 1.2em;
+    margin: 1em;
+}
 /*------------------------------------------------------------------------------------*/
 
 /*-----------------------Tela de cadastro realizado com sucesso-----------------------*/

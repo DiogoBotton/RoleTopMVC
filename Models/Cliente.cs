@@ -10,7 +10,7 @@ namespace RoleTOP_MVC.Models
         public string CEP {get;set;}
         public string CPF_CNPJ {get;set;}
         public string Tel {get;set;}
-
+        
         public Cliente(){
         
         }

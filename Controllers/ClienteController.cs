@@ -6,11 +6,11 @@ namespace RoleTOP_MVC.Controllers
     public class ClienteController : Controller
     {
         [HttpGet]
-        public IActionResult Login(){
+        public IActionResult Index(){
             return View();
         }
         [HttpPost]
-        public IActionResult Login(IFormCollection form){
+        public IActionResult Index(IFormCollection form){
             return View();
         }
     }

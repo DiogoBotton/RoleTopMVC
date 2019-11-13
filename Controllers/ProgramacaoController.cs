@@ -4,7 +4,7 @@ namespace RoleTopMVC.Controllers
 {
     public class ProgramacaoController : Controller
     {
-        public IActionResult Programacao(){
+        public IActionResult Index(){
             return View();
         }
     }
