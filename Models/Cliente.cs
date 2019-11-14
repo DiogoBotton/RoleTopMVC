@@ -1,5 +1,4 @@
 using System;
-using RoleTOP_MVC.Enums;
 namespace RoleTOP_MVC.Models
 {
     public class Cliente
