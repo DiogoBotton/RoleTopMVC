@@ -14,7 +14,7 @@ namespace RoleTopMVC.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(IFormCollection form){
+        public IActionResult Cadastrar(IFormCollection form){
             try{
                 Cliente cliente = new Cliente();
 
