@@ -70,3 +70,7 @@ C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreap
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Faq\Index.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Programacao\Index.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_TermosDeUso.g.cshtml.cs
+C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AgendamentoRealizado.g.cshtml.cs
+C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Administrador\Index.g.cshtml.cs
+C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Usuario.g.cshtml.cs
+C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_PerguntaEnviada.g.cshtml.cs

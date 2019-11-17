@@ -25,13 +25,16 @@ namespace RoleTopMVC.Controllers
                 cliente.CPF_CNPJ = form["cpf-cnpj"];
                 cliente.Tel = form["telefone"];
 
+                //TODO validação senha com confirmar senha
+                //*melhorar método lógico de exibição de erro se termos não forem aceitos e validação de senha caso diferentes. 
+
                 if(form["termos"] == "1"){
                 clienteRepository.Inserir(cliente);
                 return View("_CadastroRealizado"); 
                 }
                 else{
                     ViewData["ActionCadastro"] = "Termos";
-                    return View();
+                    return View("Index");
                 }
             }catch(Exception e){
                 System.Console.WriteLine(e.StackTrace);

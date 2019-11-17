@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
 
 namespace RoleTOP_MVC.Controllers
 {
@@ -10,8 +11,19 @@ namespace RoleTOP_MVC.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(IFormCollection form){
-            return View();
+        public IActionResult Login(IFormCollection form){
+            try
+            {
+                var usuario = form["email"];
+                var senha = form["senha"];
+                return View();
+            }
+            catch (IOException e)
+            {
+                System.Console.WriteLine(e.StackTrace);
+                return View();
+            }
         }
+        //TODO método para o menu do Usuario
     }
 }

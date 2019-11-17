@@ -1,4 +1,7 @@
 @model RoleTOP_MVC.ViewModels.AgendamentoViewModel
+@{
+    var nomeView = (string) ViewData["ActionAgendamento"];
+}
 <main>
         <div class="titulo">
             <img src="/Img/titulo agendamento.svg">
@@ -6,10 +9,10 @@
 
         <div id="input-container">
 
-            <form class="formularios" action='@Url.Action("Registrar","Agendamento")' method="POST">
+            <form class="formularios" method="POST" action='@Url.Action("Registrar","Agendamento")'>
                 <p class="form-titulo">Especificações do Evento</p><br>
                 <label for="nome-evento">Nome do Evento: *</label>
-                <input type="text" id="nome-evento" required maxlength="30">
+                <input type="text" id="nome-evento" required maxlength="30" name="nome-evento">
 
                 <label for="tipo-de-evento">Tipo de Evento: *</label>
                 <select id="tipo-de-evento" name="evento">
@@ -20,7 +23,7 @@
                     }
                 </select>
 
-                <label for="privacidade">Evento aberto ao público / privado: *</label>
+                <label for="privacidade">Evento aberto ao público / privado: *<br><i>Caso público, irá permitir visibilidade do seu evento na programação (agenda) do site.</i></label>
                 <select id="privacidade" name="privacidade">
                     <option value="" disabled selected>Selecione</option>
                     <option value="1" required>Público</option>
@@ -36,36 +39,18 @@
                 <div>
                     <p>Serviços Adicionais<br><i>(Aumenta o orçamento)</i>:</p><br>
                     <div class="check-radio-centro">
+                        @foreach (var servico in Model.servicos)
+                        {
                         <div>
-
-                            <input type="checkbox" id="som" name="sv-adc" value="Equipamento de Som">
-                            <label class="radio-checkbox" for="som">Equipamento de Som</label>
+                            <input type="checkbox" id="@servico.Key" name="sv-adc" value="@servico.Key">
+                            <label class="radio-checkbox" for="@servico.Key">@servico.Key + @servico.Value</label>
                         </div>
-                        <div>
-
-                            <input type="checkbox" id="luz" name="sv-adc" value="Iluminação">
-                            <label class="radio-checkbox" for="luz">Iluminação</label><br>
-                        </div>
+                        }
                     </div>
                 </div>
                 <label for="descricao-evento">Descrição do Evento:*</label>
                 <textarea id="descricao-evento" rows="5" maxlength="500" required name="descricao-evento"></textarea>
 
-                <div>
-                    <p>Permitir visibilidade do seu evento na programação (agenda) do site? *</p>
-                    <div class="check-radio-centro">
-                        <div>
-
-                            <input type="radio" id="sim" name="visibilidade">
-                            <label class="radio-checkbox" for="sim">Sim</label>
-                        </div>
-                        <div>
-
-                            <input type="radio" id="nao" name="visibilidade">
-                            <label class="radio-checkbox" for="nao">Não</label><br>
-                        </div>
-                    </div>
-                </div>
 
                 <p>Banner do evento: <i>(Opcional)</i></p>
                 <input type="file" name="banner" accept="image/*"><Br>
@@ -75,16 +60,16 @@
                     <label for="termos">Termos de uso do espaço:*</label><br>
                     <textarea class="termos" rows="6"
                         disabled>Um jovem programador é atormentado por estranhos pesadelos nos quais sempre está conectado por cabos a um imenso sistema de computadores do futuro. À medida que o sonho se repete, ele começa a levantar dúvidas sobre a realidade. E quando encontra os misteriosos Morpheus e Trinity, ele descobre que é vítima do Matrix, um sistema inteligente e artificial que manipula a mente das pessoas e cria a ilusão de um mundo real enquanto usa os cérebros e corpos dos indivíduos para produzir energia.</textarea><br>
+                    @if("Termos".Equals(nomeView)){
+                        Html.RenderPartial("_TermosDeUso");
+                    }
                     <div class="check-radio-centro">
-
                         <div>
-
-                            <input type="radio" id="termo-aceito" name="termos" required>
+                            <input type="radio" id="termo-aceito" name="termos" required value="1">
                             <label for="termo-aceito">Aceito os termos de uso.</label>
                         </div>
                         <div>
-
-                            <input type="radio" id="termo-recusado" name="termos">
+                            <input type="radio" id="termo-recusado" name="termos" value="0">
                             <label for="termo-recusado">Não aceito os termos de uso.</label>
                         </div>
                     </div>
@@ -97,18 +82,18 @@
 
                     <div class="icones">
                         <p>Cartão de débito/crédito:</p>
-                        <input type="radio" id="paypal" name="pagamento">
+                        <input type="radio" id="paypal" name="pagamento" value="PayPal">
                         <label for="paypal"><i class="fab fa-cc-paypal"></i></label>
 
-                        <input type="radio" id="mastercard" name="pagamento">
+                        <input type="radio" id="mastercard" name="pagamento" value="MasterCard">
                         <label for="mastercard"><i class="fab fa-cc-mastercard"></i></label>
 
-                        <input type="radio" id="visa" name="pagamento">
+                        <input type="radio" id="visa" name="pagamento" value="Visa">
                         <label for="visa"><i class="fab fa-cc-visa"></i></label>
                     </div>
                     <div class="boleto">
                         <p>Boleto:</p>
-                        <input type="radio" id="boleto" name="pagamento">
+                        <input type="radio" id="boleto" name="pagamento" value="Boleto">
                         <label for="boleto"><img src="/Img/boleto.svg"></label>
                     </div>
                 </div>

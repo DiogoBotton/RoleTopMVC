@@ -1,0 +1,27 @@
+@model RoleTOP_MVC.Models.Agendamento
+
+<main>
+    <div class="resumo">
+        <div>
+            <p class="titulo-resumo">Pagamento efetuado com sucesso!</p>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>Espaço alugado para o dia:</th><td>@Model.DataDoEvento</td>
+                </tr>
+                <tr>
+                    <th>Serviços adicionais:</th><td>@Model.SvcAdicionais</td>
+                </tr>
+                <tr>
+                    <th>Valor TOTAL pago:</th><td>R$ @Model.PrecoTotal</td>
+                </tr>
+            </table>
+            <p class="info-resumo"><i class="fas fa-exclamation-circle"></i>Seu orçamento será enviado para a empresa para verificação. Você receberá uma mensagem sobre a confirmação do evento.</p>
+        </div>
+        <div class="btn">
+            <a href="Index.html"><button>Ir para a Home</button></a>
+        </div>
+    </div>
+    <p class="divisoria-rodape"></p>
+</main>

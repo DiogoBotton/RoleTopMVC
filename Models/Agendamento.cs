@@ -11,14 +11,15 @@ namespace RoleTOP_MVC.Models
         public string QtdConvidados {get;set;}
         public DateTime DataDoEvento {get;set;}
         public string DescricaoEvento {get;set;}
-        public string Visibilidade {get;set;}
+        public string SvcAdicionais {get;set;}
+        public string FormaPagamento {get;set;}
         public double PrecoTotal {get;set;}
         //TODO Forma para armazenar imagem (banner do evento)
 
         public Agendamento(){
 
         }
-        public Agendamento(Cliente cliente, string NomeEvento, string TipoEvento, string Privacidade, string QtdConvidados, DateTime DataDoEvento, string DescricaoEvento, string Visibilidade){
+        public Agendamento(Cliente cliente, string NomeEvento, string TipoEvento, string Privacidade, string QtdConvidados, DateTime DataDoEvento, string DescricaoEvento, string SvcAdicionais, string FormaPagamento){
             this.Cliente = cliente;
             this.NomeEvento = NomeEvento;
             this.TipoEvento = TipoEvento;
@@ -26,7 +27,8 @@ namespace RoleTOP_MVC.Models
             this.QtdConvidados = QtdConvidados;
             this.DataDoEvento = DataDoEvento;
             this.DescricaoEvento = DescricaoEvento;
-            this.Visibilidade = Visibilidade;
+            this.SvcAdicionais = SvcAdicionais;
+            this.FormaPagamento = FormaPagamento;
         }
     }
 }
