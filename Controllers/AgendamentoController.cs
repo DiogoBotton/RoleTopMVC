@@ -33,6 +33,7 @@ namespace RoleTOP_MVC.Controllers {
                 Privacidade = privacidade.ToString (),
                 QtdConvidados = form["qtd-convidados"],
                 DataDoEvento = Convert.ToDateTime (form["data-evento"]),
+                DataDoAgendamento = DateTime.Now,
                 SvcAdicionais = form["sv-adc"],
                 DescricaoEvento = form["descricao-evento"],
                 FormaPagamento = form["pagamento"]
@@ -42,7 +43,7 @@ namespace RoleTOP_MVC.Controllers {
             if (form["termos"] == "1") {
                 agendamentoRepository.Inserir (agendamento);
 
-                //* return view atual ERRADO. Mandar para uma outra página específica com informações (Resumo) da compra.
+                // Manda para uma outra página específica com informações (Resumo) da compra.
                 return View ("_AgendamentoRealizado",agendamento);
             } else {
                 ViewData["ActionAgendamento"] = "Termos";

@@ -10,6 +10,7 @@ namespace RoleTOP_MVC.Models
         public string Privacidade {get;set;}
         public string QtdConvidados {get;set;}
         public DateTime DataDoEvento {get;set;}
+        public DateTime DataDoAgendamento {get;set;}
         public string DescricaoEvento {get;set;}
         public string SvcAdicionais {get;set;}
         public string FormaPagamento {get;set;}

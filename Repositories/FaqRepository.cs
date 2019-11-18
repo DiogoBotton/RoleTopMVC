@@ -29,7 +29,7 @@ namespace RoleTopMVC.Repositories
 
         private string PrepararRegistroCSV(Faq faq)
         {
-            return $"nome={faq.Nome};email={faq.Email};mensagem={faq.Mensagem};";
+            return $"nome={faq.Nome};email={faq.Email};mensagem={faq.Mensagem}";
         }
     }
 }

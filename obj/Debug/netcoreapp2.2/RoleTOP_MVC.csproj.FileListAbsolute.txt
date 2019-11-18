@@ -74,3 +74,8 @@ C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreap
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Administrador\Index.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Usuario.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_PerguntaEnviada.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Administrador\Index.cshtml.g.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Usuario.cshtml.g.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AgendamentoRealizado.cshtml.g.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_PerguntaEnviada.cshtml.g.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_SenhaValidacao.cshtml.g.cs
