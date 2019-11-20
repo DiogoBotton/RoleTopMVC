@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\RoleTOP_MVC.csproj",
+  "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\RoleTOP_MVC.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2956,7 +2956,7 @@
         }
       }
     ],
-    "CSharpLanguageVersion": 703
+    "CSharpLanguageVersion": 800
   },
   "RootNamespace": "RoleTOP_MVC",
   "Documents": [
@@ -2973,11 +2973,6 @@
     {
       "FilePath": "Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Shared\\_SenhaValidacao.cshtml",
-      "TargetPath": "Views\\Shared\\_SenhaValidacao.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3038,6 +3033,11 @@
     {
       "FilePath": "Views\\Shared\\_HomePageHeader.cshtml",
       "TargetPath": "Views\\Shared\\_HomePageHeader.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Shared\\_Erros.cshtml",
+      "TargetPath": "Views\\Shared\\_Erros.cshtml",
       "FileKind": "mvc"
     },
     {

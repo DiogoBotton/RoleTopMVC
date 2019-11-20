@@ -40,7 +40,9 @@ namespace RoleTOP_MVC.Controllers {
                 //TODO BANNER (IMG)
                 //TODO Como irá mandar como parametro um CLIENTE "logado".
             };
-            if (form["termos"] == "1") {
+            
+            bool termos = form["termos"] == "1";
+            if (termos) {
                 agendamentoRepository.Inserir (agendamento);
 
                 // Manda para uma outra página específica com informações (Resumo) da compra.

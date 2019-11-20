@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleTOP_MVC.Models;
 using RoleTOP_MVC.Repositories;
+using RoleTOP_MVC.ViewModels;
 
 namespace RoleTopMVC.Controllers {
     public class CadastroController : Controller {
@@ -38,6 +41,8 @@ namespace RoleTopMVC.Controllers {
                     codErro = codErro + 2;
                 }
 
+                //RespostaViewModel
+                List<string> erros = new List<string>();
                 switch (codErro) {
                     case 0:
                         string senha = form["senha"];
@@ -45,16 +50,20 @@ namespace RoleTopMVC.Controllers {
                         clienteRepository.Inserir (cliente);
                         return View ("_CadastroRealizado");
                     case 1:
-                        ViewData["ActionCadastro"] = "Termos";
-                        return View ("Index");
+                        ViewData["ActionCadastro"] = "Erros";
+                        erros.Add("Você precisa aceitar os termos de uso.");
+                        return View ("Index", new RespostaViewModel(erros));
 
                     case 2:
-                        ViewData["ActionCadastro"] = "Senha";
-                        return View ("Index");
+                        ViewData["ActionCadastro"] = "Erros";
+                        erros.Add("Confirmação de senha incorreta.");
+                        return View ("Index", new RespostaViewModel(erros));
 
                     case 3:
-                        ViewData["ActionCadastro"] = "TermoseSenha";
-                        return View ("Index");
+                        ViewData["ActionCadastro"] = "Erros";
+                        erros.Add("Você precisa aceitar os termos de uso.");
+                        erros.Add("Confirmação de senha incorreta.");
+                        return View ("Index", new RespostaViewModel(erros));
                     default:
                         return View("Index");
                 }
@@ -64,7 +73,7 @@ namespace RoleTopMVC.Controllers {
                 //    return View ("_CadastroRealizado");
                 //}
 
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.Console.WriteLine (e.StackTrace);
                 return View ();
             }
