@@ -2966,11 +2966,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Shared\\_CadastroRealizado.cshtml",
-      "TargetPath": "Views\\Shared\\_CadastroRealizado.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -3021,6 +3016,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Shared\\_Sucesso.cshtml",
+      "TargetPath": "Views\\Shared\\_Sucesso.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Cadastro\\Index.cshtml",
       "TargetPath": "Views\\Cadastro\\Index.cshtml",
       "FileKind": "mvc"
@@ -3036,18 +3036,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Shared\\_Erros.cshtml",
-      "TargetPath": "Views\\Shared\\_Erros.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\Shared\\_TermosDeUso.cshtml",
       "TargetPath": "Views\\Shared\\_TermosDeUso.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Shared\\_PerguntaEnviada.cshtml",
-      "TargetPath": "Views\\Shared\\_PerguntaEnviada.cshtml",
       "FileKind": "mvc"
     }
   ],

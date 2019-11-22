@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleTopMVC.Models;
 using RoleTopMVC.Repositories;
+using RoleTopMVC.ViewModels;
 
 namespace RoleTopMVC.Controllers
 {
@@ -13,6 +14,7 @@ namespace RoleTopMVC.Controllers
             return View();
         }
         public IActionResult Registrar(IFormCollection form){
+            ViewData["Action"] = "Envio de mensagem";
             try
             {
             Faq faq = new Faq(){
@@ -21,7 +23,7 @@ namespace RoleTopMVC.Controllers
                 Mensagem = form["msg"]
             };
             faqRepository.Inserir(faq);
-            return View("_PerguntaEnviada");
+            return View("_Sucesso", new RespostaViewModel("Aguarde resposta dos administradores no seu Email."));
             }
             catch (IOException e)
             {

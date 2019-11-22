@@ -4,7 +4,7 @@ using RoleTOP_MVC.Models;
 
 namespace RoleTopMVC.Repositories
 {
-    public class AgendamentoRepository
+    public class AgendamentoRepository : BaseRepository
     {
         private const string PATH = "Database/Agendamento.csv";
 
@@ -48,22 +48,6 @@ namespace RoleTopMVC.Repositories
                 }
             }
             return null;
-        }
-        private string ExtrairValorDoCampo (string nomeCampo, string linha) {
-            var chave = nomeCampo;
-
-            var indiceChave = linha.IndexOf (chave);
-            var indiceTerminal = linha.IndexOf (";", indiceChave); //IndexOf sempre retorna o indice do ultimo caracter da string.
-
-            var valor = "";
-            //IndexOf retorna -1 caso não encontre o valor de string.
-            if (indiceTerminal != -1) { //Caso for diferente de -1, primeiro parametro startIndex, segundo EndIndex.
-                valor = linha.Substring (indiceChave, indiceTerminal - indiceChave);
-            } else {
-                valor = linha.Substring (indiceChave); //caso for igual á -1, unico parametro startIndex até o final da string.
-            }
-            System.Console.WriteLine ($"Campo {nomeCampo} e valor {valor}");
-            return valor.Replace (nomeCampo + "=", "");
         }
         public string PrepararRegistroCSV(Agendamento agendamento){
             return $"nome-evento={agendamento.NomeEvento};tipo-evento={agendamento.TipoEvento};privacidade={agendamento.Privacidade};qtd-convidados={agendamento.QtdConvidados};data-evento={agendamento.DataDoEvento};data-agendamento={agendamento.DataDoAgendamento};descricao-evento={agendamento.DescricaoEvento};servicos-adicionais={agendamento.SvcAdicionais};forma-pagamento={agendamento.FormaPagamento};preco-total={agendamento.PrecoTotal}";

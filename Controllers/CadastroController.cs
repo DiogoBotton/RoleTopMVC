@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using RoleTOP_MVC.Models;
 using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
+using RoleTopMVC.ViewModels;
 
 namespace RoleTopMVC.Controllers {
     public class CadastroController : Controller {
@@ -17,6 +18,7 @@ namespace RoleTopMVC.Controllers {
 
         [HttpPost]
         public IActionResult Cadastrar (IFormCollection form) {
+            ViewData["Action"] = "Cadastro";
             try {
                 Cliente cliente = new Cliente ();
 
@@ -48,22 +50,22 @@ namespace RoleTopMVC.Controllers {
                         string senha = form["senha"];
                         cliente.Senha = senha;
                         clienteRepository.Inserir (cliente);
-                        return View ("_CadastroRealizado");
+                        return View ("_Sucesso", new RespostaViewModel("Seu cadastro foi realizado com sucesso! Seja Bem Vindo!"));
                     case 1:
                         ViewData["ActionCadastro"] = "Erros";
                         erros.Add("Você precisa aceitar os termos de uso.");
-                        return View ("Index", new RespostaViewModel(erros));
+                        return View ("Index", new ErrosViewModel(erros));
 
                     case 2:
                         ViewData["ActionCadastro"] = "Erros";
                         erros.Add("Confirmação de senha incorreta.");
-                        return View ("Index", new RespostaViewModel(erros));
+                        return View ("Index", new ErrosViewModel(erros));
 
                     case 3:
                         ViewData["ActionCadastro"] = "Erros";
                         erros.Add("Você precisa aceitar os termos de uso.");
                         erros.Add("Confirmação de senha incorreta.");
-                        return View ("Index", new RespostaViewModel(erros));
+                        return View ("Index", new ErrosViewModel(erros));
                     default:
                         return View("Index");
                 }
