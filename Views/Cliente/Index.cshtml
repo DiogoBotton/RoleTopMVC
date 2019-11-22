@@ -1,14 +1,24 @@
+@model RoleTOP_MVC.ViewModels.ErrosViewModel
+@{
+    var nomeView = (string) ViewData["Action"];
+}
 <main>
         <div class="titulo">
             <img src="/Img/titulo login.svg">
         </div>
         <div id="input-container">
             <form class="formularios" id="login" method="POST" action='@Url.Action("Login","Cliente")'>
+                @if ("Erro".Equals(nomeView)){
+                    @foreach (string msg in Model.Mensagem)
+                    {   
+                        <h4 id="cadastro-actions">ERRO: @msg</h4>;
+                    }
+                }
                 <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="email@gmail.com" required autofocus name="email">
+                <input type="email" id="email" placeholder="email@gmail.com" autofocus name="email">
                 
                 <label for="senha">Senha:</label>
-                <input type="password" id="senha-login" required minlength="8" name="senha">
+                <input type="password" id="senha-login" name="senha">
 
                 <a asp-controller="Cadastro" asp-action="Index">Não tem uma conta? Cadastre-se!</a>
                 <!-- <a href="#">Esqueci minha senha</a> -->

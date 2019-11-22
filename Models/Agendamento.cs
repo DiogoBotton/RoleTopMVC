@@ -18,7 +18,7 @@ namespace RoleTOP_MVC.Models
         //TODO Forma para armazenar imagem (banner do evento)
 
         public Agendamento(){
-
+            this.Cliente = new Cliente();
         }
         public Agendamento(Cliente cliente, string NomeEvento, string TipoEvento, string Privacidade, string QtdConvidados, DateTime DataDoEvento, string DescricaoEvento, string SvcAdicionais, string FormaPagamento){
             this.Cliente = cliente;

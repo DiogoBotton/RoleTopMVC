@@ -1,8 +1,8 @@
 using System;
 using System.IO;
-using RoleTopMVC.Models;
+using RoleTOP_MVC.Models;
 
-namespace RoleTopMVC.Repositories
+namespace RoleTOP_MVC.Repositories
 {
     public class FaqRepository
     {

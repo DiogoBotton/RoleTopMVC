@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace RoleTopMVC.Controllers
+namespace RoleTOP_MVC.Controllers
 {
     public class ProgramacaoController : Controller
     {

@@ -1,11 +1,14 @@
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleTOP_MVC.Repositories;
+using RoleTOP_MVC.ViewModels;
 
 namespace RoleTOP_MVC.Controllers {
-    public class ClienteController : Controller {
+    public class ClienteController : AbstractController {
         ClienteRepository clienteRepository = new ClienteRepository ();
+        AgendamentoRepository agendamentoRepository = new AgendamentoRepository();
         [HttpGet]
         public IActionResult Index () {
             return View ();
@@ -20,18 +23,32 @@ namespace RoleTOP_MVC.Controllers {
                 var cliente = clienteRepository.ObterPor (usuario);
                 if (cliente != null) {
 
-                    if (cliente.Senha.Equals (senha) && cliente.Email.Equals (usuario)) {
-                        return View ();
+                    if (cliente.Senha.Equals (senha)) {
+                        HttpContext.Session.SetString (SESSION_CLIENTE_EMAIL, usuario);
+                        return RedirectToAction ("Usuario", "Cliente");
                     } else {
-                        return View ();
+                        ViewData["Action"] = "Erro";
+                        List<string> erros = new List<string> ();
+                        erros.Add ("Senha Incorreta.");
+                        return View ("Index", new ErrosViewModel (erros));
                     }
+                } else {
+                    ViewData["Action"] = "Erro";
+                    List<string> erros = new List<string> ();
+                    erros.Add ($"Usuario {usuario} não existe.");
+                    return View ("Index", new ErrosViewModel (erros));
                 }
-                return View ();
             } catch (IOException e) {
                 System.Console.WriteLine (e.StackTrace);
                 return View ();
             }
         }
         //TODO método para o menu do Usuario
+        public IActionResult Usuario () {
+            var emailCliente = HttpContext.Session.GetString (SESSION_CLIENTE_EMAIL);
+            var agendamentosCliente = agendamentoRepository.ObterTodosPorCliente(emailCliente);
+
+            return View(new UsuarioViewModel(agendamentosCliente));
+        }
     }
 }

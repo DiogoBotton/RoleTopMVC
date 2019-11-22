@@ -6,9 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using RoleTOP_MVC.Models;
 using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
-using RoleTopMVC.ViewModels;
 
-namespace RoleTopMVC.Controllers {
+namespace RoleTOP_MVC.Controllers {
     public class CadastroController : Controller {
         ClienteRepository clienteRepository = new ClienteRepository ();
         [HttpGet]
@@ -25,7 +24,7 @@ namespace RoleTopMVC.Controllers {
                 cliente.Nome = form["nome"];
                 cliente.Email = form["email"];
                 cliente.CEP = form["cep"];
-                cliente.CPF_CNPJ = form["cpf-cnpj"];
+                cliente.CPF = form["cpf"];
                 cliente.Tel = form["telefone"];
 
                 

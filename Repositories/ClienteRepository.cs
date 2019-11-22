@@ -1,6 +1,5 @@
 using System.IO;
 using RoleTOP_MVC.Models;
-using RoleTopMVC.Repositories;
 
 namespace RoleTOP_MVC.Repositories {
     public class ClienteRepository : BaseRepository {
@@ -35,14 +34,14 @@ namespace RoleTOP_MVC.Repositories {
                     c.Senha = ExtrairValorDoCampo ("senha", linha);
                     c.CEP = ExtrairValorDoCampo ("cep", linha);
                     c.Tel = ExtrairValorDoCampo ("telefone", linha);
-                    c.CPF_CNPJ = ExtrairValorDoCampo ("cpf-cnpj", linha);
+                    c.CPF = ExtrairValorDoCampo ("cpf", linha);
                     return c;
                 }
             }
             return null;
         }
         private string PrepararRegistroCSV (Cliente cliente) {
-            return $"nome={cliente.Nome};email={cliente.Email};senha={cliente.Senha};cep={cliente.CEP};cpf-cnpj={cliente.CPF_CNPJ};telefone={cliente.Tel}";
+            return $"nome={cliente.Nome};email={cliente.Email};senha={cliente.Senha};cep={cliente.CEP};cpf={cliente.CPF};telefone={cliente.Tel}";
         }
     }
 }

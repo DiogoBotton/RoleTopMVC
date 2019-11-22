@@ -1,38 +1,51 @@
+@model RoleTOP_MVC.ViewModels.UsuarioViewModel
 <main>
         <p class="titulo-pedidos">Pedidos:</p>
         <p class="divisoria-rodape"></p>
-        <div class="resumo-usuario">
-            <div>
-                <p class="titulo-resumo">Nome do evento</p>
-            </div>
-            <div>
-                <table>
-                    <tr>
-                        <th>Espaço alugado para o dia:</th>
-                        <td>xx/xx/xxxx</td>
-                    </tr>
-                    <tr>
-                        <th>Serviços adicionais:</th>
-                        <td>Iluminação E/OU Equipamento de Som OU nenhum</td>
-                    </tr>
-                    <tr>
-                        <th>Valor TOTAL pago:</th>
-                        <td>R$ xxxxx,xx</td>
-                    </tr>
-                </table>
-                <p class="info-resumo"><i class="fas fa-exclamation-circle"></i>Em caso de cancelamento de evento, após
-                    passar 3 dias da data da compra, será aplicada uma multa de 50% do valor total.</p>
-            </div>
-            <div class="btn-usuario">
-                <a href="#"><button>Cancelar Evento</button></a>
-            </div>
-        </div>
+        @if(Model.Agendamentos.Any()){
+            @foreach (var pedido in Model.Agendamentos)
+            {
+            
+            <div class="resumo-usuario">
+                <div>
+                    <p class="titulo-resumo">Nome do evento</p>
+                </div>
+                <div>
+                    <table>
+                        <tr>
+                            <th>Espaço alugado para o dia:</th>
+                            <td>@pedido.DataDoEvento</td>
+                        </tr>
+                        <tr>
+                            <th>Data da compra:</th>
+                            <td>@pedido.DataDoAgendamento</td>
+                        </tr>
+                        <tr>
+                            <th>Serviços adicionais:</th>
+                            <td>@pedido.SvcAdicionais</td>
+                        </tr>
+                        <tr>
+                            <th>Valor TOTAL pago:</th>
+                            <td>R$ @pedido.PrecoTotal</td>
+                        </tr>
+                    </table>
+                    <p class="info-resumo"><i class="fas fa-exclamation-circle"></i>Em caso de cancelamento de evento, após
+                        passar 3 dias da data da compra, será aplicada uma multa de 50% do valor total.</p>
+                </div>
+                <div class="btn-usuario">
+                    <a href="#"><button>Cancelar Evento</button></a>
+                </div>
+            </div>;
+            }
+        }
+        else{
         <div class="nenhuma-reserva">
             <div>
                 <p class="info-vazio"><i class="fas fa-exclamation-circle"></i>Não há nenhuma reserva do salão em sua
                     conta.</p>
             </div>
         </div>
+        }
         <p class="divisoria-rodape"></p>
         <div class="btn-minhaconta">
             <p class="titulo-pedidos">Opções:</p>

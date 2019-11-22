@@ -1,4 +1,4 @@
-namespace RoleTopMVC.ViewModels
+namespace RoleTOP_MVC.ViewModels
 {
     public class RespostaViewModel
     {

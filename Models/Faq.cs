@@ -1,4 +1,4 @@
-namespace RoleTopMVC.Models
+namespace RoleTOP_MVC.Models
 {
     public class Faq
     {

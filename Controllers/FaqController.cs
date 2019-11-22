@@ -1,11 +1,11 @@
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RoleTopMVC.Models;
-using RoleTopMVC.Repositories;
-using RoleTopMVC.ViewModels;
+using RoleTOP_MVC.Models;
+using RoleTOP_MVC.Repositories;
+using RoleTOP_MVC.ViewModels;
 
-namespace RoleTopMVC.Controllers
+namespace RoleTOP_MVC.Controllers
 {
     public class FaqController : Controller
     {

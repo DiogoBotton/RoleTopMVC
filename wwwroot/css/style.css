@@ -648,7 +648,7 @@ input#enviar-resposta {
 }
 .nenhuma-reserva{
     background: linear-gradient(to bottom, #FFBC65,#F1C93E);
-    margin: 0 0 1em 1em;
+    margin: 2em 0 1em 1em;
     display: flex;
     flex-direction: column;
     border-radius: 1em;

@@ -1,22 +1,39 @@
 using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RoleTopMVC.Repositories;
 using RoleTOP_MVC.Enums;
 using RoleTOP_MVC.Models;
 using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
+using System.Collections.Generic;
 
 namespace RoleTOP_MVC.Controllers {
-    public class AgendamentoController : Controller {
+    public class AgendamentoController : AbstractController {
         AgendamentoRepository agendamentoRepository = new AgendamentoRepository ();
         EventosRepository eventosRepository = new EventosRepository ();
         ServicosAdicionaisRepository servicosRepository = new ServicosAdicionaisRepository ();
+        ClienteRepository clienteRepository = new ClienteRepository();
         [HttpGet]
         public IActionResult Index () {
             AgendamentoViewModel avm = new AgendamentoViewModel ();
             avm.tipoEventos = eventosRepository.ObterTodos ();
             avm.servicos = servicosRepository.ObterTodos ();
+            
+            var emailCliente = ObterUsuarioSession();
+            if(!string.IsNullOrEmpty(emailCliente)){
+                var usuario = clienteRepository.ObterPor(emailCliente);
+                avm.Cliente = usuario;
+            }
+            
+            //TempData vindo VAZIO.
+            var erro = (string) TempData["Erros"];
+
+            if(!string.IsNullOrEmpty(erro)){ //Se é nulo ou vazio, retorna booleano.
+                ViewData["ActionAgendamento"] = "Termos";
+                List<string> erros = new List<string>();
+                erros.Add(erro);
+                avm.Erros = erros;
+            }
             return View (avm);
         }
 
@@ -27,7 +44,19 @@ namespace RoleTOP_MVC.Controllers {
             int.TryParse (form["privacidade"], out privacidadeEnum);
             PrivacidadeEnum privacidade = (PrivacidadeEnum) privacidadeEnum;
 
+            Cliente c = new Cliente(){
+                Nome = form["nome"],
+                Email = form["email"],
+                CEP = form["cep"],
+                CPF = form["cpf"],
+                Tel = form["telefone"]
+            };
+
+            string SvcAdicionais = form["sv-adc"];
+            double SvcPreco = servicosRepository.ObterPreco(SvcAdicionais);
+
             Agendamento agendamento = new Agendamento () {
+                Cliente = c,
                 NomeEvento = form["nome-evento"],
                 TipoEvento = form["evento"],
                 Privacidade = privacidade.ToString (),
@@ -36,9 +65,9 @@ namespace RoleTOP_MVC.Controllers {
                 DataDoAgendamento = DateTime.Now,
                 SvcAdicionais = form["sv-adc"],
                 DescricaoEvento = form["descricao-evento"],
-                FormaPagamento = form["pagamento"]
+                FormaPagamento = form["pagamento"],
+                PrecoTotal = 10000 + SvcPreco
                 //TODO BANNER (IMG)
-                //TODO Como irá mandar como parametro um CLIENTE "logado".
             };
             
             bool termos = form["termos"] == "1";
@@ -46,13 +75,10 @@ namespace RoleTOP_MVC.Controllers {
                 agendamentoRepository.Inserir (agendamento);
 
                 // Manda para uma outra página específica com informações (Resumo) da compra.
-                return View ("_AgendamentoRealizado",agendamento);
+                return View ("_AgendamentoRealizado", new ResumoAgendamentoViewModel(agendamento.DataDoEvento, agendamento.SvcAdicionais, agendamento.PrecoTotal));
             } else {
-                ViewData["ActionAgendamento"] = "Termos";
-                AgendamentoViewModel avm = new AgendamentoViewModel ();
-                avm.tipoEventos = eventosRepository.ObterTodos ();
-                avm.servicos = servicosRepository.ObterTodos ();
-                return View ("Index",avm);
+                TempData["Erros"] = "Você precisa aceitar os termos de uso.";
+                return RedirectToAction("Index","Agendamento");
             }
 
         }

@@ -1,4 +1,4 @@
-@model RoleTOP_MVC.Models.Agendamento
+@model RoleTOP_MVC.ViewModels.ResumoAgendamentoViewModel
 
 <main>
     <div class="resumo">
@@ -20,7 +20,7 @@
             <p class="info-resumo"><i class="fas fa-exclamation-circle"></i>Seu orçamento será enviado para a empresa para verificação. Você receberá uma mensagem sobre a confirmação do evento.</p>
         </div>
         <div class="btn">
-            <a href="Index.html"><button>Ir para a Home</button></a>
+            <a href='@Url.Action("Index","Home")'><button>Ir para a Home</button></a>
         </div>
     </div>
     <p class="divisoria-rodape"></p>
