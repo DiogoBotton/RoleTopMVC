@@ -1,3 +1,7 @@
+@model RoleTOP_MVC.ViewModels.ErrosViewModel
+@{
+    var nomeView = (string) ViewData["Action"];
+}
 <main>
         <div class="titulo">
             <img src="/Img/titulo perguntas frequentes.svg">
@@ -54,6 +58,12 @@
         </div>
         <div id="input-container">
             <form class="formularios" id="faq" method="POST" action='@Url.Action("Registrar","Faq")'>
+                @if("Erro".Equals(nomeView)){
+                    @foreach (var msg in Model.Mensagem)
+                    {
+                    <h4 id="cadastro-actions">ERRO: @msg</h4>;
+                    }
+                }
                 <label for="nome">Nome:*</label>
                 <input type="text" id="nome" required name="nome">
 

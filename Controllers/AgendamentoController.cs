@@ -11,7 +11,7 @@ namespace RoleTOP_MVC.Controllers {
     public class AgendamentoController : AbstractController {
         AgendamentoRepository agendamentoRepository = new AgendamentoRepository ();
         EventosRepository eventosRepository = new EventosRepository ();
-        ServicosAdicionaisRepository servicosRepository = new ServicosAdicionaisRepository ();
+        ServicosRepository servicosRepository = new ServicosRepository ();
         ClienteRepository clienteRepository = new ClienteRepository();
         [HttpGet]
         public IActionResult Index () {
@@ -40,9 +40,16 @@ namespace RoleTOP_MVC.Controllers {
         [HttpPost]
         public IActionResult Registrar (IFormCollection form) {
             //Conversão int para ENUM.
+            //TODO o que acontece quando tenta converter numero ENUM que não existe.
             int privacidadeEnum;
-            int.TryParse (form["privacidade"], out privacidadeEnum);
-            PrivacidadeEnum privacidade = (PrivacidadeEnum) privacidadeEnum;
+            bool converteu = int.TryParse (form["privacidade"], out privacidadeEnum);
+            PrivacidadeEnum privacidade;
+            if(converteu){
+            privacidade = (PrivacidadeEnum) privacidadeEnum;
+            }
+            else{
+            privacidade = (PrivacidadeEnum) 0; //Padrão PRIVADO.
+            }
 
             Cliente c = new Cliente(){
                 Nome = form["nome"],
@@ -53,7 +60,7 @@ namespace RoleTOP_MVC.Controllers {
             };
 
             string SvcAdicionais = form["sv-adc"];
-            double SvcPreco = servicosRepository.ObterPreco(SvcAdicionais);
+            double SvcPreco = servicosRepository.ObterPrecoTotal(SvcAdicionais);
 
             Agendamento agendamento = new Agendamento () {
                 Cliente = c,
@@ -66,16 +73,21 @@ namespace RoleTOP_MVC.Controllers {
                 SvcAdicionais = form["sv-adc"],
                 DescricaoEvento = form["descricao-evento"],
                 FormaPagamento = form["pagamento"],
-                PrecoTotal = 10000 + SvcPreco
+                PrecoTotal = SvcPreco
                 //TODO BANNER (IMG)
             };
             
             bool termos = form["termos"] == "1";
             if (termos) {
-                agendamentoRepository.Inserir (agendamento);
 
+                if(agendamentoRepository.Inserir (agendamento)){
                 // Manda para uma outra página específica com informações (Resumo) da compra.
-                return View ("_AgendamentoRealizado", new ResumoAgendamentoViewModel(agendamento.DataDoEvento, agendamento.SvcAdicionais, agendamento.PrecoTotal));
+                    return View ("_AgendamentoRealizado", new ResumoAgendamentoViewModel(agendamento.DataDoEvento, agendamento.SvcAdicionais, agendamento.PrecoTotal));
+                }
+                else{
+                    TempData["Erros"] = "Houve um erro na efetuação do agendamento. Tente novamente mais tarde.";
+                    return RedirectToAction("Index","Agendamento");
+                }
             } else {
                 TempData["Erros"] = "Você precisa aceitar os termos de uso.";
                 return RedirectToAction("Index","Agendamento");

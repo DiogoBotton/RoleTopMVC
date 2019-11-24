@@ -58,9 +58,9 @@ namespace RoleTOP_MVC.Repositories {
             }
             return agendamentos;
         }
-        public string PrepararRegistroCSV (Agendamento agendamento) {
+        private string PrepararRegistroCSV (Agendamento agendamento) {
             Cliente c = agendamento.Cliente;
-            return $"cliente_nome={c.Nome};cliente_email={c.Email};cliente_cep={c.CEP};cliente_cpf{c.CPF};cliente_telefone={c.Tel};nome-evento={agendamento.NomeEvento};tipo-evento={agendamento.TipoEvento};privacidade={agendamento.Privacidade};qtd-convidados={agendamento.QtdConvidados};data-evento={agendamento.DataDoEvento};data-agendamento={agendamento.DataDoAgendamento};descricao-evento={agendamento.DescricaoEvento};servicos-adicionais={agendamento.SvcAdicionais};forma-pagamento={agendamento.FormaPagamento};preco-total={agendamento.PrecoTotal}";
+            return $"cliente_nome={c.Nome};cliente_email={c.Email};cliente_cep={c.CEP};cliente_cpf={c.CPF};cliente_telefone={c.Tel};nome-evento={agendamento.NomeEvento};tipo-evento={agendamento.TipoEvento};privacidade={agendamento.Privacidade};qtd-convidados={agendamento.QtdConvidados};data-evento={agendamento.DataDoEvento};data-agendamento={agendamento.DataDoAgendamento};descricao-evento={agendamento.DescricaoEvento};servicos-adicionais={agendamento.SvcAdicionais};forma-pagamento={agendamento.FormaPagamento};preco-total={agendamento.PrecoTotal}";
         }
     }
 }

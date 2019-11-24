@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 
 namespace RoleTOP_MVC.Repositories {
-    public class ServicosAdicionaisRepository {
+    public class ServicosRepository {
         public const string PATH = "Database/ServicosAdicionais.csv";
+        public const string PATH_ORCAMENTO = "Database/OrcamentoPadrao.csv";
 
         public Dictionary<string, double> ObterTodos () {
             Dictionary<string, double> servicos = new Dictionary<string, double> ();
@@ -18,22 +19,28 @@ namespace RoleTOP_MVC.Repositories {
             }
             return servicos;
         }
-        public double ObterPreco (string SvcAdicionais) {
+        public double ObterPrecoTotal (string SvcAdicionais) {
             var servicos = ObterTodos ();
+            string[] precoOrcamento = File.ReadAllLines (PATH_ORCAMENTO);
             double valor = 0;
 
             if (!string.IsNullOrEmpty (SvcAdicionais)) {
-                string[] servico = new string[2];
-                servico = SvcAdicionais.Split (",");
-                string svc1 = servico[0];
-                string svc2 = servico[1];
+                string[] servico = SvcAdicionais.Split (",");
 
-                if (servicos.ContainsKey (svc1)) {
-                    valor += servicos[svc1];
+                for (int i = 0; i < servico.Length; i++) {
+                    string svc = servico[i];
+                    if (servicos.ContainsKey (svc)) {
+                        valor += servicos[svc];
+                    }
                 }
-                if (servicos.ContainsKey (svc2)) {
-                    valor += servicos[svc2];
-                }
+            }
+            double Orcamento = 0;
+            bool converteu = double.TryParse (precoOrcamento[0], out Orcamento);
+            if (converteu) {
+                valor += Orcamento;
+            }
+            else{
+                valor += 10000;
             }
             return valor;
         }
