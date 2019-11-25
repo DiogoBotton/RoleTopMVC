@@ -40,8 +40,14 @@
                     <li><a asp-controller="Programacao" asp-action="Index">Programação</a></li>
                     <li><a asp-controller="Agendamento" asp-action="Index">Agende Aqui</a></li>
                     <li><a asp-controller="Faq" asp-action="Index">Perguntas Frequentes</a></li>
+                    @if(string.IsNullOrEmpty(Model.NomeView)){
+                    <li><a asp-controller="Cliente" asp-action="Index">Login</a></li>;
                     <li><a asp-controller="Cadastro" asp-action="Index">Cadastre-se</a></li>
-                    <li><a asp-controller="Cliente" asp-action="Index">Login</a></li>
+                    }
+                    else{
+                    <li><a asp-controller="Cliente" asp-action="Index">Logoff</a></li>;
+                    <li><a asp-controller="Cliente" asp-action="Index">Minha Conta(Model.UsuarioNome)</a></li>;
+                    }
                 </ul>
             </nav>
         </div>
