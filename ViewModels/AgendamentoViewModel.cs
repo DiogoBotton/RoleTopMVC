@@ -3,7 +3,7 @@ using RoleTOP_MVC.Models;
 
 namespace RoleTOP_MVC.ViewModels
 {
-    public class AgendamentoViewModel
+    public class AgendamentoViewModel : BaseViewModel
     {
         public List<string> tipoEventos {get;set;}
         public Dictionary<string,double> servicos {get;set;}

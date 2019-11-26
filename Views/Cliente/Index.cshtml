@@ -1,14 +1,11 @@
-@model RoleTOP_MVC.ViewModels.ErrosViewModel
-@{
-    var nomeView = (string) ViewData["Action"];
-}
+@model RoleTOP_MVC.ViewModels.BaseViewModel
 <main>
         <div class="titulo">
             <img src="/Img/titulo login.svg">
         </div>
         <div id="input-container">
             <form class="formularios" id="login" method="POST" action='@Url.Action("Login","Cliente")'>
-                @if ("Erro".Equals(nomeView)){
+                @if ("Erro".Equals(Model.NomeView)){
                     @foreach (string msg in Model.Mensagem)
                     {   
                         <h4 id="cadastro-actions">ERRO: @msg</h4>;

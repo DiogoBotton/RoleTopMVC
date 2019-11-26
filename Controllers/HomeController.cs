@@ -4,17 +4,24 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using RoleTOP_MVC.Models;
+using RoleTOP_MVC.ViewModels;
 
 namespace RoleTOP_MVC.Controllers {
-    public class HomeController : Controller {
+    public class HomeController : AbstractController {
         public IActionResult Index () {
             //ViewData["NomeView"] = "Home";
-            ViewData.Add("NomeView","Home");
-            return View ();
+            return View (new BaseViewModel () {
+                NomeView = "Home",
+                    UsuarioEmail = ObterUsuarioSession (),
+                    UsuarioNome = ObterUsuarioNomeSession ()
+            });
         }
         public IActionResult Estrutura () {
-            return View ();
+            return View (new BaseViewModel () {
+                NomeView = "Estrutura",
+                    UsuarioEmail = ObterUsuarioSession (),
+                    UsuarioNome = ObterUsuarioNomeSession ()
+            });
         }
     }
 }

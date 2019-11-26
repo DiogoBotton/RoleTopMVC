@@ -6,10 +6,14 @@ using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
 
 namespace RoleTOP_MVC.Controllers {
-    public class FaqController : Controller {
+    public class FaqController : AbstractController {
         FaqRepository faqRepository = new FaqRepository ();
         public IActionResult Index () {
-            return View ();
+            return View (new BaseViewModel () {
+                NomeView = "Faq",
+                    UsuarioEmail = ObterUsuarioSession (),
+                    UsuarioNome = ObterUsuarioNomeSession ()
+            });
         }
         public IActionResult Registrar (IFormCollection form) {
             ViewData["Action"] = "Envio de mensagem";
@@ -20,12 +24,21 @@ namespace RoleTOP_MVC.Controllers {
                 Mensagem = form["msg"]
             };
             if (faqRepository.Inserir (faq)) {
-                return View ("_Sucesso", new RespostaViewModel ("Aguarde resposta dos administradores no seu Email."));
+                return View ("_Sucesso", new BaseViewModel () {
+                    
+                    NomeView = "Erro",
+                        UsuarioEmail = ObterUsuarioSession (),
+                        UsuarioNome = ObterUsuarioNomeSession (),
+                });
             } else {
-                ViewData["Action"] = "Erro";
                 List<string> erros = new List<string> ();
                 erros.Add ("Houve um erro no envio da mensagem. Tente novamente mais tarde.");
-                return View ("Index", new ErrosViewModel (erros));
+                return View ("Index", new BaseViewModel () {
+                    NomeView = "Erro",
+                        UsuarioEmail = ObterUsuarioSession (),
+                        UsuarioNome = ObterUsuarioNomeSession (),
+                        Mensagem = erros
+                });
             }
 
         }

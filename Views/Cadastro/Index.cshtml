@@ -9,7 +9,7 @@
 
         <div id="input-container">
         <form class="formularios" method="POST" action='@Url.Action("Cadastrar","Cadastro")'>
-            @if ("Erros".Equals(nomeView)){
+            @if ("Erros".Equals(Model.NomeView)){
             @foreach (string msg in Model.Mensagem)
                 {   
                 <h4 id="cadastro-actions">ERRO: @msg</h4>;

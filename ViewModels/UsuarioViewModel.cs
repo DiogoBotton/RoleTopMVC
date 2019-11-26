@@ -3,7 +3,7 @@ using RoleTOP_MVC.Models;
 
 namespace RoleTOP_MVC.ViewModels
 {
-    public class UsuarioViewModel
+    public class UsuarioViewModel : BaseViewModel
     {
         public List<Agendamento> Agendamentos {get;set;}
         public Cliente cliente {get;set;}

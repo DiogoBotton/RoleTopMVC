@@ -8,11 +8,15 @@ using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
 
 namespace RoleTOP_MVC.Controllers {
-    public class CadastroController : Controller {
+    public class CadastroController : AbstractController {
         ClienteRepository clienteRepository = new ClienteRepository ();
         [HttpGet]
         public IActionResult Index () {
-            return View ();
+            return View (new ErrosViewModel () {
+                NomeView = "Cadastro",
+                    UsuarioEmail = ObterUsuarioSession (),
+                    UsuarioNome = ObterUsuarioNomeSession ()
+            });
         }
 
         [HttpPost]
@@ -48,27 +52,47 @@ namespace RoleTOP_MVC.Controllers {
                     string senha = form["senha"];
                     cliente.Senha = senha;
                     if (clienteRepository.Inserir (cliente)) {
-                        return View ("_Sucesso", new RespostaViewModel ("Seu cadastro foi realizado com sucesso! Seja Bem Vindo!"));
+                        return View ("_Sucesso", new RespostaViewModel ("Seu cadastro foi realizado com sucesso! Seja Bem Vindo!") {
+                            NomeView = "Cadastro",
+                                UsuarioEmail = ObterUsuarioSession (),
+                                UsuarioNome = ObterUsuarioNomeSession ()
+                        });
                     } else {
                         ViewData["ActionCadastro"] = "Erros";
                         erros.Add ("Houve um erro na efetuação do cadastro. Tente novamente mais tarde.");
-                        return View ("Index", new ErrosViewModel (erros));
+                        return View ("Index", new ErrosViewModel (erros) {
+                            NomeView = "Erros",
+                                UsuarioEmail = ObterUsuarioSession (),
+                                UsuarioNome = ObterUsuarioNomeSession ()
+                        });
                     }
                 case 1:
                     ViewData["ActionCadastro"] = "Erros";
                     erros.Add ("Você precisa aceitar os termos de uso.");
-                    return View ("Index", new ErrosViewModel (erros));
+                    return View ("Index", new ErrosViewModel (erros) {
+                        NomeView = "Erros",
+                            UsuarioEmail = ObterUsuarioSession (),
+                            UsuarioNome = ObterUsuarioNomeSession ()
+                    });
 
                 case 2:
                     ViewData["ActionCadastro"] = "Erros";
                     erros.Add ("Confirmação de senha incorreta.");
-                    return View ("Index", new ErrosViewModel (erros));
+                    return View ("Index", new ErrosViewModel (erros) {
+                        NomeView = "Erros",
+                            UsuarioEmail = ObterUsuarioSession (),
+                            UsuarioNome = ObterUsuarioNomeSession ()
+                    });
 
                 case 3:
                     ViewData["ActionCadastro"] = "Erros";
                     erros.Add ("Você precisa aceitar os termos de uso.");
                     erros.Add ("Confirmação de senha incorreta.");
-                    return View ("Index", new ErrosViewModel (erros));
+                    return View ("Index", new ErrosViewModel (erros) {
+                        NomeView = "Erros",
+                            UsuarioEmail = ObterUsuarioSession (),
+                            UsuarioNome = ObterUsuarioNomeSession ()
+                    });
                 default:
                     return View ("Index");
             }

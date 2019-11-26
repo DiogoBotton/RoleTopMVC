@@ -1,6 +1,4 @@
-﻿@{
-    var nomeView = (string) ViewData["NomeView"];
-}
+﻿@model RoleTOP_MVC.ViewModels.BaseViewModel
 <!DOCTYPE html>    
 <html>
     <head>
@@ -9,7 +7,7 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <!-- Galeria CSS (Carrocel) -->
-    @if("Home".Equals(nomeView)){
+    @if("Home".Equals(Model.NomeView)){
     <link rel="stylesheet" href="/css/gallery.min.css">
     <link rel="stylesheet" href="/css/gallery.theme.css">;
     }
@@ -40,19 +38,19 @@
                     <li><a asp-controller="Programacao" asp-action="Index">Programação</a></li>
                     <li><a asp-controller="Agendamento" asp-action="Index">Agende Aqui</a></li>
                     <li><a asp-controller="Faq" asp-action="Index">Perguntas Frequentes</a></li>
-                    @if(string.IsNullOrEmpty(Model.NomeView)){
+                    @if(string.IsNullOrEmpty(Model.UsuarioEmail)){
                     <li><a asp-controller="Cliente" asp-action="Index">Login</a></li>;
                     <li><a asp-controller="Cadastro" asp-action="Index">Cadastre-se</a></li>
                     }
                     else{
-                    <li><a asp-controller="Cliente" asp-action="Index">Logoff</a></li>;
-                    <li><a asp-controller="Cliente" asp-action="Index">Minha Conta(Model.UsuarioNome)</a></li>;
+                    <li><a asp-controller="Cliente" asp-action="Logoff">Logoff</a></li>;
+                    <li><a asp-controller="Cliente" asp-action="Usuario">Minha Conta(Model.UsuarioNome)</a></li>;
                     }
                 </ul>
             </nav>
         </div>
     </header>
-    @if("Home".Equals(nomeView)){
+    @if("Home".Equals(Model.NomeView)){
         Html.RenderPartial("_HomePageHeader");
     }
     @RenderBody()

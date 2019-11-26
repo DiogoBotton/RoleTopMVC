@@ -11,7 +11,11 @@ namespace RoleTOP_MVC.Controllers {
         AgendamentoRepository agendamentoRepository = new AgendamentoRepository ();
         [HttpGet]
         public IActionResult Index () {
-            return View ();
+            return View (new BaseViewModel () {
+                NomeView = "Cliente",
+                    UsuarioEmail = ObterUsuarioSession (),
+                    UsuarioNome = ObterUsuarioNomeSession ()
+            });
         }
 
         [HttpPost]
@@ -26,24 +30,37 @@ namespace RoleTOP_MVC.Controllers {
                     if (cliente != null) {
                         if (cliente.Senha.Equals (senha)) {
                             HttpContext.Session.SetString (SESSION_CLIENTE_EMAIL, usuario);
+                            HttpContext.Session.SetString (SESSION_CLIENTE_NOME, cliente.Nome);
                             return RedirectToAction ("Usuario", "Cliente");
                         } else {
-                            ViewData["Action"] = "Erro";
                             List<string> erros = new List<string> ();
                             erros.Add ("Senha Incorreta.");
-                            return View ("Index", new ErrosViewModel (erros));
+                            return View ("Index", new BaseViewModel () {
+                                Mensagem = erros,
+                                    NomeView = "Erro",
+                                    UsuarioEmail = ObterUsuarioSession (),
+                                    UsuarioNome = ObterUsuarioNomeSession ()
+                            });
                         }
                     } else {
-                        ViewData["Action"] = "Erro";
                         List<string> erros = new List<string> ();
                         erros.Add ($"Usuario {usuario} não existe.");
-                        return View ("Index", new ErrosViewModel (erros));
+                        return View ("Index", new BaseViewModel () {
+                            Mensagem = erros,
+                                NomeView = "Erro",
+                                UsuarioEmail = ObterUsuarioSession (),
+                                UsuarioNome = ObterUsuarioNomeSession ()
+                        });
                     }
                 } else {
-                    ViewData["Action"] = "Erro";
                     List<string> erros = new List<string> ();
                     erros.Add ("Complete os campos nome e senha corretamente");
-                    return View ("Index", new ErrosViewModel(erros));
+                    return View ("Index", new BaseViewModel () {
+                        Mensagem = erros,
+                            NomeView = "Erro",
+                            UsuarioEmail = ObterUsuarioSession (),
+                            UsuarioNome = ObterUsuarioNomeSession ()
+                    });
                 }
             } catch (IOException e) {
                 System.Console.WriteLine (e.StackTrace);
@@ -55,7 +72,11 @@ namespace RoleTOP_MVC.Controllers {
             var emailCliente = HttpContext.Session.GetString (SESSION_CLIENTE_EMAIL);
             var agendamentosCliente = agendamentoRepository.ObterTodosPorCliente (emailCliente);
 
-            return View (new UsuarioViewModel (agendamentosCliente));
+            return View (new UsuarioViewModel (agendamentosCliente) {
+                NomeView = "Cliente",
+                    UsuarioEmail = ObterUsuarioSession (),
+                    UsuarioNome = ObterUsuarioNomeSession ()
+            });
         }
     }
 }

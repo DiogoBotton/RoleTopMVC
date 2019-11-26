@@ -34,6 +34,9 @@ namespace RoleTOP_MVC.Controllers {
                 erros.Add(erro);
                 avm.Erros = erros;
             }
+            avm.NomeView = "Agendamento";
+            avm.UsuarioEmail = emailCliente;
+            avm.UsuarioNome = ObterUsuarioNomeSession();
             return View (avm);
         }
 

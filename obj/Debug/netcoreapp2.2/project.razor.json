@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\RoleTOP_MVC.csproj",
+  "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\RoleTOP_MVC.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -204,7 +204,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": "\n            <summary>\n            The name of the action method.\n            </summary>\n            <remarks>\n            Must be <c>null</c> if <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route\" /> or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Page\" /> is non-<c>null</c>.\n            </remarks>\n        ",
+            "Documentation": null,
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Action"
@@ -2956,88 +2956,88 @@
         }
       }
     ],
-    "CSharpLanguageVersion": 703
+    "CSharpLanguageVersion": 800
   },
   "RootNamespace": "RoleTOP_MVC",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Cliente\\Index.cshtml",
-      "TargetPath": "Views\\Cliente\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Cliente\\Usuario.cshtml",
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Cliente\\Usuario.cshtml",
       "TargetPath": "Views\\Cliente\\Usuario.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Agendamento\\Index.cshtml",
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Agendamento\\Index.cshtml",
       "TargetPath": "Views\\Agendamento\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Shared\\_TermosDeUso.cshtml",
-      "TargetPath": "Views\\Shared\\_TermosDeUso.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Home\\Estrutura.cshtml",
-      "TargetPath": "Views\\Home\\Estrutura.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Shared\\_HomePageHeader.cshtml",
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Shared\\_HomePageHeader.cshtml",
       "TargetPath": "Views\\Shared\\_HomePageHeader.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Shared\\_AgendamentoRealizado.cshtml",
-      "TargetPath": "Views\\Shared\\_AgendamentoRealizado.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Shared\\_Sucesso.cshtml",
-      "TargetPath": "Views\\Shared\\_Sucesso.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Programacao\\Index.cshtml",
-      "TargetPath": "Views\\Programacao\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Administrador\\Index.cshtml",
-      "TargetPath": "Views\\Administrador\\Index.cshtml",
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Faq\\Index.cshtml",
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Shared\\_AgendamentoRealizado.cshtml",
+      "TargetPath": "Views\\Shared\\_AgendamentoRealizado.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Cadastro\\Index.cshtml",
+      "TargetPath": "Views\\Cadastro\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Shared\\_TermosDeUso.cshtml",
+      "TargetPath": "Views\\Shared\\_TermosDeUso.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Programacao\\Index.cshtml",
+      "TargetPath": "Views\\Programacao\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Faq\\Index.cshtml",
       "TargetPath": "Views\\Faq\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Cadastro\\Index.cshtml",
-      "TargetPath": "Views\\Cadastro\\Index.cshtml",
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Shared\\_Sucesso.cshtml",
+      "TargetPath": "Views\\Shared\\_Sucesso.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Cliente\\Index.cshtml",
+      "TargetPath": "Views\\Cliente\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Home\\Estrutura.cshtml",
+      "TargetPath": "Views\\Home\\Estrutura.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Diogo\\Documents\\Trabalhos SENAI\\ROLE TOP\\RoleTopMVC\\Views\\Administrador\\Index.cshtml",
+      "TargetPath": "Views\\Administrador\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],
