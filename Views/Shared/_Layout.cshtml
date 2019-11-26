@@ -43,8 +43,7 @@
                     <li><a asp-controller="Cadastro" asp-action="Index">Cadastre-se</a></li>
                     }
                     else{
-                    <li><a asp-controller="Cliente" asp-action="Logoff">Logoff</a></li>;
-                    <li><a asp-controller="Cliente" asp-action="Usuario">Minha Conta(Model.UsuarioNome)</a></li>;
+                    <li><a asp-controller="Cliente" asp-action="Usuario">Minha Conta(@Model.UsuarioNome)</a></li>;
                     }
                 </ul>
             </nav>

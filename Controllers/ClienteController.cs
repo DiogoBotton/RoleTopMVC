@@ -11,7 +11,7 @@ namespace RoleTOP_MVC.Controllers {
         AgendamentoRepository agendamentoRepository = new AgendamentoRepository ();
         [HttpGet]
         public IActionResult Index () {
-            return View (new BaseViewModel () {
+            return View (new ErrosViewModel () {
                 NomeView = "Cliente",
                     UsuarioEmail = ObterUsuarioSession (),
                     UsuarioNome = ObterUsuarioNomeSession ()
@@ -35,7 +35,7 @@ namespace RoleTOP_MVC.Controllers {
                         } else {
                             List<string> erros = new List<string> ();
                             erros.Add ("Senha Incorreta.");
-                            return View ("Index", new BaseViewModel () {
+                            return View ("Index", new ErrosViewModel () {
                                 Mensagem = erros,
                                     NomeView = "Erro",
                                     UsuarioEmail = ObterUsuarioSession (),
@@ -45,7 +45,7 @@ namespace RoleTOP_MVC.Controllers {
                     } else {
                         List<string> erros = new List<string> ();
                         erros.Add ($"Usuario {usuario} não existe.");
-                        return View ("Index", new BaseViewModel () {
+                        return View ("Index", new ErrosViewModel () {
                             Mensagem = erros,
                                 NomeView = "Erro",
                                 UsuarioEmail = ObterUsuarioSession (),
@@ -55,7 +55,7 @@ namespace RoleTOP_MVC.Controllers {
                 } else {
                     List<string> erros = new List<string> ();
                     erros.Add ("Complete os campos nome e senha corretamente");
-                    return View ("Index", new BaseViewModel () {
+                    return View ("Index", new ErrosViewModel () {
                         Mensagem = erros,
                             NomeView = "Erro",
                             UsuarioEmail = ObterUsuarioSession (),

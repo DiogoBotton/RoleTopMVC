@@ -33,7 +33,7 @@
                         passar 3 dias da data da compra, será aplicada uma multa de 50% do valor total.</p>
                 </div>
                 <div class="btn-usuario">
-                    <a href="#"><button>Cancelar Evento</button></a>
+                    <a href="#" class="btn-cancelar">Cancelar Evento</a>
                 </div>
             </div>;
             }
@@ -49,9 +49,8 @@
         <p class="divisoria-rodape"></p>
         <div class="btn-minhaconta">
             <p class="titulo-pedidos">Opções:</p>
-            <button>Sair (logout)<i class="fas fa-angle-right"></i></button>
-
-            <button>Excluir conta<i class="fas fa-angle-right"></i></button>
+            <a asp-controller="Cliente" asp-action="Logoff" class="btn">Sair (logout)<i class="fas fa-angle-right"></i></a>
+            <a asp-controller="Cliente" asp-action="ExcluirConta" class="btn">Excluir conta<i class="fas fa-angle-right"></i></a>
         </div>
 
         <p class="divisoria-rodape"></p>

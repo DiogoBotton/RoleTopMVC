@@ -627,13 +627,15 @@ input#enviar-resposta {
     border: 1px solid #000;
     font-size: 1.2em;
 }
-.resumo-usuario button {
+.resumo-usuario .btn-cancelar {
     border-radius: 1em;
     border:none;
-    width: 10em;
+    width: 9em;
     padding: .8em;
     margin: 1em;
+    background-color: #fff;
     cursor: pointer;
+    text-decoration: none;
 }
 .btn-usuario {
     display: flex;
@@ -667,7 +669,7 @@ input#enviar-resposta {
     margin: 2em 1em;
     background-color: rgb(255, 205, 111);
 }
-.btn-minhaconta button {
+.btn-minhaconta .btn {
     border-radius: .5em;
     display:flex;
     justify-content: space-between;
@@ -678,8 +680,9 @@ input#enviar-resposta {
     margin: 1em;
     cursor: pointer;
     background-color: #fff;
+    text-decoration: none;
 }
-.btn-minhaconta button .fas {
+.btn-minhaconta .btn .fas {
     font-size: 1.5em;
 }
 /*------------------------------------------------------------------------------------*/
