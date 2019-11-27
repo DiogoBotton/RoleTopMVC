@@ -1,42 +1,43 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleTOP_MVC.Enums;
 using RoleTOP_MVC.Models;
 using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
-using System.Collections.Generic;
 
 namespace RoleTOP_MVC.Controllers {
     public class AgendamentoController : AbstractController {
         AgendamentoRepository agendamentoRepository = new AgendamentoRepository ();
         EventosRepository eventosRepository = new EventosRepository ();
         ServicosRepository servicosRepository = new ServicosRepository ();
-        ClienteRepository clienteRepository = new ClienteRepository();
+        ClienteRepository clienteRepository = new ClienteRepository ();
         [HttpGet]
         public IActionResult Index () {
             AgendamentoViewModel avm = new AgendamentoViewModel ();
             avm.tipoEventos = eventosRepository.ObterTodos ();
             avm.servicos = servicosRepository.ObterTodos ();
-            
-            var emailCliente = ObterUsuarioSession();
-            if(!string.IsNullOrEmpty(emailCliente)){
-                var usuario = clienteRepository.ObterPor(emailCliente);
+
+            var emailCliente = ObterUsuarioSession ();
+            if (!string.IsNullOrEmpty (emailCliente)) {
+                var usuario = clienteRepository.ObterPor (emailCliente);
                 avm.Cliente = usuario;
             }
-            
-            //TempData vindo VAZIO.
-            var erro = (string) TempData["Erros"];
 
-            if(!string.IsNullOrEmpty(erro)){ //Se é nulo ou vazio, retorna booleano.
-                ViewData["ActionAgendamento"] = "Termos";
-                List<string> erros = new List<string>();
-                erros.Add(erro);
+            //TempData vindo VAZIO.
+            var erro = TempData["Agendamento"] as string;
+
+            if (!string.IsNullOrEmpty (erro)) { //Se é nulo ou vazio, retorna booleano.
+                List<string> erros = new List<string> ();
+                erros.Add (erro);
                 avm.Erros = erros;
+                avm.NomeView = "Termos";
+            } else {
+                avm.NomeView = "Agendamento";
             }
-            avm.NomeView = "Agendamento";
             avm.UsuarioEmail = emailCliente;
-            avm.UsuarioNome = ObterUsuarioNomeSession();
+            avm.UsuarioNome = ObterUsuarioNomeSession ();
             return View (avm);
         }
 
@@ -47,14 +48,24 @@ namespace RoleTOP_MVC.Controllers {
             int privacidadeEnum;
             bool converteu = int.TryParse (form["privacidade"], out privacidadeEnum);
             PrivacidadeEnum privacidade;
-            if(converteu){
-            privacidade = (PrivacidadeEnum) privacidadeEnum;
-            }
-            else{
-            privacidade = (PrivacidadeEnum) 0; //Padrão PRIVADO.
+            //Método mais pratico (fazer com dicionário)
+            if (converteu) {
+                switch (privacidadeEnum) {
+                    case 0:
+                        privacidade = (PrivacidadeEnum) 0;
+                        break;
+                    case 1:
+                        privacidade = (PrivacidadeEnum) 1;
+                        break;
+                    default:
+                        TempData["Agendamento"] = "Houve um erro na efetuação do Agendamento.";
+                        return RedirectToAction("Index","Agendamento");
+                }
+            } else {
+                privacidade = (PrivacidadeEnum) 0; //Padrão PRIVADO.
             }
 
-            Cliente c = new Cliente(){
+            Cliente c = new Cliente () {
                 Nome = form["nome"],
                 Email = form["email"],
                 CEP = form["cep"],
@@ -63,7 +74,7 @@ namespace RoleTOP_MVC.Controllers {
             };
 
             string SvcAdicionais = form["sv-adc"];
-            double SvcPreco = servicosRepository.ObterPrecoTotal(SvcAdicionais);
+            double SvcPreco = servicosRepository.ObterPrecoTotal (SvcAdicionais);
 
             Agendamento agendamento = new Agendamento () {
                 Cliente = c,
@@ -79,21 +90,24 @@ namespace RoleTOP_MVC.Controllers {
                 PrecoTotal = SvcPreco
                 //TODO BANNER (IMG)
             };
-            
+
             bool termos = form["termos"] == "1";
             if (termos) {
 
-                if(agendamentoRepository.Inserir (agendamento)){
-                // Manda para uma outra página específica com informações (Resumo) da compra.
-                    return View ("_AgendamentoRealizado", new ResumoAgendamentoViewModel(agendamento.DataDoEvento, agendamento.SvcAdicionais, agendamento.PrecoTotal));
-                }
-                else{
-                    TempData["Erros"] = "Houve um erro na efetuação do agendamento. Tente novamente mais tarde.";
-                    return RedirectToAction("Index","Agendamento");
+                if (agendamentoRepository.Inserir (agendamento)) {
+                    // Manda para uma outra página específica com informações (Resumo) da compra.
+                    return View ("_AgendamentoRealizado", new ResumoAgendamentoViewModel (agendamento.DataDoEvento, agendamento.SvcAdicionais, agendamento.PrecoTotal){
+                        NomeView = "Agendamento",
+                        UsuarioEmail = ObterUsuarioSession(),
+                        UsuarioNome = ObterUsuarioNomeSession()                        
+                    });
+                } else {
+                    TempData["Agendamento"] = "Houve um erro na efetuação do agendamento. Tente novamente mais tarde.";
+                    return RedirectToAction ("Index", "Agendamento");
                 }
             } else {
-                TempData["Erros"] = "Você precisa aceitar os termos de uso.";
-                return RedirectToAction("Index","Agendamento");
+                TempData["Agendamento"] = "Você precisa aceitar os termos de uso.";
+                return RedirectToAction ("Index", "Agendamento");
             }
 
         }

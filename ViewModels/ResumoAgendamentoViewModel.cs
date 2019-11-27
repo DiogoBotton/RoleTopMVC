@@ -2,7 +2,7 @@ using System;
 
 namespace RoleTOP_MVC.ViewModels
 {
-    public class ResumoAgendamentoViewModel
+    public class ResumoAgendamentoViewModel : BaseViewModel
     {
         public DateTime DataDoEvento {get;set;}
         public string SvcAdicionais {get;set;}

@@ -1,7 +1,4 @@
 @model RoleTOP_MVC.ViewModels.AgendamentoViewModel
-@{
-    var nomeView = (string) ViewData["ActionAgendamento"];
-}
 <main>
         <div class="titulo">
             <img src="/Img/titulo agendamento.svg">
@@ -10,7 +7,7 @@
         <div id="input-container">
 
             <form class="formularios" method="POST" action='@Url.Action("Registrar","Agendamento")'>
-                @if ("Termos".Equals(nomeView)){
+                @if ("Termos".Equals(Model.NomeView)){
                     @foreach (string msg in Model.Erros)
                     {   
                         <h4 id="cadastro-actions">ERRO: @msg</h4>;
@@ -82,9 +79,6 @@
                     <label for="termos">Termos de uso do espaço:*</label><br>
                     <textarea class="termos" rows="6"
                         disabled>Um jovem programador é atormentado por estranhos pesadelos nos quais sempre está conectado por cabos a um imenso sistema de computadores do futuro. À medida que o sonho se repete, ele começa a levantar dúvidas sobre a realidade. E quando encontra os misteriosos Morpheus e Trinity, ele descobre que é vítima do Matrix, um sistema inteligente e artificial que manipula a mente das pessoas e cria a ilusão de um mundo real enquanto usa os cérebros e corpos dos indivíduos para produzir energia.</textarea><br>
-                    <!-- @if("Termos".Equals(nomeView)){
-                        Html.RenderPartial("_TermosDeUso");
-                    } -->
                     <div class="check-radio-centro">
                         <div>
                             <input type="radio" id="termo-aceito" name="termos" value="1">

@@ -12,11 +12,19 @@ namespace RoleTOP_MVC.Controllers {
         ClienteRepository clienteRepository = new ClienteRepository ();
         [HttpGet]
         public IActionResult Index () {
-            return View (new ErrosViewModel () {
-                NomeView = "Cadastro",
-                    UsuarioEmail = ObterUsuarioSession (),
-                    UsuarioNome = ObterUsuarioNomeSession ()
-            });
+            ErrosViewModel evm = new ErrosViewModel ();
+            
+            //TODO ARRUMAR: Lista vindo NULA ou VAZIA.
+            var erros = TempData["Cadastro"] as List<string>;
+            if (erros != null) {
+                evm.NomeView = "Erros";
+                evm.Mensagem = erros;
+            } else {
+                evm.NomeView = "Cadastro";
+            }
+            evm.UsuarioEmail = ObterUsuarioSession ();
+            evm.UsuarioNome = ObterUsuarioNomeSession ();
+            return View (evm);
         }
 
         [HttpPost]
@@ -58,41 +66,23 @@ namespace RoleTOP_MVC.Controllers {
                                 UsuarioNome = ObterUsuarioNomeSession ()
                         });
                     } else {
-                        ViewData["ActionCadastro"] = "Erros";
                         erros.Add ("Houve um erro na efetuação do cadastro. Tente novamente mais tarde.");
-                        return View ("Index", new ErrosViewModel (erros) {
-                            NomeView = "Erros",
-                                UsuarioEmail = ObterUsuarioSession (),
-                                UsuarioNome = ObterUsuarioNomeSession ()
-                        });
+                        TempData["Cadastro"] = erros;
+                        return RedirectToAction ("Index", "Cadastro");
                     }
                 case 1:
-                    ViewData["ActionCadastro"] = "Erros";
                     erros.Add ("Você precisa aceitar os termos de uso.");
-                    return View ("Index", new ErrosViewModel (erros) {
-                        NomeView = "Erros",
-                            UsuarioEmail = ObterUsuarioSession (),
-                            UsuarioNome = ObterUsuarioNomeSession ()
-                    });
-
+                    TempData["Cadastro"] = erros;
+                    return RedirectToAction ("Index", "Cadastro");
                 case 2:
-                    ViewData["ActionCadastro"] = "Erros";
                     erros.Add ("Confirmação de senha incorreta.");
-                    return View ("Index", new ErrosViewModel (erros) {
-                        NomeView = "Erros",
-                            UsuarioEmail = ObterUsuarioSession (),
-                            UsuarioNome = ObterUsuarioNomeSession ()
-                    });
-
+                    TempData["Cadastro"] = erros;
+                    return RedirectToAction ("Index", "Cadastro");
                 case 3:
-                    ViewData["ActionCadastro"] = "Erros";
                     erros.Add ("Você precisa aceitar os termos de uso.");
                     erros.Add ("Confirmação de senha incorreta.");
-                    return View ("Index", new ErrosViewModel (erros) {
-                        NomeView = "Erros",
-                            UsuarioEmail = ObterUsuarioSession (),
-                            UsuarioNome = ObterUsuarioNomeSession ()
-                    });
+                    TempData["Cadastro"] = erros;
+                    return RedirectToAction ("Index", "Cadastro");
                 default:
                     return View ("Index");
             }

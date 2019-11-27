@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleTOP_MVC.Repositories;
@@ -11,11 +12,19 @@ namespace RoleTOP_MVC.Controllers {
         AgendamentoRepository agendamentoRepository = new AgendamentoRepository ();
         [HttpGet]
         public IActionResult Index () {
-            return View (new ErrosViewModel () {
-                NomeView = "Cliente",
-                    UsuarioEmail = ObterUsuarioSession (),
-                    UsuarioNome = ObterUsuarioNomeSession ()
-            });
+            ErrosViewModel evm = new ErrosViewModel ();
+
+            var erro = TempData["Cliente"] as string;
+            if (!string.IsNullOrEmpty (erro)) {
+                evm.NomeView = "Erro";
+                evm.Mensagem.Add (erro);
+            } else {
+                evm.NomeView = "Cliente";
+            }
+
+            evm.UsuarioEmail = ObterUsuarioSession ();
+            evm.UsuarioNome = ObterUsuarioNomeSession ();
+            return View (evm);
         }
 
         [HttpPost]
@@ -33,34 +42,16 @@ namespace RoleTOP_MVC.Controllers {
                             HttpContext.Session.SetString (SESSION_CLIENTE_NOME, cliente.Nome);
                             return RedirectToAction ("Usuario", "Cliente");
                         } else {
-                            List<string> erros = new List<string> ();
-                            erros.Add ("Senha Incorreta.");
-                            return View ("Index", new ErrosViewModel () {
-                                Mensagem = erros,
-                                    NomeView = "Erro",
-                                    UsuarioEmail = ObterUsuarioSession (),
-                                    UsuarioNome = ObterUsuarioNomeSession ()
-                            });
+                            TempData["Cliente"] = "Senha incorreta";
+                            return RedirectToAction ("Index", "Cliente");
                         }
                     } else {
-                        List<string> erros = new List<string> ();
-                        erros.Add ($"Usuario {usuario} não existe.");
-                        return View ("Index", new ErrosViewModel () {
-                            Mensagem = erros,
-                                NomeView = "Erro",
-                                UsuarioEmail = ObterUsuarioSession (),
-                                UsuarioNome = ObterUsuarioNomeSession ()
-                        });
+                        TempData["Cliente"] = $"Usuario {usuario} não existe.";
+                        return RedirectToAction ("Index", "Cliente");
                     }
                 } else {
-                    List<string> erros = new List<string> ();
-                    erros.Add ("Complete os campos nome e senha corretamente");
-                    return View ("Index", new ErrosViewModel () {
-                        Mensagem = erros,
-                            NomeView = "Erro",
-                            UsuarioEmail = ObterUsuarioSession (),
-                            UsuarioNome = ObterUsuarioNomeSession ()
-                    });
+                    TempData["Cliente"] = "Complete os campos nome e senha corretamente";
+                    return RedirectToAction ("Index", "Cliente");
                 }
             } catch (IOException e) {
                 System.Console.WriteLine (e.StackTrace);
@@ -77,6 +68,12 @@ namespace RoleTOP_MVC.Controllers {
                     UsuarioEmail = ObterUsuarioSession (),
                     UsuarioNome = ObterUsuarioNomeSession ()
             });
+        }
+        public IActionResult Logoff () {
+            HttpContext.Session.Remove (SESSION_CLIENTE_EMAIL);
+            HttpContext.Session.Remove (SESSION_CLIENTE_NOME);
+            HttpContext.Session.Clear ();
+            return RedirectToAction ("Index", "Home");
         }
     }
 }

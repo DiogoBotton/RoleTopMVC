@@ -1,6 +1,3 @@
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\bin\Debug\netcoreapp2.2\appsettings.Development.json
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\bin\Debug\netcoreapp2.2\appsettings.json
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\bin\Debug\netcoreapp2.2\RoleTOP_MVC.deps.json
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\bin\Debug\netcoreapp2.2\RoleTOP_MVC.runtimeconfig.json
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\bin\Debug\netcoreapp2.2\RoleTOP_MVC.runtimeconfig.dev.json
@@ -16,18 +13,12 @@ C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\De
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.TagHelpers.input.cache
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.TagHelpers.output.cache
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.RazorCoreGenerate.cache
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.RazorTargetAssemblyInfo.cache
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.RazorTargetAssemblyInfo.cs
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.Views.pdb
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.dll
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.pdb
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.csproj.CopyComplete
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Home\Estrutura.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_HomePageHeader.cshtml.g.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\bin\Debug\netcoreapp2.2\RoleTOP_MVC.deps.json
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\bin\Debug\netcoreapp2.2\RoleTOP_MVC.runtimeconfig.json
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\bin\Debug\netcoreapp2.2\RoleTOP_MVC.runtimeconfig.dev.json
@@ -56,12 +47,6 @@ C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreap
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.dll
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.pdb
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.csproj.CopyComplete
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Agendamento\Index.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Cadastro\Index.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Index.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Faq\Index.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Programacao\Index.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_TermosDeUso.cshtml.g.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Agendamento\Index.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Cadastro\Index.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Index.g.cshtml.cs
@@ -71,8 +56,21 @@ C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreap
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AgendamentoRealizado.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Administrador\Index.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Usuario.g.cshtml.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Administrador\Index.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Usuario.cshtml.g.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AgendamentoRealizado.cshtml.g.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Sucesso.g.cshtml.cs
-C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Sucesso.cshtml.g.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\RoleTOP_MVC.csproj.CoreCompileInputs.cache
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Administrador\Index.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Agendamento\Index.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Cadastro\Index.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Index.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Usuario.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Faq\Index.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Home\Estrutura.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Programacao\Index.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AgendamentoRealizado.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_HomePageHeader.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Sucesso.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_TermosDeUso.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
