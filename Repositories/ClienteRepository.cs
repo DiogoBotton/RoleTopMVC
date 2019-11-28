@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.IO;
 using RoleTOP_MVC.Models;
+using System.Linq;
 
 namespace RoleTOP_MVC.Repositories {
     public class ClienteRepository : BaseRepository {
@@ -22,6 +24,25 @@ namespace RoleTOP_MVC.Repositories {
             }
         }
 
+        public bool Remover(string email){
+            string[] registros = File.ReadAllLines(PATH);
+
+            List<string> clientes = registros.OfType<string>().ToList(); //Converte vetor de string para uma LISTA de string.
+            bool removeu = true;
+            foreach (var linha in clientes)
+            {
+                if(ExtrairValorDoCampo("email", linha).Equals(email)){
+                    clientes.Remove(linha);
+                    removeu = true;
+                    break;
+                }
+                else{
+                    removeu = false;
+                }
+            }
+            File.WriteAllLines(PATH,clientes);
+            return removeu;
+        }
         public Cliente ObterPor (string email) {
             string[] linhas = File.ReadAllLines (PATH);
 

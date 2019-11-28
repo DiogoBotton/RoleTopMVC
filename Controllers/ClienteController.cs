@@ -75,5 +75,19 @@ namespace RoleTOP_MVC.Controllers {
             HttpContext.Session.Clear ();
             return RedirectToAction ("Index", "Home");
         }
+
+        public IActionResult ExcluirConta (){
+            HttpContext.Session.Remove (SESSION_CLIENTE_EMAIL);
+            HttpContext.Session.Remove (SESSION_CLIENTE_NOME);
+            HttpContext.Session.Clear ();
+
+            if(clienteRepository.Remover(SESSION_CLIENTE_EMAIL)){
+                return RedirectToAction ("Index", "Home"); 
+            }
+            else{
+                TempData["Usuario"] = "Não foi possível excluir sua conta. Tente novamente mais tarde";
+                return RedirectToAction("Usuario","Cliente");
+            }
+        }
     }
 }

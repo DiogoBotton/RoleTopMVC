@@ -14,6 +14,9 @@ namespace RoleTOP_MVC.Repositories {
         }
         public bool Inserir (Agendamento agendamento) {
             try {
+                var numPedidos = File.ReadAllLines(PATH).Length; //Ao inserir um pedido, é dado o tamanho do array para o agendamento, que seria o seu ID.
+                agendamento.ID = (ulong) numPedidos++;
+
                 string[] registros = { PrepararRegistroCSV (agendamento) };
                 File.AppendAllLines (PATH, registros);
                 return true;
@@ -39,6 +42,9 @@ namespace RoleTOP_MVC.Repositories {
             List<Agendamento> agendamentos = new List<Agendamento> ();
             foreach (var linha in linhas) {
                 Agendamento a = new Agendamento ();
+
+                a.ID = ulong.Parse(ExtrairValorDoCampo("id",linha));
+                a.Status = uint.Parse(ExtrairValorDoCampo("status_agendamento",linha));
                 a.Cliente.Nome = ExtrairValorDoCampo ("cliente_nome", linha);
                 a.Cliente.Email = ExtrairValorDoCampo ("cliente_email", linha);
                 a.Cliente.CEP = ExtrairValorDoCampo ("cliente_cep", linha);
@@ -60,7 +66,7 @@ namespace RoleTOP_MVC.Repositories {
         }
         private string PrepararRegistroCSV (Agendamento agendamento) {
             Cliente c = agendamento.Cliente;
-            return $"cliente_nome={c.Nome};cliente_email={c.Email};cliente_cep={c.CEP};cliente_cpf={c.CPF};cliente_telefone={c.Tel};nome-evento={agendamento.NomeEvento};tipo-evento={agendamento.TipoEvento};privacidade={agendamento.Privacidade};qtd-convidados={agendamento.QtdConvidados};data-evento={agendamento.DataDoEvento};data-agendamento={agendamento.DataDoAgendamento};descricao-evento={agendamento.DescricaoEvento};servicos-adicionais={agendamento.SvcAdicionais};forma-pagamento={agendamento.FormaPagamento};preco-total={agendamento.PrecoTotal}";
+            return $"id={agendamento.ID};status_agendamento={agendamento.Status};cliente_nome={c.Nome};cliente_email={c.Email};cliente_cep={c.CEP};cliente_cpf={c.CPF};cliente_telefone={c.Tel};nome-evento={agendamento.NomeEvento};tipo-evento={agendamento.TipoEvento};privacidade={agendamento.Privacidade};qtd-convidados={agendamento.QtdConvidados};data-evento={agendamento.DataDoEvento};data-agendamento={agendamento.DataDoAgendamento};descricao-evento={agendamento.DescricaoEvento};servicos-adicionais={agendamento.SvcAdicionais};forma-pagamento={agendamento.FormaPagamento};preco-total={agendamento.PrecoTotal}";
         }
     }
 }

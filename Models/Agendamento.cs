@@ -1,9 +1,12 @@
 using System;
+using RoleTOP_MVC.Enums;
 
 namespace RoleTOP_MVC.Models
 {
     public class Agendamento
     {
+        public ulong ID {get;set;}
+        public uint Status {get;set;}
         public Cliente Cliente {get;set;}
         public string NomeEvento {get;set;}
         public string TipoEvento {get;set;}
@@ -19,6 +22,7 @@ namespace RoleTOP_MVC.Models
 
         public Agendamento(){
             this.Cliente = new Cliente();
+            this.Status = (uint) StatusAgendamentoEnum.PENDENTE;
         }
         public Agendamento(Cliente cliente, string NomeEvento, string TipoEvento, string Privacidade, string QtdConvidados, DateTime DataDoEvento, string DescricaoEvento, string SvcAdicionais, string FormaPagamento){
             this.Cliente = cliente;
@@ -30,6 +34,7 @@ namespace RoleTOP_MVC.Models
             this.DescricaoEvento = DescricaoEvento;
             this.SvcAdicionais = SvcAdicionais;
             this.FormaPagamento = FormaPagamento;
+            this.Status = (uint) StatusAgendamentoEnum.PENDENTE;
         }
     }
 }

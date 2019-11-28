@@ -1,3 +1,4 @@
+@model RoleTOP_MVC.ViewModels.DashboardViewModel
 <main>
         <p class="space"></p>
         <section id="tabela">
@@ -21,34 +22,23 @@
                         <th class="cancelados">Eventos Cancelados:</th>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>2</td>
-                        <td>0</td>
+                        <td>@Model.PedidosAprovados</td>
+                        <td>@Model.PedidosReprovados</td>
+                        <td>@Model.PedidosPendentes</td>
+                        <td>Em construção</td>
+
                     </tr>
                 </tfoot>
                 <tbody>
+                    @foreach (var pedido in Model.Agendamentos)
+                    {
                     <tr>
-                        <td><a href="info-evento.html" target="_blank">Nome</a></td>
-                        <td>xx/xx/xxxx</td>
-                        <td>Pendente</td>
+                        <td><a href="" target="_blank">@pedido.Cliente.Email</a></td>
+                        <td>@pedido.DataDoAgendamento</td>
+                        <td>@pedido.Status</td>
                         <td></td>
                     </tr>
-
-                    <tr>
-                        <td><a href="info-evento.html" target="_blank">Nome</a></td>
-                        <td>xx/xx/xxxx</td>
-                        <td>Pendente</td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="info-evento.html" target="_blank">Nome</a></td>
-                        <td>xx/xx/xxxx</td>
-                        <td>Aceito</td>
-                        <td><a href="#"><img src="Img/Botão fechar.svg" width="35px" title="Cancelar evento"></a></td>
-                    </tr>
-
+                    }
                 </tbody>
             </table>
         </section>
@@ -70,12 +60,13 @@
                 </div>
                 <div>
                     <tbody>
-                    <!-- Foreach-->
+                    @foreach (var msg in Model.Perguntas)
+                    {
                         <tr>
-                            <td>Usuário</td>
+                            <td></td>
                             <td><a href="Mensagens-dasboard adm.html" target="_blank">Mensagens (x)</a></td>
                         </tr>
-                    <!-- Foreach-->
+                    }
                     </tbody>
                 </div>
             </table>
