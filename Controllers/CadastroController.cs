@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RoleTOP_MVC.Enums;
 using RoleTOP_MVC.Models;
 using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
@@ -24,6 +25,7 @@ namespace RoleTOP_MVC.Controllers {
             }
             evm.UsuarioEmail = ObterUsuarioSession ();
             evm.UsuarioNome = ObterUsuarioNomeSession ();
+            evm.UsuarioTipo = ObterUsuarioTipoSession();
             return View (evm);
         }
 
@@ -38,6 +40,7 @@ namespace RoleTOP_MVC.Controllers {
             cliente.CEP = form["cep"];
             cliente.CPF = form["cpf"];
             cliente.Tel = form["telefone"];
+            cliente.TipoUsuario = (uint) TipoClienteEnum.USUARIO;
 
             //método lógico de exibição de erro se termos não forem aceitos ou validação de senha caso diferentes. 
 
@@ -63,7 +66,8 @@ namespace RoleTOP_MVC.Controllers {
                         return View ("_Sucesso", new RespostaViewModel ("Seu cadastro foi realizado com sucesso! Seja Bem Vindo!") {
                             NomeView = "Cadastro",
                                 UsuarioEmail = ObterUsuarioSession (),
-                                UsuarioNome = ObterUsuarioNomeSession ()
+                                UsuarioNome = ObterUsuarioNomeSession (),
+                                UsuarioTipo = ObterUsuarioTipoSession()
                         });
                     } else {
                         erros.Add ("Houve um erro na efetuação do cadastro. Tente novamente mais tarde.");

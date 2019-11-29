@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using RoleTOP_MVC.Models;
 using System.Linq;
+using RoleTOP_MVC.Enums;
 
 namespace RoleTOP_MVC.Repositories {
     public class ClienteRepository : BaseRepository {
@@ -10,6 +11,13 @@ namespace RoleTOP_MVC.Repositories {
         public ClienteRepository () {
             if (!File.Exists (PATH)) {
                 File.Create (PATH).Close ();
+                Cliente c = new Cliente(){
+                    TipoUsuario = (uint) TipoClienteEnum.ADMINISTRADOR,
+                    Nome = "Admin",
+                    Email = "admin@email.com",
+                    Senha = "admin",
+                };
+                Inserir(c);
             }
         }
 
@@ -49,7 +57,7 @@ namespace RoleTOP_MVC.Repositories {
             foreach (var linha in linhas) {
                 if (ExtrairValorDoCampo ("email", linha).Equals (email)) {
                     Cliente c = new Cliente ();
-
+                    c.TipoUsuario = uint.Parse(ExtrairValorDoCampo("tipo_cliente",linha));
                     c.Nome = ExtrairValorDoCampo ("nome", linha);
                     c.Email = ExtrairValorDoCampo ("email", linha);
                     c.Senha = ExtrairValorDoCampo ("senha", linha);
@@ -62,7 +70,7 @@ namespace RoleTOP_MVC.Repositories {
             return null;
         }
         private string PrepararRegistroCSV (Cliente cliente) {
-            return $"nome={cliente.Nome};email={cliente.Email};senha={cliente.Senha};cep={cliente.CEP};cpf={cliente.CPF};telefone={cliente.Tel}";
+            return $"tipo_cliente={cliente.TipoUsuario};nome={cliente.Nome};email={cliente.Email};senha={cliente.Senha};cep={cliente.CEP};cpf={cliente.CPF};telefone={cliente.Tel}";
         }
     }
 }

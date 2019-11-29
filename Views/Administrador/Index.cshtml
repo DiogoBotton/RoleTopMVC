@@ -33,10 +33,10 @@
                     @foreach (var pedido in Model.Agendamentos)
                     {
                     <tr>
-                        <td><a href="" target="_blank">@pedido.Cliente.Email</a></td>
+                        <td>@pedido.Cliente.Email</td>
                         <td>@pedido.DataDoAgendamento</td>
-                        <td>@pedido.Status</td>
-                        <td></td>
+                        <td>@pedido.StatusString</td>
+                        <td><a href='@Url.Action("Visualizar","Agendamento", new {id = @pedido.ID})' target="_blank">Ver mais...</a></td>
                     </tr>
                     }
                 </tbody>
@@ -54,7 +54,7 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th> N° de Mensagens</th>
+                            <th> N° de Mensagens</th><!-- mudar para data da mensagem.-->
                         </tr>
                     </thead>
                 </div>
@@ -63,7 +63,7 @@
                     @foreach (var msg in Model.Perguntas)
                     {
                         <tr>
-                            <td></td>
+                            <td>@msg.Email</td>
                             <td><a href="Mensagens-dasboard adm.html" target="_blank">Mensagens (x)</a></td>
                         </tr>
                     }
@@ -71,6 +71,12 @@
                 </div>
             </table>
         </section>
+        <p class="divisoria-rodape"></p>
+        <div class="btn-minhaconta">
+            <p class="titulo-pedidos">Opções:</p>
+            <a asp-controller="Administrador" asp-action="Logoff" class="btn">Sair (logout)<i class="fas fa-angle-right"></i></a>
+        </div>
+
         <p class="divisoria-rodape"></p>
 
     </main>

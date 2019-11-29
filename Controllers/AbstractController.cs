@@ -7,11 +7,19 @@ namespace RoleTOP_MVC.Controllers
     {
         protected const string SESSION_CLIENTE_EMAIL = "cliente_email";
         protected const string SESSION_CLIENTE_NOME = "cliente_nome";
+        protected const string SESSION_CLIENTE_TIPO = "cliente_tipo";
 
         protected string ObterUsuarioSession () {
             var emailCliente = HttpContext.Session.GetString (SESSION_CLIENTE_EMAIL);
             if (!string.IsNullOrEmpty (emailCliente)) {
                 return emailCliente;
+            }
+            return "";
+        }
+        protected string ObterUsuarioTipoSession () {
+            var TipoUsuario = HttpContext.Session.GetString (SESSION_CLIENTE_TIPO);
+            if (!string.IsNullOrEmpty (TipoUsuario)) {
+                return TipoUsuario;
             }
             return "";
         }

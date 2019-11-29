@@ -1,0 +1,56 @@
+@model RoleTOP_MVC.ViewModels.InfoEventoViewModel
+<main>
+        <div class="resumo-adm">
+            <div>
+                <p class="titulo-resumo">Nome da Empresa/Cliente</p>
+            </div>
+            
+            <div class="banner-evento">
+                    <p class="form-titulo">Banner do evento:</p>
+                    <img src="Img/Pink floyd.png">
+                </div>
+                
+                <p class="form-titulo">Especificações do Evento</p>
+                
+                <label for="nome-evento">Nome do Evento: *</label>
+                
+                <label for="tipo-de-evento">Tipo de Evento: *</label>
+
+                <label for="privacidade">Evento aberto ao público / privado: *</label>
+
+                <label for="qtd">Quantidade estimada de convidados: *</label>
+
+                <label for="data-evento">Data do Evento: *</label>
+                
+                <div>
+                    <p>Serviços Adicionais<br><i>(Aumenta o orçamento)</i>:</p><br>
+                </div>
+
+                <label for="descricao-evento">Descrição do Evento:*</label>
+
+                <div>
+                    <p>Permitir visibilidade do seu evento na programação (agenda) do site? *</p>
+                </div>
+                <br><br>
+
+                <p class="form-titulo">Formas de Pagamento</p>
+                <div class="section-pagamento-adm">
+
+                    <div class="icones-adm">
+                        <p>Cartão de débito/crédito:</p>
+                    </div>
+                    
+                    <div class="boleto-adm">
+                        <p>Boleto:</p>
+                    </div>
+                </div>
+                
+            <div class="info-fim">
+                <p class="form-titulo">Total a pagar:</p><p>R$ xxxxx,xx</p>
+            </div>
+            <div class="btn">
+                <a class="botao-adm" onclick="javascript:window.close()" href='@Url.Action("Aprovar","Agendamento", new {id = @Model.evento.ID})'>Aceitar</a>
+                <a class="botao-adm" onclick="javascript:window.close()" href='@Url.Action("Recusar","Agendamento", new {id = @Model.evento.ID})'>Recusar</a>
+            </div>
+        </div>
+</main>

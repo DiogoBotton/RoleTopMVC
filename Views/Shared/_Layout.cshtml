@@ -38,12 +38,17 @@
                     <li><a asp-controller="Programacao" asp-action="Index">Programação</a></li>
                     <li><a asp-controller="Agendamento" asp-action="Index">Agende Aqui</a></li>
                     <li><a asp-controller="Faq" asp-action="Index">Perguntas Frequentes</a></li>
-                    @if(string.IsNullOrEmpty(Model.UsuarioEmail)){
+                    @if(string.IsNullOrEmpty(Model.UsuarioEmail) && string.IsNullOrEmpty(Model.UsuarioTipo)){
                     <li><a asp-controller="Cliente" asp-action="Index">Login</a></li>;
                     <li><a asp-controller="Cadastro" asp-action="Index">Cadastre-se</a></li>
                     }
                     else{
-                    <li><a asp-controller="Cliente" asp-action="Usuario">Minha Conta(@Model.UsuarioNome)</a></li>;
+                        if("0".Equals(Model.UsuarioTipo)){
+                        <li><a asp-controller="Administrador" asp-action="Index">Minha Conta(@Model.UsuarioNome)</a></li>;
+                        }
+                        else{
+                        <li><a asp-controller="Cliente" asp-action="Usuario">Minha Conta(@Model.UsuarioNome)</a></li>;
+                        }
                     }
                 </ul>
             </nav>

@@ -38,6 +38,7 @@ namespace RoleTOP_MVC.Controllers {
             }
             avm.UsuarioEmail = emailCliente;
             avm.UsuarioNome = ObterUsuarioNomeSession ();
+            avm.UsuarioTipo = ObterUsuarioTipoSession ();
             return View (avm);
         }
 
@@ -59,7 +60,7 @@ namespace RoleTOP_MVC.Controllers {
                         break;
                     default:
                         TempData["Agendamento"] = "Houve um erro na efetuação do Agendamento.";
-                        return RedirectToAction("Index","Agendamento");
+                        return RedirectToAction ("Index", "Agendamento");
                 }
             } else {
                 privacidade = (PrivacidadeEnum) 0; //Padrão PRIVADO.
@@ -96,10 +97,11 @@ namespace RoleTOP_MVC.Controllers {
 
                 if (agendamentoRepository.Inserir (agendamento)) {
                     // Manda para uma outra página específica com informações (Resumo) da compra.
-                    return View ("_AgendamentoRealizado", new ResumoAgendamentoViewModel (agendamento.DataDoEvento, agendamento.SvcAdicionais, agendamento.PrecoTotal){
+                    return View ("_AgendamentoRealizado", new ResumoAgendamentoViewModel (agendamento.DataDoEvento, agendamento.SvcAdicionais, agendamento.PrecoTotal) {
                         NomeView = "Agendamento",
-                        UsuarioEmail = ObterUsuarioSession(),
-                        UsuarioNome = ObterUsuarioNomeSession()                        
+                            UsuarioEmail = ObterUsuarioSession (),
+                            UsuarioNome = ObterUsuarioNomeSession (),
+                            UsuarioTipo = ObterUsuarioTipoSession ()
                     });
                 } else {
                     TempData["Agendamento"] = "Houve um erro na efetuação do agendamento. Tente novamente mais tarde.";
@@ -109,7 +111,16 @@ namespace RoleTOP_MVC.Controllers {
                 TempData["Agendamento"] = "Você precisa aceitar os termos de uso.";
                 return RedirectToAction ("Index", "Agendamento");
             }
+        }
 
+        public IActionResult Visualizar (ulong id) {
+            InfoEventoViewModel ivm = new InfoEventoViewModel ();
+            var agendamento = agendamentoRepository.ObterPor (id);
+            if (agendamento != null) {
+                ivm.evento = agendamento;
+                return View ("_InfoEvento", ivm);
+            }
+            return RedirectToAction("Index","Administrador");
         }
     }
 }

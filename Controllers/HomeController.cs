@@ -13,14 +13,16 @@ namespace RoleTOP_MVC.Controllers {
             return View (new BaseViewModel () {
                 NomeView = "Home",
                     UsuarioEmail = ObterUsuarioSession (),
-                    UsuarioNome = ObterUsuarioNomeSession ()
+                    UsuarioNome = ObterUsuarioNomeSession (),
+                    UsuarioTipo = ObterUsuarioTipoSession()
             });
         }
         public IActionResult Estrutura () {
             return View (new BaseViewModel () {
                 NomeView = "Estrutura",
                     UsuarioEmail = ObterUsuarioSession (),
-                    UsuarioNome = ObterUsuarioNomeSession ()
+                    UsuarioNome = ObterUsuarioNomeSession (),
+                    UsuarioTipo = ObterUsuarioTipoSession()
             });
         }
     }

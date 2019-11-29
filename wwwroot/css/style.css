@@ -568,7 +568,7 @@ form p {
     border-top-right-radius: 5em;
     width: 30em;
 }
-.resumo-adm button {
+.resumo-adm a {
     border-radius: 1em;
     border:none;
     width: 10em;
@@ -605,6 +605,7 @@ input#enviar-resposta {
     justify-content: center;
     width: 90%;
 }
+
 /*------------------------------------------------------------------------------------*/
 
 /*-----------------------------Informações de evento (Usuário)------------------------*/

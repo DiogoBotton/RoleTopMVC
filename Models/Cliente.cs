@@ -3,6 +3,7 @@ namespace RoleTOP_MVC.Models
 {
     public class Cliente
     {
+        public uint TipoUsuario {get;set;}
         public string Nome {get;set;}
         public string Email {get;set;}
         public string Senha {get;set;}

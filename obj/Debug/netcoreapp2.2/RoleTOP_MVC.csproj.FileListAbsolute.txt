@@ -74,3 +74,4 @@ C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\De
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_TermosDeUso.g.cshtml.cs
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_InfoEvento.g.cshtml.cs

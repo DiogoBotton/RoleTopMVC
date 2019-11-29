@@ -7,7 +7,8 @@ namespace RoleTOP_MVC.Controllers {
             return View (new BaseViewModel () {
                 NomeView = "Programacao",
                     UsuarioEmail = ObterUsuarioSession (),
-                    UsuarioNome = ObterUsuarioNomeSession ()
+                    UsuarioNome = ObterUsuarioNomeSession (),
+                    UsuarioTipo = ObterUsuarioTipoSession()
             });
         }
     }

@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RoleTOP_MVC.Enums;
 using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
 
@@ -24,6 +25,7 @@ namespace RoleTOP_MVC.Controllers {
 
             evm.UsuarioEmail = ObterUsuarioSession ();
             evm.UsuarioNome = ObterUsuarioNomeSession ();
+            evm.UsuarioTipo = ObterUsuarioTipoSession();
             return View (evm);
         }
 
@@ -38,9 +40,18 @@ namespace RoleTOP_MVC.Controllers {
 
                     if (cliente != null) {
                         if (cliente.Senha.Equals (senha)) {
-                            HttpContext.Session.SetString (SESSION_CLIENTE_EMAIL, usuario);
-                            HttpContext.Session.SetString (SESSION_CLIENTE_NOME, cliente.Nome);
-                            return RedirectToAction ("Usuario", "Cliente");
+                            switch (cliente.TipoUsuario) {
+                                case (uint) TipoClienteEnum.ADMINISTRADOR:
+                                    HttpContext.Session.SetString (SESSION_CLIENTE_EMAIL, usuario);
+                                    HttpContext.Session.SetString (SESSION_CLIENTE_NOME, cliente.Nome);
+                                    HttpContext.Session.SetString (SESSION_CLIENTE_TIPO, cliente.TipoUsuario.ToString ());
+                                    return RedirectToAction ("Index", "Administrador");
+                                default:
+                                    HttpContext.Session.SetString (SESSION_CLIENTE_EMAIL, usuario);
+                                    HttpContext.Session.SetString (SESSION_CLIENTE_NOME, cliente.Nome);
+                                    HttpContext.Session.SetString (SESSION_CLIENTE_TIPO, cliente.TipoUsuario.ToString ());
+                                    return RedirectToAction ("Usuario", "Cliente");
+                            }
                         } else {
                             TempData["Cliente"] = "Senha incorreta";
                             return RedirectToAction ("Index", "Cliente");
@@ -58,7 +69,6 @@ namespace RoleTOP_MVC.Controllers {
                 return View ();
             }
         }
-        //TODO método para o menu do Usuario
         public IActionResult Usuario () {
             var emailCliente = HttpContext.Session.GetString (SESSION_CLIENTE_EMAIL);
             var agendamentosCliente = agendamentoRepository.ObterTodosPorCliente (emailCliente);
@@ -66,7 +76,8 @@ namespace RoleTOP_MVC.Controllers {
             return View (new UsuarioViewModel (agendamentosCliente) {
                 NomeView = "Cliente",
                     UsuarioEmail = ObterUsuarioSession (),
-                    UsuarioNome = ObterUsuarioNomeSession ()
+                    UsuarioNome = ObterUsuarioNomeSession (),
+                    UsuarioTipo = ObterUsuarioTipoSession()
             });
         }
         public IActionResult Logoff () {
@@ -76,17 +87,15 @@ namespace RoleTOP_MVC.Controllers {
             return RedirectToAction ("Index", "Home");
         }
 
-        public IActionResult ExcluirConta (){
-            HttpContext.Session.Remove (SESSION_CLIENTE_EMAIL);
-            HttpContext.Session.Remove (SESSION_CLIENTE_NOME);
-            HttpContext.Session.Clear ();
-
-            if(clienteRepository.Remover(SESSION_CLIENTE_EMAIL)){
-                return RedirectToAction ("Index", "Home"); 
-            }
-            else{
+        public IActionResult ExcluirConta () {
+            if (clienteRepository.Remover (ObterUsuarioSession ())) {
+                HttpContext.Session.Remove (SESSION_CLIENTE_EMAIL);
+                HttpContext.Session.Remove (SESSION_CLIENTE_NOME);
+                HttpContext.Session.Clear ();
+                return RedirectToAction ("Index", "Home");
+            } else {
                 TempData["Usuario"] = "Não foi possível excluir sua conta. Tente novamente mais tarde";
-                return RedirectToAction("Usuario","Cliente");
+                return RedirectToAction ("Usuario", "Cliente");
             }
         }
     }

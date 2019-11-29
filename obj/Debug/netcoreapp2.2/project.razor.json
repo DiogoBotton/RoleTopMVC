@@ -2966,6 +2966,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Shared\\_InfoEvento.cshtml",
+      "TargetPath": "Views\\Shared\\_InfoEvento.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Cliente\\Index.cshtml",
       "TargetPath": "Views\\Cliente\\Index.cshtml",
       "FileKind": "mvc"

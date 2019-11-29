@@ -21,6 +21,7 @@ namespace RoleTOP_MVC.Controllers {
 
             evm.UsuarioEmail = ObterUsuarioSession ();
             evm.UsuarioNome = ObterUsuarioNomeSession ();
+            evm.UsuarioTipo = ObterUsuarioTipoSession();
             return View (evm);
         }
         public IActionResult Registrar (IFormCollection form) {
@@ -36,6 +37,7 @@ namespace RoleTOP_MVC.Controllers {
                     NomeView = "Faq",
                         UsuarioEmail = ObterUsuarioSession (),
                         UsuarioNome = ObterUsuarioNomeSession (),
+                        UsuarioTipo = ObterUsuarioTipoSession(),
                         Mensagem = "Aguarde resposta dos administradores em seu Email."
                 });
             } else {
