@@ -14,6 +14,9 @@ namespace RoleTOP_MVC.Repositories {
         }
         public bool Inserir (Faq faq) {
             try {
+                var numPerguntas = File.ReadAllLines(PATH).Length;
+                faq.ID = (ulong) numPerguntas++;
+
                 string[] registros = { PrepararRegistroCSV (faq) };
                 File.AppendAllLines (PATH, registros);
                 return true;
@@ -22,7 +25,39 @@ namespace RoleTOP_MVC.Repositories {
                 return false;
             }
         }
+        public Faq ObterPor(ulong id){
+            var mensagens = ObterTodos();
+            foreach (var msg in mensagens)
+            {
+                if(msg.ID.Equals(id)){
+                    return msg;
+                }
+            }
+            return null;
+        }
+        public bool Atualizar(Faq faq){
+            var registros = File.ReadAllLines(PATH);
+            var FaqCSV = PrepararRegistroCSV(faq);
+            int indice = -1;
+            bool idEncontrado = false;
 
+            for (int i = 0; i < registros.Length; i++)
+            {
+                var idConvertido = ulong.Parse(ExtrairValorDoCampo("id",registros[i]));
+                if(faq.ID.Equals(idConvertido)){
+                    indice = i;
+                    idEncontrado = true;
+                    break;
+                }
+            }
+
+            if(idEncontrado){
+                registros[indice] = FaqCSV;
+                File.WriteAllLines(PATH, registros);
+                return true;
+            }
+            return false;
+        }
         public List<Faq> ObterTodosPorEmail(string email){
             var mensagens = ObterTodos();
             List<Faq> perguntasUsuario = new List<Faq>();
@@ -39,6 +74,7 @@ namespace RoleTOP_MVC.Repositories {
             List<Faq> mensagens = new List<Faq> ();
             foreach (var linha in registros) {
                 Faq msg = new Faq ();
+                msg.ID = ulong.Parse(ExtrairValorDoCampo ("id", linha));
                 msg.Nome = ExtrairValorDoCampo ("nome", linha);
                 msg.Email = ExtrairValorDoCampo ("email", linha);
                 msg.Mensagem = ExtrairValorDoCampo ("mensagem", linha);
@@ -51,7 +87,7 @@ namespace RoleTOP_MVC.Repositories {
         }
 
         private string PrepararRegistroCSV (Faq faq) {
-            return $"nome={faq.Nome};email={faq.Email};mensagem={faq.Mensagem}data_mensagem={faq.DataDaMensagem};status_pergunta={faq.Status}";
+            return $"id={faq.ID};nome={faq.Nome};email={faq.Email};mensagem={faq.Mensagem};data_mensagem={faq.DataDaMensagem};status_pergunta={faq.Status}";
         }
     }
 }

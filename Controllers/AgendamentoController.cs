@@ -53,17 +53,17 @@ namespace RoleTOP_MVC.Controllers {
             if (converteu) {
                 switch (privacidadeEnum) {
                     case 0:
-                        privacidade = (PrivacidadeEnum) 0;
+                        privacidade = (PrivacidadeEnum) PrivacidadeEnum.PRIVADO;
                         break;
                     case 1:
-                        privacidade = (PrivacidadeEnum) 1;
+                        privacidade = (PrivacidadeEnum) PrivacidadeEnum.PUBLICO;
                         break;
                     default:
                         TempData["Agendamento"] = "Houve um erro na efetuação do Agendamento.";
                         return RedirectToAction ("Index", "Agendamento");
                 }
             } else {
-                privacidade = (PrivacidadeEnum) 0; //Padrão PRIVADO.
+                privacidade = (PrivacidadeEnum) PrivacidadeEnum.PRIVADO; //Padrão PRIVADO.
             }
 
             Cliente c = new Cliente () {
@@ -88,7 +88,8 @@ namespace RoleTOP_MVC.Controllers {
                 SvcAdicionais = form["sv-adc"],
                 DescricaoEvento = form["descricao-evento"],
                 FormaPagamento = form["pagamento"],
-                PrecoTotal = SvcPreco
+                PrecoTotal = SvcPreco,
+                StatusString = StatusAgendamentoEnum.PENDENTE.ToString()
                 //TODO BANNER (IMG)
             };
 
@@ -119,6 +120,26 @@ namespace RoleTOP_MVC.Controllers {
             if (agendamento != null) {
                 ivm.evento = agendamento;
                 return View ("_InfoEvento", ivm);
+            }
+            return RedirectToAction("Index","Administrador");
+        }
+        public IActionResult Aprovar (ulong id){
+            var agendamento = agendamentoRepository.ObterPor(id);
+            agendamento.Status = (uint) StatusAgendamentoEnum.APROVADO;
+            agendamento.StatusString = StatusAgendamentoEnum.APROVADO.ToString();
+
+            if(agendamentoRepository.Atualizar(agendamento)){
+                return RedirectToAction("Index","Administrador");
+            }
+            return RedirectToAction("Index","Administrador");
+        }
+        public IActionResult Recusar (ulong id){
+            var agendamento = agendamentoRepository.ObterPor(id);
+            agendamento.Status = (uint) StatusAgendamentoEnum.REPROVADO;
+            agendamento.StatusString = StatusAgendamentoEnum.REPROVADO.ToString();
+
+            if(agendamentoRepository.Atualizar(agendamento)){
+                return RedirectToAction("Index","Administrador");
             }
             return RedirectToAction("Index","Administrador");
         }

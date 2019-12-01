@@ -24,7 +24,7 @@ namespace RoleTOP_MVC.Models
         public Agendamento(){
             this.Cliente = new Cliente();
             this.Status = (uint) StatusAgendamentoEnum.PENDENTE;
-            this.StatusString = StatusAgendamentoEnum.PENDENTE.ToString();
+            //this.StatusString = StatusAgendamentoEnum.PENDENTE.ToString(); //*Só funciona no controller
         }
         public Agendamento(Cliente cliente, string NomeEvento, string TipoEvento, string Privacidade, string QtdConvidados, DateTime DataDoEvento, string DescricaoEvento, string SvcAdicionais, string FormaPagamento){
             this.Cliente = cliente;
@@ -37,7 +37,6 @@ namespace RoleTOP_MVC.Models
             this.SvcAdicionais = SvcAdicionais;
             this.FormaPagamento = FormaPagamento;
             this.Status = (uint) StatusAgendamentoEnum.PENDENTE;
-            this.StatusString = StatusAgendamentoEnum.PENDENTE.ToString();
         }
     }
 }

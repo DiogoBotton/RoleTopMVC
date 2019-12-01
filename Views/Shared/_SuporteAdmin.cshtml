@@ -1,0 +1,38 @@
+@model RoleTOP_MVC.ViewModels.SuporteAdminViewModel
+<main>
+    <div class="resumo-adm">
+        <form method="POST" action='@Url.Action("EnviarEmail","Administrador")'>
+            <div>
+                <p class="titulo-resumo"> @Model.Faq.Email</p>
+            </div>
+            <div class="info-evento">
+                <table>
+                    <tr>
+                        <th>Nome do Usuário:</th><td>@Model.Faq.Nome</td>
+                    </tr>
+                    <tr>
+                        <th>Data da Mensagem:</th><td>@Model.Faq.DataDaMensagem</td>
+                    </tr>
+                    <tr>
+                        <th>Mensagem:</th><td>@Model.Faq.Mensagem</td>
+                    </tr>
+                </table>
+            </div>
+
+            <label for="descricao-evento">Resposta</label>
+            <textarea id="descricao-evento" rows="10" required placeholder="Digite aqui" name="resposta"></textarea>
+            <p class="info-resumo"><i class="fas fa-exclamation-circle"></i>Ao enviar a resposta, será encaminhado ao
+                email descrito pelo usuário.</p>
+            <label for="email">Email</label>
+            <input type="email" id="email" value="@Model.Faq.Email" disabled name="email">
+            <br>
+            <label for="id">Id da mensagem</label>
+            <input type="text" id="id" value="@Model.Faq.ID" disabled name="id">
+                
+            <div class="btn">
+                <input id="enviar-resposta" type="submit" value="Enviar Resposta">
+            </div>
+        </form>
+
+    </div>
+</main>

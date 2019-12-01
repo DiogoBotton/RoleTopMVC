@@ -13,7 +13,7 @@ namespace RoleTOP_MVC.Repositories {
             } else {
                 valor = linha.Substring (indiceChave); //caso for igual á -1, unico parametro startIndex até o final da string.
             }
-            System.Console.WriteLine ($"Campo {nomeCampo} e valor {valor}");
+            //System.Console.WriteLine ($"Campo {nomeCampo} e valor {valor}");
             return valor.Replace (nomeCampo + "=", "");
         }
     }

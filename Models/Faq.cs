@@ -4,6 +4,7 @@ using RoleTOP_MVC.Enums;
 
 namespace RoleTOP_MVC.Models {
     public class Faq {
+        public ulong ID {get;set;}
         public uint Status {get;set;}
         public string Nome { get; set; }
         public string Email { get; set; }

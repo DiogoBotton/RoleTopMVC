@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace RoleTOP_MVC.ViewModels
 {
     public class BaseViewModel

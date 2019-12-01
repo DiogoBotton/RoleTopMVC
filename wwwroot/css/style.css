@@ -575,6 +575,8 @@ form p {
     padding: .8em;
     margin: 1em;
     cursor: pointer;
+    background: #fff;
+    text-align: center;
 }
 .icones-adm .fab {
     font-size:2em;
@@ -582,9 +584,6 @@ form p {
 .boleto-adm img {
     width:5em;
     /* cursor: pointer; */
-}
-.form-msg-adm {
-    margin: 1em;
 }
 input#enviar-resposta {
     padding: .7em;
@@ -784,6 +783,30 @@ tfoot .pendentes {
 }
 tfoot .cancelados {
     background: rgb(187, 0, 0);
+}
+
+.info-evento {
+    background: linear-gradient(to bottom, #FFBC65,#F1C93E);
+    margin: 1em auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
+    width: 30em;
+}
+.info-evento table {
+    margin-top: 1em;
+}
+.info-evento table td, th {
+    border: 1px solid #000;
+    font-size: 1.2em;
+}
+
+.info-titulo {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 /*------------------------------------------------------------------------------------*/

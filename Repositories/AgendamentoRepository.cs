@@ -14,7 +14,7 @@ namespace RoleTOP_MVC.Repositories {
         }
         public bool Inserir (Agendamento agendamento) {
             try {
-                var numPedidos = File.ReadAllLines(PATH).Length; //Ao inserir um pedido, é dado o tamanho do array para o agendamento, que seria o seu ID.
+                var numPedidos = File.ReadAllLines(PATH).Length; //Ao inserir um pedido, é dado o tamanho do array +1 para o agendamento, que seria o seu ID.
                 agendamento.ID = (ulong) numPedidos++;
 
                 string[] registros = { PrepararRegistroCSV (agendamento) };
@@ -36,6 +36,29 @@ namespace RoleTOP_MVC.Repositories {
                 }
             }
             return agendamentosCliente;
+        }
+        public bool Atualizar(Agendamento agendamento){
+            var registros = File.ReadAllLines(PATH);
+            var AgendamentoCSV = PrepararRegistroCSV(agendamento);
+            int indice = -1;
+            bool idEncontrado = false;
+
+            for (int i = 0; i < registros.Length; i++)
+            {
+                var idConvertido = ulong.Parse(ExtrairValorDoCampo("id",registros[i]));
+                if(agendamento.ID.Equals(idConvertido)){
+                    indice = i;
+                    idEncontrado = true;
+                    break;
+                }
+            }
+
+            if(idEncontrado){
+                registros[indice] = AgendamentoCSV;
+                File.WriteAllLines(PATH, registros);
+                return true;
+            }
+            return false;
         }
         public Agendamento ObterPor(ulong id){
             var eventos = ObterTodos();
