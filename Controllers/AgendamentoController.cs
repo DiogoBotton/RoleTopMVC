@@ -143,5 +143,15 @@ namespace RoleTOP_MVC.Controllers {
             }
             return RedirectToAction("Index","Administrador");
         }
+        public IActionResult Cancelar (ulong id){
+            var agendamento = agendamentoRepository.ObterPor(id);
+            agendamento.Status = (uint) StatusAgendamentoEnum.CANCELADO;
+            agendamento.StatusString = StatusAgendamentoEnum.CANCELADO.ToString();
+
+            if(agendamentoRepository.Atualizar(agendamento)){
+                return RedirectToAction("Index","Administrador");
+            }
+            return RedirectToAction("Index","Administrador");
+        }
     }
 }

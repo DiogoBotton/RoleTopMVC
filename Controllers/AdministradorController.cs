@@ -25,6 +25,9 @@ namespace RoleTOP_MVC.Controllers {
                         case (uint) StatusAgendamentoEnum.REPROVADO:
                             dvm.PedidosReprovados++;
                             break;
+                        case (uint) StatusAgendamentoEnum.CANCELADO:
+                            dvm.PedidosCancelados++;
+                            break;
                         case (uint) StatusAgendamentoEnum.PENDENTE:
                             dvm.PedidosPendentes++;
                             dvm.Agendamentos.Add (item);
@@ -87,28 +90,28 @@ namespace RoleTOP_MVC.Controllers {
                     } else {
                         Console.ForegroundColor = ConsoleColor.Red;
                         System.Console.WriteLine ("Objeto nulo, mensagem ID não encontrado.");
-                        Console.ReadLine ();
-                        Console.Clear ();
+                        Console.ResetColor ();
                         return RedirectToAction ("Index", "Administrador");
                     }
                 } else {
                     Console.ForegroundColor = ConsoleColor.Red;
                     System.Console.WriteLine ("Erro no envio para o EMAIL do destinatário.");
-                    Console.ReadLine ();
-                    Console.Clear ();
+                    System.Console.WriteLine (idFaq);
+                    System.Console.WriteLine (emailDestinatario);
+                    Console.ResetColor ();
                     return RedirectToAction ("Index", "Administrador");
                 }
             } else {
                 Console.ForegroundColor = ConsoleColor.Red;
                 System.Console.WriteLine ("Erro na captura ou conversão do ID do destinatário.");
-                System.Console.WriteLine(idFaq);
-                Console.ReadLine ();
-                Console.Clear ();
+                System.Console.WriteLine (idFaq);
+                System.Console.WriteLine (emailDestinatario);
+                Console.ResetColor ();
                 return RedirectToAction ("Index", "Administrador");
             }
         }
 
-        public bool SendMail (string email, string mensagem) {
+        private bool SendMail (string email, string mensagem) {
             try {
                 // Estancia da Classe de Mensagem
                 MailMessage _mailMessage = new MailMessage ();
@@ -135,6 +138,7 @@ namespace RoleTOP_MVC.Controllers {
                 // Usuario(roletop.senai@gmail.com) Senha(senai@132)
                 _smtpClient.EnableSsl = true;
 
+                //* Erro no envio.
                 _smtpClient.Send (_mailMessage);
 
                 return true;

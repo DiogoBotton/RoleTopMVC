@@ -10,6 +10,7 @@ namespace RoleTOP_MVC.ViewModels
         public uint PedidosAprovados {get;set;}
         public uint PedidosReprovados {get;set;}
         public uint PedidosPendentes {get;set;}
+        public uint PedidosCancelados {get;set;}
         public uint MensagemRespondida {get;set;}
         public uint MensagemNaoLida {get;set;}
 

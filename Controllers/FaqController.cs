@@ -15,7 +15,7 @@ namespace RoleTOP_MVC.Controllers {
             var erro = TempData["Faq"] as string;
             if (!string.IsNullOrEmpty (erro)) {
                 evm.NomeView = "Erro";
-                evm.Mensagem.Add (erro);
+                evm.Mensagem.Add(erro);
             } else {
                 evm.NomeView = "Faq";
             }

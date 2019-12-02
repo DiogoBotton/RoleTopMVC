@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleTOP_MVC.Enums;
+using RoleTOP_MVC.Models;
 using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
 
@@ -25,7 +26,7 @@ namespace RoleTOP_MVC.Controllers {
 
             evm.UsuarioEmail = ObterUsuarioSession ();
             evm.UsuarioNome = ObterUsuarioNomeSession ();
-            evm.UsuarioTipo = ObterUsuarioTipoSession();
+            evm.UsuarioTipo = ObterUsuarioTipoSession ();
             return View (evm);
         }
 
@@ -70,15 +71,16 @@ namespace RoleTOP_MVC.Controllers {
             }
         }
         public IActionResult Usuario () {
+            UsuarioViewModel uvm = new UsuarioViewModel ();
             var emailCliente = HttpContext.Session.GetString (SESSION_CLIENTE_EMAIL);
             var agendamentosCliente = agendamentoRepository.ObterTodosPorCliente (emailCliente);
-
-            return View (new UsuarioViewModel (agendamentosCliente) {
-                NomeView = "Cliente",
-                    UsuarioEmail = ObterUsuarioSession (),
-                    UsuarioNome = ObterUsuarioNomeSession (),
-                    UsuarioTipo = ObterUsuarioTipoSession()
-            });
+            
+            uvm.qtdAgendamentos = (uint) agendamentosCliente.Count;
+            uvm.NomeView = "Cliente";
+            uvm.UsuarioEmail = ObterUsuarioSession ();
+            uvm.UsuarioNome = ObterUsuarioNomeSession ();
+            uvm.UsuarioTipo = ObterUsuarioTipoSession ();
+            return View (uvm);
         }
         public IActionResult Logoff () {
             HttpContext.Session.Remove (SESSION_CLIENTE_EMAIL);

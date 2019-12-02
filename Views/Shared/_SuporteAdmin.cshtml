@@ -23,11 +23,9 @@
             <textarea id="descricao-evento" rows="10" required placeholder="Digite aqui" name="resposta"></textarea>
             <p class="info-resumo"><i class="fas fa-exclamation-circle"></i>Ao enviar a resposta, será encaminhado ao
                 email descrito pelo usuário.</p>
-            <label for="email">Email</label>
-            <input type="email" id="email" value="@Model.Faq.Email" disabled name="email">
-            <br>
-            <label for="id">Id da mensagem</label>
-            <input type="text" id="id" value="@Model.Faq.ID" disabled name="id">
+            
+            <input type="hidden" value="@Model.Faq.Email" name="email">
+            <input type="hidden" value="@Model.Faq.ID" name="id">
                 
             <div class="btn">
                 <input id="enviar-resposta" type="submit" value="Enviar Resposta">

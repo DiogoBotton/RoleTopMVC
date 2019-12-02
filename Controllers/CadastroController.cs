@@ -14,7 +14,7 @@ namespace RoleTOP_MVC.Controllers {
         [HttpGet]
         public IActionResult Index () {
             ErrosViewModel evm = new ErrosViewModel ();
-            
+
             //TODO ARRUMAR: Lista vindo NULA ou VAZIA.
             var erros = TempData["Cadastro"] as List<string>;
             if (erros != null) {
@@ -25,7 +25,7 @@ namespace RoleTOP_MVC.Controllers {
             }
             evm.UsuarioEmail = ObterUsuarioSession ();
             evm.UsuarioNome = ObterUsuarioNomeSession ();
-            evm.UsuarioTipo = ObterUsuarioTipoSession();
+            evm.UsuarioTipo = ObterUsuarioTipoSession ();
             return View (evm);
         }
 
@@ -42,8 +42,16 @@ namespace RoleTOP_MVC.Controllers {
             cliente.Tel = form["telefone"];
             cliente.TipoUsuario = (uint) TipoClienteEnum.USUARIO;
 
-            //método lógico de exibição de erro se termos não forem aceitos ou validação de senha caso diferentes. 
+            List<string> erros = new List<string> ();
+            //Verificação de email's já existentes.
+            var email = clienteRepository.ObterPor (cliente.Email);
+            if (email != null) {
+                erros.Add ($"Email {cliente.Email} já existe.");
+                TempData["Cadastro"] = erros;
+                return RedirectToAction ("Index", "Cadastro");
+            }
 
+            //método lógico de exibição de erro se termos não forem aceitos ou validação de senha caso diferentes. 
             int codErro = 0;
 
             bool termos = form["termos"] == "1";
@@ -57,7 +65,6 @@ namespace RoleTOP_MVC.Controllers {
             }
 
             //RespostaViewModel
-            List<string> erros = new List<string> ();
             switch (codErro) {
                 case 0:
                     string senha = form["senha"];
@@ -67,7 +74,7 @@ namespace RoleTOP_MVC.Controllers {
                             NomeView = "Cadastro",
                                 UsuarioEmail = ObterUsuarioSession (),
                                 UsuarioNome = ObterUsuarioNomeSession (),
-                                UsuarioTipo = ObterUsuarioTipoSession()
+                                UsuarioTipo = ObterUsuarioTipoSession ()
                         });
                     } else {
                         erros.Add ("Houve um erro na efetuação do cadastro. Tente novamente mais tarde.");
@@ -86,6 +93,7 @@ namespace RoleTOP_MVC.Controllers {
                     erros.Add ("Você precisa aceitar os termos de uso.");
                     erros.Add ("Confirmação de senha incorreta.");
                     TempData["Cadastro"] = erros;
+                    TempData.Keep("Cadastro");
                     return RedirectToAction ("Index", "Cadastro");
                 default:
                     return View ("Index");

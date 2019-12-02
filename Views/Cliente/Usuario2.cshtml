@@ -1,0 +1,25 @@
+@model RoleTOP_MVC.ViewModels.UsuarioViewModel
+<main>
+        <p class="titulo-pedidos">Pedidos:</p>
+        <p class="divisoria-rodape"></p>
+        @if(Model.Agendamentos.Any()){
+            
+            
+        }
+        else{
+        <div class="nenhuma-reserva">
+            <div>
+                <p class="info-vazio"><i class="fas fa-exclamation-circle"></i>Não há nenhuma reserva do salão em sua
+                    conta.</p>
+            </div>
+        </div>
+        }
+        <p class="divisoria-rodape"></p>
+        <div class="btn-minhaconta">
+            <p class="titulo-pedidos">Opções:</p>
+            <a asp-controller="Cliente" asp-action="Logoff" class="btn">Sair (logout)<i class="fas fa-angle-right"></i></a>
+            <a asp-controller="Cliente" asp-action="ExcluirConta" class="btn">Excluir conta<i class="fas fa-angle-right"></i></a>
+        </div>
+
+        <p class="divisoria-rodape"></p>
+    </main>

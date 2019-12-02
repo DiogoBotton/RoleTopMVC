@@ -3,9 +3,9 @@
         <p class="titulo-pedidos">Pedidos:</p>
         <p class="divisoria-rodape"></p>
         @if(Model.Agendamentos.Any()){
+            
             @foreach (var pedido in Model.Agendamentos)
             {
-            
             <div class="resumo-usuario">
                 <div>
                     <p class="titulo-resumo">@pedido.NomeEvento</p>
@@ -28,6 +28,10 @@
                             <th>Valor TOTAL pago:</th>
                             <td>R$ @pedido.PrecoTotal</td>
                         </tr>
+                        <tr>
+                            <th>Status do Pedido:</th>
+                            <td>@pedido.StatusString</td>
+                        </tr>
                     </table>
                     <p class="info-resumo"><i class="fas fa-exclamation-circle"></i>Em caso de cancelamento de evento, após
                         passar 3 dias da data da compra, será aplicada uma multa de 50% do valor total.</p>
@@ -35,7 +39,7 @@
                 <div class="btn-usuario">
                     <a href="#" class="btn-cancelar">Cancelar Evento</a>
                 </div>
-            </div>;
+            </div>
             }
         }
         else{

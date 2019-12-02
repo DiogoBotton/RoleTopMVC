@@ -4,6 +4,7 @@ namespace RoleTOP_MVC.Enums
     {
         PENDENTE = 0,
         APROVADO = 1,
-        REPROVADO = 2
+        REPROVADO = 2,
+        CANCELADO = 3
     }
 }
