@@ -90,11 +90,9 @@ namespace RoleTOP_MVC.Controllers {
                             break;
                         case (uint) StatusAgendamentoEnum.PENDENTE:
                             uvm.PedidosPendentes++;
-                            uvm.Agendamentos.Add (item);
                             break;
                         default:
                             uvm.PedidosPendentes++;
-                            uvm.Agendamentos.Add (item);
                             break;
                     }
                 }

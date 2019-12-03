@@ -78,7 +78,6 @@ namespace RoleTOP_MVC.Controllers {
             string mensagem = form["resposta"];
             ulong idFaq = 99;
 
-            //* ERRO na conversão (não converte para ulong)
             bool converteu = ulong.TryParse (form["id"], out idFaq);
             if (converteu) {
                 if (SendMail (emailDestinatario, mensagem)) {
@@ -138,7 +137,7 @@ namespace RoleTOP_MVC.Controllers {
                 // Usuario(roletop.senai@gmail.com) Senha(senai@132)
                 _smtpClient.EnableSsl = true;
 
-                //* Erro no envio.
+                //* Erro no envio pois não há servidor SmtpClient aberto.
                 _smtpClient.Send (_mailMessage);
 
                 return true;
@@ -147,10 +146,10 @@ namespace RoleTOP_MVC.Controllers {
                 return false;
             }
 
-            //TODO Mensagens de usuarios (FAQ) Fazer mesmo processo de metodos aprovar e reprovar eventos
-
             //TODO À PARTE: TempData retornando todas as informações digitadas do usuario caso dê algum erro (no cadastro e agendamento)
-            //Todo Verificar por que tempdata vem vazio quando recebe uma Lista de Strings
+            //TODO Validação de formas de pagamento e Tipos de eventos.
+            //TODO Tela de programação (mostrar apenas agendamentos aprovados e públicos)
+            //TODO Home gallery css de eventos fazer o mesmo que programação.
         }
     }
 }
