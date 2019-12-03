@@ -15,7 +15,7 @@ namespace RoleTOP_MVC.Controllers {
             var erro = TempData["Faq"] as string;
             if (!string.IsNullOrEmpty (erro)) {
                 evm.NomeView = "Erro";
-                evm.Mensagem.Add(erro);
+                evm.Mensagem.Add (erro);
             } else {
                 evm.NomeView = "Faq";
             }
@@ -46,14 +46,17 @@ namespace RoleTOP_MVC.Controllers {
                 return RedirectToAction ("Index", "Faq");
             }
         }
-        public IActionResult Visualizar (ulong id){
-            SuporteAdminViewModel avm = new SuporteAdminViewModel();
-            var faq = faqRepository.ObterPor(id);
-            if(faq != null){
-               avm.Faq = faq;
-               return View("_SuporteAdmin", avm);
+        public IActionResult Visualizar (ulong id) {
+            SuporteAdminViewModel avm = new SuporteAdminViewModel ();
+            var faq = faqRepository.ObterPor (id);
+            if (faq != null) {
+                avm.Faq = faq;
+                avm.UsuarioEmail = ObterUsuarioSession ();
+                avm.UsuarioNome = ObterUsuarioNomeSession ();
+                avm.UsuarioTipo = ObterUsuarioTipoSession ();
+                return View ("_SuporteAdmin", avm);
             }
-            return RedirectToAction("Index","Administrador");
+            return RedirectToAction ("Index", "Administrador");
         }
     }
 }

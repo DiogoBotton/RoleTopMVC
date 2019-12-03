@@ -71,17 +71,61 @@ namespace RoleTOP_MVC.Controllers {
             }
         }
         public IActionResult Usuario () {
+            bool ninguemLogado = string.IsNullOrEmpty (ObterUsuarioSession ());
+            if (!ninguemLogado) {
+                UsuarioViewModel uvm = new UsuarioViewModel ();
+                var emailCliente = HttpContext.Session.GetString (SESSION_CLIENTE_EMAIL);
+                var agendamentosCliente = agendamentoRepository.ObterTodosPorCliente (emailCliente);
+
+                foreach (var item in agendamentosCliente) {
+                    switch (item.Status) {
+                        case (uint) StatusAgendamentoEnum.APROVADO:
+                            uvm.PedidosAprovados++;
+                            break;
+                        case (uint) StatusAgendamentoEnum.REPROVADO:
+                            uvm.PedidosReprovados++;
+                            break;
+                        case (uint) StatusAgendamentoEnum.CANCELADO:
+                            uvm.PedidosCancelados++;
+                            break;
+                        case (uint) StatusAgendamentoEnum.PENDENTE:
+                            uvm.PedidosPendentes++;
+                            uvm.Agendamentos.Add (item);
+                            break;
+                        default:
+                            uvm.PedidosPendentes++;
+                            uvm.Agendamentos.Add (item);
+                            break;
+                    }
+                }
+
+                uvm.qtdAgendamentos = (uint) agendamentosCliente.Count;
+                uvm.NomeView = "Usuario";
+                uvm.UsuarioEmail = ObterUsuarioSession ();
+                uvm.UsuarioNome = ObterUsuarioNomeSession ();
+                uvm.UsuarioTipo = ObterUsuarioTipoSession ();
+                return View (uvm);
+            } else {
+                return RedirectToAction ("Index", "Home");
+            }
+        }
+
+        public IActionResult Visualizar (uint status) {
             UsuarioViewModel uvm = new UsuarioViewModel ();
-            var emailCliente = HttpContext.Session.GetString (SESSION_CLIENTE_EMAIL);
+            var emailCliente = ObterUsuarioSession ();
             var agendamentosCliente = agendamentoRepository.ObterTodosPorCliente (emailCliente);
-            
-            uvm.qtdAgendamentos = (uint) agendamentosCliente.Count;
-            uvm.NomeView = "Cliente";
+            foreach (var item in agendamentosCliente) {
+                if (item.Status == (uint) status) {
+                    uvm.Agendamentos.Add (item);
+                }
+            }
+
             uvm.UsuarioEmail = ObterUsuarioSession ();
             uvm.UsuarioNome = ObterUsuarioNomeSession ();
             uvm.UsuarioTipo = ObterUsuarioTipoSession ();
-            return View (uvm);
+            return View ("_AgendamentosUsuario", uvm);
         }
+
         public IActionResult Logoff () {
             HttpContext.Session.Remove (SESSION_CLIENTE_EMAIL);
             HttpContext.Session.Remove (SESSION_CLIENTE_NOME);

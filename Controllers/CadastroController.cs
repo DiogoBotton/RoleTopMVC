@@ -7,6 +7,7 @@ using RoleTOP_MVC.Enums;
 using RoleTOP_MVC.Models;
 using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
+using System.Linq;
 
 namespace RoleTOP_MVC.Controllers {
     public class CadastroController : AbstractController {
@@ -15,11 +16,12 @@ namespace RoleTOP_MVC.Controllers {
         public IActionResult Index () {
             ErrosViewModel evm = new ErrosViewModel ();
 
-            //TODO ARRUMAR: Lista vindo NULA ou VAZIA.
-            var erros = TempData["Cadastro"] as List<string>;
+            //TODO ARRUMAR: Lista vindo com informações, MAS variavel erros não recebe seu conteúdo, continua NULL.
+            var erros = TempData["Cadastro"] as IEnumerable<string>;
             if (erros != null) {
+                List<string> erroConvertido = erros.OfType<string>().ToList();
                 evm.NomeView = "Erros";
-                evm.Mensagem = erros;
+                evm.Mensagem = erroConvertido;
             } else {
                 evm.NomeView = "Cadastro";
             }

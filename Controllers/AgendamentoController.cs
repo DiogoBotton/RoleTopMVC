@@ -89,7 +89,7 @@ namespace RoleTOP_MVC.Controllers {
                 DescricaoEvento = form["descricao-evento"],
                 FormaPagamento = form["pagamento"],
                 PrecoTotal = SvcPreco,
-                StatusString = StatusAgendamentoEnum.PENDENTE.ToString()
+                StatusString = StatusAgendamentoEnum.PENDENTE.ToString ()
                 //TODO BANNER (IMG)
             };
 
@@ -119,39 +119,42 @@ namespace RoleTOP_MVC.Controllers {
             var agendamento = agendamentoRepository.ObterPor (id);
             if (agendamento != null) {
                 ivm.evento = agendamento;
+                ivm.UsuarioEmail = ObterUsuarioSession ();
+                ivm.UsuarioNome = ObterUsuarioNomeSession ();
+                ivm.UsuarioTipo = ObterUsuarioTipoSession ();
                 return View ("_InfoEvento", ivm);
             }
-            return RedirectToAction("Index","Administrador");
+            return RedirectToAction ("Index", "Administrador");
         }
-        public IActionResult Aprovar (ulong id){
-            var agendamento = agendamentoRepository.ObterPor(id);
+        public IActionResult Aprovar (ulong id) {
+            var agendamento = agendamentoRepository.ObterPor (id);
             agendamento.Status = (uint) StatusAgendamentoEnum.APROVADO;
-            agendamento.StatusString = StatusAgendamentoEnum.APROVADO.ToString();
+            agendamento.StatusString = StatusAgendamentoEnum.APROVADO.ToString ();
 
-            if(agendamentoRepository.Atualizar(agendamento)){
-                return RedirectToAction("Index","Administrador");
+            if (agendamentoRepository.Atualizar (agendamento)) {
+                return RedirectToAction ("Index", "Administrador");
             }
-            return RedirectToAction("Index","Administrador");
+            return RedirectToAction ("Index", "Administrador");
         }
-        public IActionResult Recusar (ulong id){
-            var agendamento = agendamentoRepository.ObterPor(id);
+        public IActionResult Recusar (ulong id) {
+            var agendamento = agendamentoRepository.ObterPor (id);
             agendamento.Status = (uint) StatusAgendamentoEnum.REPROVADO;
-            agendamento.StatusString = StatusAgendamentoEnum.REPROVADO.ToString();
+            agendamento.StatusString = StatusAgendamentoEnum.REPROVADO.ToString ();
 
-            if(agendamentoRepository.Atualizar(agendamento)){
-                return RedirectToAction("Index","Administrador");
+            if (agendamentoRepository.Atualizar (agendamento)) {
+                return RedirectToAction ("Index", "Administrador");
             }
-            return RedirectToAction("Index","Administrador");
+            return RedirectToAction ("Index", "Administrador");
         }
-        public IActionResult Cancelar (ulong id){
-            var agendamento = agendamentoRepository.ObterPor(id);
+        public IActionResult Cancelar (ulong id) {
+            var agendamento = agendamentoRepository.ObterPor (id);
             agendamento.Status = (uint) StatusAgendamentoEnum.CANCELADO;
-            agendamento.StatusString = StatusAgendamentoEnum.CANCELADO.ToString();
+            agendamento.StatusString = StatusAgendamentoEnum.CANCELADO.ToString ();
 
-            if(agendamentoRepository.Atualizar(agendamento)){
-                return RedirectToAction("Index","Administrador");
+            if (agendamentoRepository.Atualizar (agendamento)) {
+                return RedirectToAction ("Usuario", "Cliente");
             }
-            return RedirectToAction("Index","Administrador");
+            return RedirectToAction ("Usuario", "Cliente");
         }
     }
 }

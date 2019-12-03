@@ -1,0 +1,53 @@
+@model RoleTOP_MVC.ViewModels.UsuarioViewModel
+<main>
+    @if(Model.Agendamentos.Any()){
+        foreach (var pedido in Model.Agendamentos)
+        {
+            <p class="titulo-pedidos">Pedidos com status @pedido.StatusString:</p>
+        <div class="resumo-usuario">
+            <div>
+                <p class="titulo-resumo">@pedido.NomeEvento</p>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <th>Espaço alugado para o dia:</th>
+                        <td>@pedido.DataDoEvento</td>
+                    </tr>
+                    <tr>
+                        <th>Data da compra:</th>
+                        <td>@pedido.DataDoAgendamento</td>
+                    </tr>
+                    <tr>
+                        <th>Serviços adicionais:</th>
+                        <td>@pedido.SvcAdicionais</td>
+                    </tr>
+                    <tr>
+                        <th>Valor TOTAL pago:</th>
+                        <td>R$ @pedido.PrecoTotal</td>
+                    </tr>
+                    <tr>
+                        <th>Status do Pedido:</th>
+                        <td>@pedido.StatusString</td>
+                    </tr>
+                </table>
+            </div>
+                @if(pedido.Status != (uint) 3 && pedido.Status != (uint) 2){
+
+                <p class="info-resumo"><i class="fas fa-exclamation-circle"></i>Em caso de cancelamento de evento, após
+                    passar 3 dias da data da compra, será aplicada uma multa de 50% do valor total.</p>
+            <div class="btn-usuario">
+                <a href='@Url.Action("Cancelar","Agendamento", new {id = @pedido.ID})' class="btn-cancelar">Cancelar Evento</a>
+            </div>
+                }
+        </div>
+        }
+    }
+    else{
+        <div class="nenhuma-reserva">
+            <div>
+                <p class="info-vazio"><i class="fas fa-exclamation-circle"></i>Não há nenhum pedido com este status.</p>
+            </div>
+        </div>
+    }
+</main>
