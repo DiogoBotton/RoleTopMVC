@@ -26,7 +26,7 @@ namespace RoleTOP_MVC.Repositories {
 
             if (!string.IsNullOrEmpty (SvcAdicionais)) {
                 string[] servico = SvcAdicionais.Split (",");
-
+                
                 for (int i = 0; i < servico.Length; i++) {
                     string svc = servico[i];
                     if (servicos.ContainsKey (svc)) {

@@ -19,6 +19,7 @@ namespace RoleTOP_MVC.Models
         public string SvcAdicionais {get;set;}
         public string FormaPagamento {get;set;}
         public double PrecoTotal {get;set;}
+        public string bannerURL {get;set;}
         //TODO Forma para armazenar imagem (banner do evento)
 
         public Agendamento(){

@@ -7,7 +7,7 @@
             
             <div class="banner-evento">
                     <p class="info-titulo">Banner do evento:</p>
-                    <img src="Img/Pink floyd.png">
+                    <img src="@Model.evento.bannerURL" alt="Banner do evento">
                 </div>
 
                 <p class="info-titulo">Especificações do Evento</p>
@@ -36,9 +36,6 @@
                 </tr>
                 <tr>
                     <th>Forma de Pagamento:</th><td>@Model.evento.FormaPagamento</td>
-                </tr>
-                <tr>
-                    <th>Tipo do Evento:</th><td>@Model.evento.TipoEvento</td>
                 </tr>
                 <tr>
                     <th>Valor TOTAL pago:</th><td>R$ @Model.evento.PrecoTotal</td>

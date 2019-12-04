@@ -96,24 +96,27 @@
                 <div class="section-pagamento">
 
 
-                    <div class="icones">
-                        <p>Cartão de débito/crédito:</p>
-                        <input type="radio" id="paypal" name="pagamento" value="PayPal">
-                        <label for="paypal"><i class="fab fa-cc-paypal"></i></label>
-
-                        <input type="radio" id="mastercard" name="pagamento" value="MasterCard">
-                        <label for="mastercard"><i class="fab fa-cc-mastercard"></i></label>
-
-                        <input type="radio" id="visa" name="pagamento" value="Visa">
-                        <label for="visa"><i class="fab fa-cc-visa"></i></label>
+                        <div class="icones">
+                            <p>Cartão de débito/crédito:</p>
+                        @foreach (var pagamento in Model.formasPagamento)
+                        {
+                        if(!"Boleto".Equals(pagamento.Nome)){
+                        <input type="radio" id="@pagamento.Nome" name="pagamento" value="@pagamento.Nome">
+                        <label for="@pagamento.Nome"><i class="@pagamento.classORdir"></i></label>
+                        }
+                        }
+                        </div>
+                        <div class="boleto">
+                            <p>Boleto:</p>
+                        @foreach (var boleto in Model.formasPagamento)
+                        {
+                            if("Boleto".Equals(boleto.Nome)){
+                                <input type="radio" id="@boleto.Nome" name="pagamento" value="@boleto.Nome">
+                                <label for="@boleto.Nome"><img src="@boleto.classORdir"></label>;
+                            }
+                        }
+                        </div>
                     </div>
-                    <div class="boleto">
-                        <p>Boleto:</p>
-                        <input type="radio" id="boleto" name="pagamento" value="Boleto">
-                        <label for="boleto"><img src="/Img/boleto.svg"></label>
-                    </div>
-                </div>
-
                 <div>
                     <input type="submit" id="bt-enviar" value="Solicitar Agendamento">
                 </div>

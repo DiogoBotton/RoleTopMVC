@@ -474,7 +474,7 @@ form p {
 .section-pagamento p {
     font-size: 1.2em;
 }
-#paypal,#mastercard,#visa,#boleto {
+#PayPal,#MasterCard,#Visa,#Boleto {
     display: none;
 }
 .check-radio-centro {
