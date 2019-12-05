@@ -4,11 +4,12 @@
             <div>
                 <p class="titulo-resumo">@Model.evento.Cliente.Email</p>
             </div>
-            
-            <div class="banner-evento">
+            @if(!string.IsNullOrEmpty(Model.evento.bannerURL)){
+                <div class="banner-evento">
                     <p class="info-titulo">Banner do evento:</p>
-                    <img src="@Model.evento.bannerURL" alt="Banner do evento">
+                    <img src="@Model.url_banner" alt="Banner do evento" width="600px" height="300px">
                 </div>
+            }
 
                 <p class="info-titulo">Especificações do Evento</p>
             <div class="info-evento">

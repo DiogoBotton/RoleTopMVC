@@ -6,7 +6,7 @@
 
         <div id="input-container">
 
-            <form class="formularios" method="POST" action='@Url.Action("Registrar","Agendamento")'>
+            <form enctype="multipart/form-data" class="formularios" method="POST" action='@Url.Action("Registrar","Agendamento")'>
                 @if ("Termos".Equals(Model.NomeView)){
                     @foreach (string msg in Model.Erros)
                     {   
@@ -72,7 +72,7 @@
 
 
                 <p>Banner do evento: <i>(Opcional)</i></p>
-                <input type="file" name="banner" accept="image/*"><Br>
+                <input type="file" name="banner" accept="image/*"/><Br>
 
 
                 <div>

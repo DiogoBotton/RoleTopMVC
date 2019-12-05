@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleTOP_MVC.Enums;
 using RoleTOP_MVC.Models;
 using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
-using System.IO;
 
 namespace RoleTOP_MVC.Controllers {
     public class AgendamentoController : AbstractController {
@@ -14,13 +15,13 @@ namespace RoleTOP_MVC.Controllers {
         EventosRepository eventosRepository = new EventosRepository ();
         ServicosRepository servicosRepository = new ServicosRepository ();
         ClienteRepository clienteRepository = new ClienteRepository ();
-        FormaPagamentoRepository pagamentoRepository = new FormaPagamentoRepository();
+        FormaPagamentoRepository pagamentoRepository = new FormaPagamentoRepository ();
         [HttpGet]
         public IActionResult Index () {
             AgendamentoViewModel avm = new AgendamentoViewModel ();
             avm.tipoEventos = eventosRepository.ObterTodos ();
             avm.servicos = servicosRepository.ObterTodos ();
-            avm.formasPagamento = pagamentoRepository.ObterTodos();
+            avm.formasPagamento = pagamentoRepository.ObterTodos ();
 
             var emailCliente = ObterUsuarioSession ();
             if (!string.IsNullOrEmpty (emailCliente)) {
@@ -81,21 +82,24 @@ namespace RoleTOP_MVC.Controllers {
             double SvcPreco = servicosRepository.ObterPrecoTotal (SvcAdicionais);
 
             Agendamento a = new Agendamento ();
-                a.Cliente = c;
-                a.NomeEvento = form["nome-evento"];
-                a.TipoEvento = form["evento"];
-                a.Privacidade = privacidade.ToString ();
-                a.QtdConvidados = form["qtd-convidados"];
-                a.DataDoEvento = Convert.ToDateTime (form["data-evento"]);
-                a.DataDoAgendamento = DateTime.Now;
-                a.SvcAdicionais = form["sv-adc"];
-                a.DescricaoEvento = form["descricao-evento"];
-                a.FormaPagamento = form["pagamento"];
-                a.PrecoTotal = SvcPreco;
-                a.StatusString = StatusAgendamentoEnum.PENDENTE.ToString ();
-                a.bannerURL = $"wwwroot\\{PATH_BANNER}\\{c.Email}\\{a.DataDoAgendamento.ToShortDateString()}\\"; //Método apenas mantem a data
-                //TODO BANNER (IMG)
-                
+            a.Cliente = c;
+            a.NomeEvento = form["nome-evento"];
+            a.TipoEvento = form["evento"];
+            a.Privacidade = privacidade.ToString ();
+            a.QtdConvidados = form["qtd-convidados"];
+            a.DataDoEvento = Convert.ToDateTime (form["data-evento"]);
+            a.DataDoAgendamento = DateTime.Now.ToShortDateString ();
+            a.SvcAdicionais = form["sv-adc"];
+            a.DescricaoEvento = form["descricao-evento"];
+            a.FormaPagamento = form["pagamento"];
+            a.PrecoTotal = SvcPreco;
+            a.StatusString = StatusAgendamentoEnum.PENDENTE.ToString ();
+            //TODO BANNER (IMG)
+            
+            var agendamentoID = agendamentoRepository.ObterNextID(); 
+            string urlBanner = $"wwwroot\\{PATH_BANNER}\\{c.Email}\\{agendamentoID}\\";
+            GravarImagem (form.Files, urlBanner);
+            a.bannerURL = urlBanner;
 
             bool termos = form["termos"] == "1";
             if (termos) {
@@ -118,13 +122,12 @@ namespace RoleTOP_MVC.Controllers {
             }
         }
 
-        public async void GravarImagem(IFormFileCollection arquivos, string urlImagem){//Métodos async fazem com que o programa não precise de esperar este método terminar de ser executado para dar continuidade a execução do programa.
-            foreach (var img in arquivos)
-            {
-                System.IO.Directory.CreateDirectory(urlImagem).Create();
-                var file = System.IO.File.Create(urlImagem); //img.FileName não é int
-                await img.CopyToAsync(file);
-                file.Close();
+        public async void GravarImagem (IFormFileCollection arquivos, string urlImagem) { //Métodos async fazem com que o programa não precise de esperar este método terminar de ser executado para dar continuidade a execução do programa.
+            foreach (var img in arquivos) {
+                System.IO.Directory.CreateDirectory (urlImagem).Create ();
+                var file = System.IO.File.Create (urlImagem + img.FileName); // caminho: urlImagem\\Nome do arquivo.
+                await img.CopyToAsync (file);
+                file.Close ();
             }
         }
 
@@ -132,6 +135,10 @@ namespace RoleTOP_MVC.Controllers {
             InfoEventoViewModel ivm = new InfoEventoViewModel ();
             var agendamento = agendamentoRepository.ObterPor (id);
             if (agendamento != null) {
+                var urlBanner = Directory.GetFiles(agendamento.bannerURL).FirstOrDefault();
+                var urlBannerTratado = urlBanner.Replace("\\","/").Replace("wwwroot","");
+                
+                ivm.url_banner = urlBannerTratado;
                 ivm.evento = agendamento;
                 ivm.UsuarioEmail = ObterUsuarioSession ();
                 ivm.UsuarioNome = ObterUsuarioNomeSession ();
