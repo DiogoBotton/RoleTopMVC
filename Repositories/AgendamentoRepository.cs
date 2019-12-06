@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using RoleTOP_MVC.Enums;
 using RoleTOP_MVC.Models;
 
 namespace RoleTOP_MVC.Repositories {
@@ -71,6 +72,17 @@ namespace RoleTOP_MVC.Repositories {
                 }
             }
             return null;
+        }
+        public List<Agendamento> ObterPorStatusAprovado(){
+            var lista = ObterTodos();
+            List<Agendamento> aprovados = new List<Agendamento>();
+            foreach (var item in lista)
+            {
+                if(item.Status.Equals((uint) StatusAgendamentoEnum.APROVADO) && item.Privacidade.Equals(PrivacidadeEnum.PUBLICO.ToString())){
+                    aprovados.Add(item);
+                }
+            }
+        return aprovados;
         }
         public List<Agendamento> ObterTodos () {
             string[] linhas = File.ReadAllLines (PATH);

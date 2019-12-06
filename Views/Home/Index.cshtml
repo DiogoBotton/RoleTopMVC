@@ -1,5 +1,5 @@
-﻿
-    <main>
+﻿@model RoleTOP_MVC.ViewModels.HomeViewModel
+<main>
         <div id="sobrenos">
             <p>Sobre nós</p>
             <p> Em química e física, Teoria atômica ou teoria atómica é a teoria científica que afirma que a matéria é
@@ -17,30 +17,25 @@
         </div>
         <div class="programacao">
             <p class="programacao-top">ProgramacAo</p>
-            <div class="gallery autoplay items-4">
-                <div id="item-1" class="control-operator"></div>
-                <div id="item-2" class="control-operator"></div>
-                <div id="item-3" class="control-operator"></div>
-                <div id="item-4" class="control-operator"></div>
-
-                <figure class="item">
-                    <h1><a href="evento-publico.html"><img src="/Img/Pink floyd.png"></a></h1>
-                </figure>
-                <figure class="item">
-                    <h1><img src="/Img/legiao urbana.jpg"></h1>
-                </figure>
-                <figure class="item">
-                    <h1><img src="/Img/metallica.jpg"></h1>
-                </figure>
-                <figure class="item">
-                    <h1><img src="/Img/velhas virgens.jpg"></h1>
-                </figure>
+            <div class="gallery autoplay items-@Model.Programacao.Count">
+                @foreach (var item in Model.Programacao)
+                {
+                <div id="item-@item.ID" class="control-operator"></div>
+                }
+                
+                @foreach (var item in Model.Programacao)
+                {
+                    <figure class="item">
+                        <h1><a href='@Url.Action("Visualizar","Home", new {id = @item.ID})'><img src="@item.bannerURL" width="600px" height="300px"></a></h1>
+                    </figure>    
+                }
 
                 <div class="controls">
-                    <a href="#item-1" class="control-button">.</a>
-                    <a href="#item-2" class="control-button">.</a>
-                    <a href="#item-3" class="control-button">.</a>
-                    <a href="#item-4" class="control-button">.</a>
+                    @foreach (var item in Model.Programacao)
+                    {
+                    <a href="#item-@item.ID" class="control-button">.</a>
+                        
+                    }
                 </div>
             </div>
             <p class="programacao-bottom">Role tOp</p>

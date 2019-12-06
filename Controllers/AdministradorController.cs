@@ -137,7 +137,8 @@ namespace RoleTOP_MVC.Controllers {
                 // Usuario(roletop.senai@gmail.com) Senha(senai@132)
                 _smtpClient.EnableSsl = true;
 
-                //* Erro no envio pois não há servidor SmtpClient aberto.
+                //* CORRIGIDO: Erro no envio pois não havia servidor SmtpClient aberto.
+                //* Apenas foi feito uma configuração da conta remetente para habilitar o envio de emails 
                 _smtpClient.Send (_mailMessage);
 
                 return true;
