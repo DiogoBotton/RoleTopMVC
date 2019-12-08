@@ -150,7 +150,6 @@ namespace RoleTOP_MVC.Controllers {
             //TODO À PARTE: TempData retornando todas as informações digitadas do usuario caso dê algum erro (no cadastro e agendamento)
             //TODO Validação de formas de pagamento e Tipos de eventos.
             //TODO Tela de programação (mostrar apenas agendamentos aprovados e públicos)
-            //TODO Home gallery css de eventos fazer o mesmo que programação.
         }
     }
 }

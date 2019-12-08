@@ -31,8 +31,19 @@ namespace RoleTOP_MVC.Controllers {
         }
         public IActionResult Visualizar(ulong id){
             var evento = agendamentoRepository.ObterPor(id);
-            //TODO Fazer pagina de evento publico.
-            return View();
+
+            var url_Banner = Directory.GetFiles(evento.bannerURL).FirstOrDefault();
+            var url_BannerTratado = url_Banner.Replace("\\","/").Replace("wwwroot","");
+
+            evento.bannerURL = url_BannerTratado;
+            
+            return View ("_EventoPublico", new InfoEventoViewModel() {
+                NomeView = "Evento",
+                    UsuarioEmail = ObterUsuarioSession (),
+                    UsuarioNome = ObterUsuarioNomeSession (),
+                    UsuarioTipo = ObterUsuarioTipoSession(),
+                    evento = evento
+            });
         }
         public IActionResult Estrutura () {
             return View (new BaseViewModel () {

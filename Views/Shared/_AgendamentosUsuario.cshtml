@@ -1,9 +1,9 @@
 @model RoleTOP_MVC.ViewModels.UsuarioViewModel
 <main>
     @if(Model.Agendamentos.Any()){
+    <p class="titulo-pedidos">Pedidos com status @Model.PedidoStatus</p>
         foreach (var pedido in Model.Agendamentos)
         {
-            <p class="titulo-pedidos">Pedidos com status @pedido.StatusString:</p>
         <div class="resumo-usuario">
             <div>
                 <p class="titulo-resumo">@pedido.NomeEvento</p>

@@ -95,11 +95,15 @@ namespace RoleTOP_MVC.Controllers {
             a.PrecoTotal = SvcPreco;
             a.StatusString = StatusAgendamentoEnum.PENDENTE.ToString ();
             //TODO BANNER (IMG)
-            
-            var agendamentoID = agendamentoRepository.ObterNextID(); 
-            string urlBanner = $"wwwroot\\{PATH_BANNER}\\{c.Email}\\{agendamentoID}\\";
-            GravarImagem (form.Files, urlBanner);
-            a.bannerURL = urlBanner;
+
+            if (form.Files.Any ()) {
+                var agendamentoID = agendamentoRepository.ObterNextID ();
+                string urlBanner = $"wwwroot\\{PATH_BANNER}\\{c.Email}\\{agendamentoID}\\";
+                GravarImagem (form.Files, urlBanner);
+                a.bannerURL = urlBanner;
+            } else {
+            a.bannerURL = $"wwwroot\\{PATH_BANNER}\\banner_padrao\\";
+            }
 
             bool termos = form["termos"] == "1";
             if (termos) {
@@ -135,9 +139,9 @@ namespace RoleTOP_MVC.Controllers {
             InfoEventoViewModel ivm = new InfoEventoViewModel ();
             var agendamento = agendamentoRepository.ObterPor (id);
             if (agendamento != null) {
-                var urlBanner = Directory.GetFiles(agendamento.bannerURL).FirstOrDefault();
-                var urlBannerTratado = urlBanner.Replace("\\","/").Replace("wwwroot","");
-                
+                var urlBanner = Directory.GetFiles (agendamento.bannerURL).FirstOrDefault ();
+                var urlBannerTratado = urlBanner.Replace ("\\", "/").Replace ("wwwroot", "");
+
                 ivm.url_banner = urlBannerTratado;
                 ivm.evento = agendamento;
                 ivm.UsuarioEmail = ObterUsuarioSession ();

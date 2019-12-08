@@ -115,6 +115,8 @@ namespace RoleTOP_MVC.Controllers {
             foreach (var item in agendamentosCliente) {
                 if (item.Status == (uint) status) {
                     uvm.Agendamentos.Add (item);
+                    StatusAgendamentoEnum s = (StatusAgendamentoEnum) status;
+                    uvm.PedidoStatus = s.ToString();
                 }
             }
 

@@ -80,3 +80,4 @@ C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreap
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_SuporteAdmin.g.cshtml.cs
 C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AgendamentosUsuario.g.cshtml.cs
 C:\Users\42299106812\Documents\Diogo B - D.E.V TARDE\ROLE TOP\RoleTOP_MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AgendamentosUsuario.g.cshtml.cs
+C:\Users\Diogo\Documents\Trabalhos SENAI\ROLE TOP\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_EventoPublico.g.cshtml.cs
