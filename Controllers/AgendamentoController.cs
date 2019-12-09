@@ -80,7 +80,9 @@ namespace RoleTOP_MVC.Controllers {
 
             string SvcAdicionais = form["sv-adc"];
             double SvcPreco = servicosRepository.ObterPrecoTotal (SvcAdicionais);
-
+            if(string.IsNullOrEmpty(SvcAdicionais)){
+                SvcAdicionais = "NENHUM";
+            }
             Agendamento a = new Agendamento ();
             a.Cliente = c;
             a.NomeEvento = form["nome-evento"];
@@ -89,7 +91,7 @@ namespace RoleTOP_MVC.Controllers {
             a.QtdConvidados = form["qtd-convidados"];
             a.DataDoEvento = Convert.ToDateTime (form["data-evento"]);
             a.DataDoAgendamento = DateTime.Now.ToShortDateString ();
-            a.SvcAdicionais = form["sv-adc"];
+            a.SvcAdicionais = SvcAdicionais;
             a.DescricaoEvento = form["descricao-evento"];
             a.FormaPagamento = form["pagamento"];
             a.PrecoTotal = SvcPreco;
