@@ -20,6 +20,7 @@ namespace RoleTOP_MVC.Models
         public string FormaPagamento {get;set;}
         public double PrecoTotal {get;set;}
         public string bannerURL {get;set;}
+        public int ContadorEventos {get;set;}
         //TODO Forma para armazenar imagem (banner do evento)
 
         public Agendamento(){

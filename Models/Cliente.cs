@@ -10,6 +10,7 @@ namespace RoleTOP_MVC.Models
         public string CEP {get;set;}
         public string CPF {get;set;}
         public string Tel {get;set;}
+        public string DataDoCadastro {get;set;}
         
         public Cliente(){
         

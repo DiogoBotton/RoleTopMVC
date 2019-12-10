@@ -11,7 +11,17 @@ namespace RoleTOP_MVC.Repositories {
                 File.Create (PATH).Close ();
             }
         }
+        public bool VerificarMetodoPagamento(string metodoPagamento){
+            var metodos = ObterTodos();
 
+            foreach (var pagamento in metodos)
+            {
+                if(pagamento.Nome.Equals(metodoPagamento)){
+                    return true;
+                }
+            }
+            return false;
+        }
         public List<FormaPagamento> ObterTodos () {
             List<FormaPagamento> pgmt = new List<FormaPagamento> ();
             var registros = File.ReadAllLines (PATH);

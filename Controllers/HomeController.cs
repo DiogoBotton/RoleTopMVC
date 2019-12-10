@@ -14,12 +14,14 @@ namespace RoleTOP_MVC.Controllers {
         public IActionResult Index () {
             //ViewData["NomeView"] = "Home";
             var proxEventos = agendamentoRepository.ObterPorStatusAprovado();
+            int count = 1;
             foreach (var evento in proxEventos)
             {
                 var url_Banner = Directory.GetFiles(evento.bannerURL).FirstOrDefault();
                 var url_BannerTratado = url_Banner.Replace("\\","/").Replace("wwwroot","");
-
                 evento.bannerURL = url_BannerTratado;
+                evento.ContadorEventos = count;
+                count++;
             }
             return View (new HomeViewModel() {
                 NomeView = "Home",

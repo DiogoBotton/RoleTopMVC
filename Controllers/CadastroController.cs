@@ -43,6 +43,7 @@ namespace RoleTOP_MVC.Controllers {
             cliente.CPF = form["cpf"];
             cliente.Tel = form["telefone"];
             cliente.TipoUsuario = (uint) TipoClienteEnum.USUARIO;
+            cliente.DataDoCadastro = DateTime.Now.ToShortDateString();
 
             List<string> erros = new List<string> ();
             //Verificação de email's já existentes.

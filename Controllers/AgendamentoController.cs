@@ -80,8 +80,13 @@ namespace RoleTOP_MVC.Controllers {
 
             string SvcAdicionais = form["sv-adc"];
             double SvcPreco = servicosRepository.ObterPrecoTotal (SvcAdicionais);
-            if(string.IsNullOrEmpty(SvcAdicionais)){
+            if (string.IsNullOrEmpty (SvcAdicionais)) {
                 SvcAdicionais = "NENHUM";
+            }
+            bool PagamentoValido = pagamentoRepository.VerificarMetodoPagamento (form["pagamento"]);
+            if (!PagamentoValido) {
+                TempData["Agendamento"] = "Método de pagamento inválido, tente novamente.";
+                return RedirectToAction ("Index", "Agendamento");
             }
             Agendamento a = new Agendamento ();
             a.Cliente = c;
@@ -96,7 +101,7 @@ namespace RoleTOP_MVC.Controllers {
             a.FormaPagamento = form["pagamento"];
             a.PrecoTotal = SvcPreco;
             a.StatusString = StatusAgendamentoEnum.PENDENTE.ToString ();
-            //TODO BANNER (IMG)
+            //TODO FEITO: BANNER (IMG) \/
 
             if (form.Files.Any ()) {
                 var agendamentoID = agendamentoRepository.ObterNextID ();
@@ -104,7 +109,7 @@ namespace RoleTOP_MVC.Controllers {
                 GravarImagem (form.Files, urlBanner);
                 a.bannerURL = urlBanner;
             } else {
-            a.bannerURL = $"wwwroot\\{PATH_BANNER}\\banner_padrao\\";
+                a.bannerURL = $"wwwroot\\{PATH_BANNER}\\banner_padrao\\";
             }
 
             bool termos = form["termos"] == "1";
@@ -128,7 +133,7 @@ namespace RoleTOP_MVC.Controllers {
             }
         }
 
-        public async void GravarImagem (IFormFileCollection arquivos, string urlImagem) { //Métodos async fazem com que o programa não precise de esperar este método terminar de ser executado para dar continuidade a execução do programa.
+        private async void GravarImagem (IFormFileCollection arquivos, string urlImagem) { //Métodos async fazem com que o programa não precise de esperar este método terminar de ser executado para dar continuidade a execução do programa.
             foreach (var img in arquivos) {
                 System.IO.Directory.CreateDirectory (urlImagem).Create ();
                 var file = System.IO.File.Create (urlImagem + img.FileName); // caminho: urlImagem\\Nome do arquivo.
@@ -159,7 +164,10 @@ namespace RoleTOP_MVC.Controllers {
             agendamento.StatusString = StatusAgendamentoEnum.APROVADO.ToString ();
 
             if (agendamentoRepository.Atualizar (agendamento)) {
-                return RedirectToAction ("Index", "Administrador");
+                SendEmail se = new SendEmail ();
+                se.Email = agendamento.Cliente.Email;
+                se.Status = agendamento.StatusString;
+                return RedirectToAction ("NotificacaoUsuarioEmail", "Administrador", se);
             }
             return RedirectToAction ("Index", "Administrador");
         }
@@ -169,7 +177,10 @@ namespace RoleTOP_MVC.Controllers {
             agendamento.StatusString = StatusAgendamentoEnum.REPROVADO.ToString ();
 
             if (agendamentoRepository.Atualizar (agendamento)) {
-                return RedirectToAction ("Index", "Administrador");
+                SendEmail se = new SendEmail ();
+                se.Email = agendamento.Cliente.Email;
+                se.Status = agendamento.StatusString;
+                return RedirectToAction ("NotificacaoUsuarioEmail", "Administrador", se);
             }
             return RedirectToAction ("Index", "Administrador");
         }

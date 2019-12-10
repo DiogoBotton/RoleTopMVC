@@ -7,6 +7,8 @@ namespace RoleTOP_MVC.ViewModels
     {
         public List<Agendamento> Agendamentos {get;set;}
         public List<Faq> Perguntas {get;set;}
+        public List<Cliente> Clientes {get;set;}
+        public Cliente clienteEspecifico {get;set;}
         public uint PedidosAprovados {get;set;}
         public uint PedidosReprovados {get;set;}
         public uint PedidosPendentes {get;set;}
@@ -17,6 +19,8 @@ namespace RoleTOP_MVC.ViewModels
         public DashboardViewModel(){
             this.Agendamentos = new List<Agendamento>();
             this.Perguntas = new List<Faq>();
+            this.Clientes = new List<Cliente>();
+            this.clienteEspecifico = new Cliente();
         }
     }
 }

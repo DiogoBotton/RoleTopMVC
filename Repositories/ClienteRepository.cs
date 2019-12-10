@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
-using RoleTOP_MVC.Models;
 using System.Linq;
 using RoleTOP_MVC.Enums;
+using RoleTOP_MVC.Models;
 
 namespace RoleTOP_MVC.Repositories {
     public class ClienteRepository : BaseRepository {
@@ -11,13 +11,13 @@ namespace RoleTOP_MVC.Repositories {
         public ClienteRepository () {
             if (!File.Exists (PATH)) {
                 File.Create (PATH).Close ();
-                Cliente c = new Cliente(){
+                Cliente c = new Cliente () {
                     TipoUsuario = (uint) TipoClienteEnum.ADMINISTRADOR,
                     Nome = "Admin",
                     Email = "admin@email.com",
                     Senha = "admin",
                 };
-                Inserir(c);
+                Inserir (c);
             }
         }
 
@@ -32,24 +32,41 @@ namespace RoleTOP_MVC.Repositories {
             }
         }
 
-        public bool Remover(string email){
-            string[] registros = File.ReadAllLines(PATH);
+        public bool Remover (string email) {
+            string[] registros = File.ReadAllLines (PATH);
 
-            List<string> clientes = registros.OfType<string>().ToList(); //Converte vetor de string para uma LISTA de string.
+            List<string> clientes = registros.OfType<string> ().ToList (); //Converte vetor de string para uma LISTA de string.
             bool removeu = true;
-            foreach (var linha in clientes)
-            {
-                if(ExtrairValorDoCampo("email", linha).Equals(email)){
-                    clientes.Remove(linha);
+            foreach (var linha in clientes) {
+                if (ExtrairValorDoCampo ("email", linha).Equals (email)) {
+                    clientes.Remove (linha);
                     removeu = true;
                     break;
-                }
-                else{
+                } else {
                     removeu = false;
                 }
             }
-            File.WriteAllLines(PATH,clientes);
+            File.WriteAllLines (PATH, clientes);
             return removeu;
+        }
+        public List<Cliente> ObterTodos () {
+            string[] linhas = File.ReadAllLines (PATH);
+            List<Cliente> clientes = new List<Cliente> ();
+            foreach (var linha in linhas) {
+                Cliente c = new Cliente ();
+                c.TipoUsuario = uint.Parse (ExtrairValorDoCampo ("tipo_cliente", linha));
+                c.Nome = ExtrairValorDoCampo ("nome", linha);
+                c.Email = ExtrairValorDoCampo ("email", linha);
+                c.Senha = ExtrairValorDoCampo ("senha", linha);
+                c.CEP = ExtrairValorDoCampo ("cep", linha);
+                c.Tel = ExtrairValorDoCampo ("telefone", linha);
+                c.CPF = ExtrairValorDoCampo ("cpf", linha);
+                c.DataDoCadastro = ExtrairValorDoCampo ("data_cadastro", linha);
+                
+                clientes.Add(c);
+            }
+            return clientes;
+
         }
         public Cliente ObterPor (string email) {
             string[] linhas = File.ReadAllLines (PATH);
@@ -57,20 +74,21 @@ namespace RoleTOP_MVC.Repositories {
             foreach (var linha in linhas) {
                 if (ExtrairValorDoCampo ("email", linha).Equals (email)) {
                     Cliente c = new Cliente ();
-                    c.TipoUsuario = uint.Parse(ExtrairValorDoCampo("tipo_cliente",linha));
+                    c.TipoUsuario = uint.Parse (ExtrairValorDoCampo ("tipo_cliente", linha));
                     c.Nome = ExtrairValorDoCampo ("nome", linha);
                     c.Email = ExtrairValorDoCampo ("email", linha);
                     c.Senha = ExtrairValorDoCampo ("senha", linha);
                     c.CEP = ExtrairValorDoCampo ("cep", linha);
                     c.Tel = ExtrairValorDoCampo ("telefone", linha);
                     c.CPF = ExtrairValorDoCampo ("cpf", linha);
+                    c.DataDoCadastro = ExtrairValorDoCampo ("data_cadastro", linha);
                     return c;
                 }
             }
             return null;
         }
         private string PrepararRegistroCSV (Cliente cliente) {
-            return $"tipo_cliente={cliente.TipoUsuario};nome={cliente.Nome};email={cliente.Email};senha={cliente.Senha};cep={cliente.CEP};cpf={cliente.CPF};telefone={cliente.Tel}";
+            return $"tipo_cliente={cliente.TipoUsuario};nome={cliente.Nome};email={cliente.Email};senha={cliente.Senha};cep={cliente.CEP};cpf={cliente.CPF};telefone={cliente.Tel};data_cadastro={cliente.DataDoCadastro}";
         }
     }
 }

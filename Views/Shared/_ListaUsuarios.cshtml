@@ -1,0 +1,29 @@
+@model RoleTOP_MVC.ViewModels.DashboardViewModel
+<main>
+    <p class="space"></p>
+        <section id="tabela">
+            <div class="titulo-adm">
+                <p>Lista de Usuários</p>
+            </div>
+            <table class="eventos">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Data do Cadastro</th>
+                        <th>Ver mais...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cliente in Model.Clientes)
+                    {
+                    <tr>
+                        <td>@cliente.Email</td>
+                        <td>@cliente.DataDoCadastro</td>
+                        <td><a href='@Url.Action("VisualizarCliente","Administrador", new {email = @cliente.Email})'>Ver mais...</a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+    <p class="space"></p>
+</main>

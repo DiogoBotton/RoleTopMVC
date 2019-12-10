@@ -1,7 +1,7 @@
 id=0;nome=ADMIN;email=admin@email.com;mensagem=Bla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla blaBla b;data_mensagem=01/12/2019 13:16:58;status_pergunta=0
 id=1;nome=diogo;email=diogo.luo@gmail.com;mensagem=Teste cara, esse site nem funciona pow.. =P;data_mensagem=01/12/2019 17:54:22;status_pergunta=1
 id=2;nome=diogo;email=diogo.luo@gmail.com;mensagem=TESTE;data_mensagem=02/12/2019 13:35:10;status_pergunta=0
-id=3;nome=Pedro;email=pedro.silva301201@gmail.com;mensagem=TESTE MEU PARCEIRO.;data_mensagem=02/12/2019 13:59:44;status_pergunta=0
+id=3;nome=Pedro;email=pedro.silva301201@gmail.com;mensagem=TESTE MEU PARCEIRO.;data_mensagem=02/12/2019 13:59:44;status_pergunta=1
 id=4;nome=Erick;email=erick_henrry_plv@gmail.com;mensagem=TESTE;data_mensagem=06/12/2019 13:13:53;status_pergunta=1
 id=5;nome=Erick;email=erick_henrry_blv@hotmail.com;mensagem=Sou Eu;data_mensagem=06/12/2019 13:18:14;status_pergunta=1
 id=6;nome=Lucas;email=lucasdatealive@gmail.com;mensagem=que veio primeiro a galinha ou o ovo???;data_mensagem=06/12/2019 13:21:52;status_pergunta=1

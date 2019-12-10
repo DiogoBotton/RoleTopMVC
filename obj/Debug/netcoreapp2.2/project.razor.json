@@ -2981,6 +2981,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Shared\\_ClienteEspecifico.cshtml",
+      "TargetPath": "Views\\Shared\\_ClienteEspecifico.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -3048,6 +3053,11 @@
     {
       "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Administrador\\Index.cshtml",
       "TargetPath": "Views\\Administrador\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\42299106812\\Documents\\Diogo B - D.E.V TARDE\\ROLE TOP\\RoleTOP_MVC\\Views\\Shared\\_ListaUsuarios.cshtml",
+      "TargetPath": "Views\\Shared\\_ListaUsuarios.cshtml",
       "FileKind": "mvc"
     },
     {

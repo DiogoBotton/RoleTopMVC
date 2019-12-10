@@ -4,11 +4,13 @@ using System.Net.Mail;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleTOP_MVC.Enums;
+using RoleTOP_MVC.Models;
 using RoleTOP_MVC.Repositories;
 using RoleTOP_MVC.ViewModels;
 
 namespace RoleTOP_MVC.Controllers {
     public class AdministradorController : AbstractController {
+        ClienteRepository clienteRepository = new ClienteRepository ();
         AgendamentoRepository pedidoRepository = new AgendamentoRepository ();
         FaqRepository faqRepository = new FaqRepository ();
         public IActionResult Index () {
@@ -65,6 +67,28 @@ namespace RoleTOP_MVC.Controllers {
                 return RedirectToAction ("Index", "Home");
             }
         }
+        public IActionResult ListaUsuarios () {
+            DashboardViewModel dvm = new DashboardViewModel ();
+            var clientes = clienteRepository.ObterTodos ();
+
+            dvm.Clientes = clientes;
+            dvm.NomeView = "Dashboard";
+            dvm.UsuarioEmail = ObterUsuarioSession ();
+            dvm.UsuarioNome = ObterUsuarioNomeSession ();
+            dvm.UsuarioTipo = ObterUsuarioTipoSession ();
+            return View("_ListaUsuarios", dvm);
+        }
+        public IActionResult VisualizarCliente(string email){
+            DashboardViewModel dvm = new DashboardViewModel ();
+            var cliente = clienteRepository.ObterPor(email);
+
+            dvm.clienteEspecifico = cliente;
+            dvm.NomeView = "Dashboard";
+            dvm.UsuarioEmail = ObterUsuarioSession ();
+            dvm.UsuarioNome = ObterUsuarioNomeSession ();
+            dvm.UsuarioTipo = ObterUsuarioTipoSession ();
+            return View("_ClienteEspecifico", dvm);
+        }
         public IActionResult Logoff () {
             HttpContext.Session.Remove (SESSION_CLIENTE_EMAIL);
             HttpContext.Session.Remove (SESSION_CLIENTE_NOME);
@@ -110,7 +134,15 @@ namespace RoleTOP_MVC.Controllers {
             }
         }
 
-        private bool SendMail (string email, string mensagem) {
+        public IActionResult NotificacaoUsuarioEmail(SendEmail se){
+            if(EnviarEmailEventoStatus(se.Email, se.Status)){
+                return RedirectToAction ("Index", "Administrador");
+            }
+            else{
+                return RedirectToAction ("Index", "Administrador");
+            }
+        }
+        private bool EnviarEmailEventoStatus (string email, string status) {
             try {
                 // Estancia da Classe de Mensagem
                 MailMessage _mailMessage = new MailMessage ();
@@ -121,9 +153,9 @@ namespace RoleTOP_MVC.Controllers {
 
                 //Contrói o MailMessage
                 _mailMessage.CC.Add (email); // Destinatário
-                _mailMessage.Subject = "Resposta Administração RoleTop."; // Titulo
+                _mailMessage.Subject = "Situação do seu evento no salão Role TOP."; // Titulo
                 _mailMessage.IsBodyHtml = true;
-                _mailMessage.Body = $"<b> Administração da empresa RoleTOP</b><p>{mensagem}</p>"; // Corpo / Mensagem
+                _mailMessage.Body = $"<b> Administração da empresa RoleTOP</b><p>Seu evento foi visualizado pelo ADMIN e foi {status}. Para mais informações / reclamações mande uma mensagem para o WhatsApp da empresa: (11) 91234-5678.</p>"; // Corpo / Mensagem
 
                 //CONFIGURAÇÃO COM PORTA
                 SmtpClient _smtpClient = new SmtpClient ("smtp.gmail.com", Convert.ToInt32 ("587"));
@@ -146,10 +178,6 @@ namespace RoleTOP_MVC.Controllers {
             } catch (Exception) {
                 return false;
             }
-
-            //TODO À PARTE: TempData retornando todas as informações digitadas do usuario caso dê algum erro (no cadastro e agendamento)
-            //TODO Validação de formas de pagamento e Tipos de eventos.
-            //TODO Tela de programação (mostrar apenas agendamentos aprovados e públicos)
         }
     }
 }
