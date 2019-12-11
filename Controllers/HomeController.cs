@@ -12,7 +12,6 @@ namespace RoleTOP_MVC.Controllers {
     public class HomeController : AbstractController {
         AgendamentoRepository agendamentoRepository = new AgendamentoRepository();
         public IActionResult Index () {
-            //ViewData["NomeView"] = "Home";
             var proxEventos = agendamentoRepository.ObterPorStatusAprovado();
             int count = 1;
             foreach (var evento in proxEventos)
@@ -23,7 +22,7 @@ namespace RoleTOP_MVC.Controllers {
                 evento.ContadorEventos = count;
                 count++;
             }
-            return View (new HomeViewModel() {
+            return View (new EventosViewModel() {
                 NomeView = "Home",
                     UsuarioEmail = ObterUsuarioSession (),
                     UsuarioNome = ObterUsuarioNomeSession (),

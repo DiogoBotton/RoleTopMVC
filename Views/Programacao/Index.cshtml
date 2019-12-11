@@ -1,4 +1,35 @@
+@model RoleTOP_MVC.ViewModels.EventosViewModel
 <main>
+    @if(Model.Programacao.Count > 0)
+    {
+    <div class="galeria">
+            @foreach (var tipoEvento in Model.tiposEventos) 
+            {
+                int count = 0;
+                
+                @foreach (var item in Model.Programacao)
+                {
+                    if(item.TipoEvento == tipoEvento)
+                    {
+                            if(count < 1)
+                            {
+                                <div>
+                                    <p class="titulo-resumo">@tipoEvento:</p>
+                                </div>
+                            }
+                            <div>
+                                <figure>
+                                    <h1><a href='@Url.Action("Visualizar","Home", new {id = @item.ID})'><img src="@item.bannerURL" width="300px" height="200px"></a></h1>
+                                </figure>
+                            </div>
+                            count++;
+                    }
+                }
+                
+            }
+    </div>
+    }
+
         <div class="titulo">
             <img src="/Img/titulo calendário.svg">
         </div>
