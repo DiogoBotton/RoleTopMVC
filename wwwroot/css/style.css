@@ -238,9 +238,10 @@ td.mes-dif {
     background: rgb(255, 217, 78);
 }
 
-.galeria {
+.galeria > div {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 /*------------------------------------------------------------------------------------*/
 
